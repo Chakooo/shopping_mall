@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ShoppimgMallApplication<shoppimgMall>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.shoppingMall.ShoppimgMallApplication",
+            "projectName": "shoppimgMall",
+            "args": ""
+        }
+    ]
+}
