@@ -1,0 +1,118 @@
+.header_top {background-color: #5f0080;}
+.header_top p {color: #fff; text-align: center; line-height: 42px;}
+.header_top b {font-weight: 500;}
+.header_top .container {width: 1050px; margin:0 auto; position: relative; height: 42px;}
+.header_top a {position: absolute; right: 0; top: 0;}
+
+.hc_top {width: 1050px; margin: 0 auto; padding:10px 0; }
+.hc_top #delivery img {width: 135px;}
+.user_menu {float: right; font-size: 12px;}
+.user_menu a {text-decoration: none; color: #333;}
+.user_menu span {font-size: 10px; color: #ccc; margin: 10px;
+position: relative; top: -1px;}
+.user_menu .user_grade{
+    height: 15px; padding: 0 7px;
+    border-radius: 15px;line-height: 15px; text-align: center;
+    background-color: #5f0080;
+}
+
+.hc_mid {text-align: center;}
+#logo {margin-top: -30px; display: inline-block;}
+#logo img {width: 103px;}
+
+.header_content {width: 1050px; margin:0 auto;}
+
+.hc_bot { width: 1050px; margin:0 auto;}
+.hc_bot .main_menu a {text-decoration: none; color: #333;
+    display: inline-block; font-weight: 500; padding:20px 35px;
+}
+#cate_all {
+    background-image: url("/assets/images/ico_gnb_all_off.png");
+    background-repeat: no-repeat; background-position: 5px 22px;
+}
+.search_box img {width: 30px;}
+.search_box button {padding: 0; margin: 0; border: 0; background-color: transparent;
+    outline: none; cursor: pointer; height: 30px;
+}
+.search_box input {border: 0; outline:none; background-color: transparent; margin-left: 10px;
+    width: 160px;
+}
+.search_box > * {vertical-align: middle;}
+.search_box {background-color: #f7f7f7; display: inline-block; padding:3px;
+    border-radius: 99px;
+}
+.search_area > * {vertical-align: middle;}
+.search_area {float: right; padding-top: 10px;}
+.main_menu {float: left;}
+.hc_bot {overflow: hidden;}
+.header_content {position: relative;}
+.categories {
+    padding-top: 39px; position: absolute; left: 0; top: 110px; width: 220px;
+    display: none;
+}
+.categories a {
+    display: block; font-size: 14px; color: #333; text-decoration: none;
+    padding:15px; padding-left: 50px; background-repeat: no-repeat;
+    background-size: 25px; background-position: 15px 10px;
+}
+.cate_list {background-color: #fff; border: 1px solid #ccc;}
+
+
+.categories a:nth-child(1) {
+    background-image: url("/assets/images/icon_kids_active_pc_2x.1568687537.png")
+}
+
+.categories a:nth-child(2) {
+    background-image: url("/assets/images/icon_deli_active_pc_2x.1568687352.png")
+}
+
+.categories a:nth-child(3) {
+    background-image: url("/assets/images/icon_electronic__active_pc_2x.1574417978.png")
+}
+
+.categories a:nth-child(4) {
+    background-image: url("/assets/images/icon_beauty_active_pc.1618488987.png")
+}
+
+.categories a:nth-child(5) {
+    background-image: url("/assets/images/icon_body_active_pc.1618528534.png")
+}
+
+.categories a:nth-child(6) {
+    background-image: url("/assets/images/icon_veggies_active_pc_2x.1586324570.png")
+}
+
+.categories a:nth-child(7) {
+    background-image: url("/assets/images/icon_cookie_inactive_pc.1610074008.png")
+}
+
+.categories a:nth-child(8) {
+    background-image: url("/assets/images/icon_convenient_active_pc_2x.1572243543.png")
+}
+
+.categories a:nth-child(9) {
+    background-image: url("/assets/images/icon_body_active_pc.1618528534.png")
+}
+
+.categories a:nth-child(10) {
+    background-image: url("/assets/images/icon_fruit_active_pc_2x.1568684150.png")
+}
+
+.categories a:nth-child(11) {
+    background-image: url("/assets/images/icon_kids_active_pc_2x.1568687537.png")
+}
+
+.categories a:nth-child(12) {
+    background-image: url("/assets/images/icon_electronic__inactive_pc_2x.1574417978.png")
+}
+
+.search_area > a{text-decoration:  none; margin-left: 10px;}
+
+#shopping_cart {position: relative;}
+#shopping_cart .cart_badge{
+    position: absolute; right: 0px; top: -17px;
+    font-size: 10px; color:#fff; background-color:#5f0080;
+    display: inline-block ; width: 15px; height: 15px;
+    border-radius: 20px; text-align: center;
+    line-height: 15px;
+}

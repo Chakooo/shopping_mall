@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-help-outline-balck@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="SDP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="used_detail-copy-2" transform="translate(-1047.000000, -308.000000)">
+            <g id="Group" transform="translate(731.000000, 305.000000)">
+                <g id="15-Elements/01-Logo/ic-help-outline-balck" transform="translate(316.000000, 3.000000)">
+                    <g id="info-black">
+                        <path d="M7,13.4166667 C10.5438271,13.4166667 13.4166667,10.5438271 13.4166667,7 C13.4166667,3.45617286 10.5438271,0.583333333 7,0.583333333 C3.45617286,0.583333333 0.583333333,3.45617286 0.583333333,7 C0.583333333,10.5438271 3.45617286,13.4166667 7,13.4166667 Z M7,14 C3.13400675,14 0,10.8659932 0,7 C0,3.13400675 3.13400675,0 7,0 C10.8659932,0 14,3.13400675 14,7 C14,10.8659932 10.8659932,14 7,14 Z" id="Ring" fill="#333333" fill-rule="nonzero"></path>
+                        <path d="M6.41666667,5.83333333 L7.58333333,5.83333333 L7.58333333,10.1111111 L8.75,10.5 L5.25,10.5 L6.41666667,10.1111111 L6.41666667,6.3 L5.25,5.83333333 L6.41666667,5.83333333 Z M6.85416667,4.95833333 C6.45145904,4.95833333 6.125,4.6318743 6.125,4.22916667 C6.125,3.82645904 6.45145904,3.5 6.85416667,3.5 C7.2568743,3.5 7.58333333,3.82645904 7.58333333,4.22916667 C7.58333333,4.6318743 7.2568743,4.95833333 6.85416667,4.95833333 Z" id="Combined-Shape" fill="#111111"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
