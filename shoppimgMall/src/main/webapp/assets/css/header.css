@@ -1,4 +1,4 @@
-.header_top {background-color: #5f0080;}
+.header_top {background-color: #fdd835;}
 .header_top p {color: #fff; text-align: center; line-height: 42px;}
 .header_top b {font-weight: 500;}
 .header_top .container {width: 1050px; margin:0 auto; position: relative; height: 42px;}
@@ -13,12 +13,12 @@ position: relative; top: -1px;}
 .user_menu .user_grade{
     height: 15px; padding: 0 7px;
     border-radius: 15px;line-height: 15px; text-align: center;
-    background-color: #5f0080;
+    background-color: #fdd835;
 }
 
 .hc_mid {text-align: center;}
 #logo {margin-top: -30px; display: inline-block;}
-#logo img {width: 103px;}
+#logo img {width: 200px;}
 
 .header_content {width: 1050px; margin:0 auto;}
 
@@ -47,7 +47,7 @@ position: relative; top: -1px;}
 .hc_bot {overflow: hidden;}
 .header_content {position: relative;}
 .categories {
-    padding-top: 39px; position: absolute; left: 0; top: 110px; width: 220px;
+    padding-top: 39px; position: absolute; left: 0; top: 225px; width: 195px;
     display: none;
 }
 .categories a {
@@ -59,51 +59,51 @@ position: relative; top: -1px;}
 
 
 .categories a:nth-child(1) {
-    background-image: url("/assets/images/icon_kids_active_pc_2x.1568687537.png")
+    background-image: url("/assets/images/icon_beauty_inactive_pc.1618488987.png")
 }
 
 .categories a:nth-child(2) {
-    background-image: url("/assets/images/icon_deli_active_pc_2x.1568687352.png")
+    background-image: url("/assets/images/icon_electronic__inactive_pc_2x.1574417978.png")
 }
 
 .categories a:nth-child(3) {
-    background-image: url("/assets/images/icon_electronic__active_pc_2x.1574417978.png")
+    background-image: url("/assets/images/icon_side_inactive_pc_2x.1572243579.png")
 }
 
 .categories a:nth-child(4) {
-    background-image: url("/assets/images/icon_beauty_active_pc.1618488987.png")
+    background-image: url("/assets/images/icon_convenient_inactive_pc_2x.1572243542.png")
 }
 
 .categories a:nth-child(5) {
-    background-image: url("/assets/images/icon_body_active_pc.1618528534.png")
+    background-image: url("/assets/images/icon_deli_inactive_pc_2x.1568687352.png")
 }
 
 .categories a:nth-child(6) {
-    background-image: url("/assets/images/icon_veggies_active_pc_2x.1586324570.png")
+    background-image: url("/assets/images/icon_seafood_inactive_pc_2x.1568684352.png")
 }
 
 .categories a:nth-child(7) {
-    background-image: url("/assets/images/icon_cookie_inactive_pc.1610074008.png")
+    background-image: url("/assets/images/icon_meat_inactive_pc_2x.1568684452.png")
 }
 
 .categories a:nth-child(8) {
-    background-image: url("/assets/images/icon_convenient_active_pc_2x.1572243543.png")
+    background-image: url("/assets/images/icon_cookie_inactive_pc.1610074008.png")
 }
 
 .categories a:nth-child(9) {
-    background-image: url("/assets/images/icon_body_active_pc.1618528534.png")
+    background-image: url("/assets/images/icon_fruit_inactive_pc_2x.1568684150.png")
 }
 
 .categories a:nth-child(10) {
-    background-image: url("/assets/images/icon_fruit_active_pc_2x.1568684150.png")
+    background-image: url("/assets/images/free-icon-clean-clothes-2990597.png")
 }
 
 .categories a:nth-child(11) {
-    background-image: url("/assets/images/icon_kids_active_pc_2x.1568687537.png")
+    background-image: url("/assets/images/icon_sauce_inactive_pc_2x.1572243594.png")
 }
 
 .categories a:nth-child(12) {
-    background-image: url("/assets/images/icon_electronic__inactive_pc_2x.1574417978.png")
+    background-image: url("/assets/images/icon_snacks_inactive_pc_2x.1572243615.png")
 }
 
 .search_area > a{text-decoration:  none; margin-left: 10px;}
@@ -111,7 +111,7 @@ position: relative; top: -1px;}
 #shopping_cart {position: relative;}
 #shopping_cart .cart_badge{
     position: absolute; right: 0px; top: -17px;
-    font-size: 10px; color:#fff; background-color:#5f0080;
+    font-size: 10px; color:#fff; background-color:#fdd835;
     display: inline-block ; width: 15px; height: 15px;
     border-radius: 20px; text-align: center;
     line-height: 15px;

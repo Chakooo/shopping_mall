@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shoppingMall.mapper.MemberMapper">
+<insert id="insertMember">
+ INSERT INTO shoppingmall.member_info
+(mi_id, mi_pwd, mi_name, mi_email, mi_address, mi_birth, mi_gen, mi_phone, mi_pay_card, mi_pay_account)
+VALUES(#{mi_id}, #{mi_pwd}, #{mi_name}, #{mi_email}, #{mi_address}, #{mi_birth}, #{mi_gen}, #{mi_phone}, #{mi_pay_card}, #{mi_pay_account});
+</insert>
+
+<select id="selectMemberById" resultType="java.lang.Integer">
+select count(*) from member_info where mi_id=#{id}
+</select>
+<select id="selectMemberByEmail" resultType="java.lang.Integer">
+select count(*) from member_info where mi_email=#{email}
+</select>
+<select id="selectMemberAll" resultType="com.shoppingMall.vo.MemberInfoVO">
+select * from member_info
+</select>
+<delete id="deleteMember">
+delete from member_info where mi_seq = #{seq}
+</delete>
+
+<select id="loginMember" resultType="java.lang.Integer">
+select count(*) from member_info where mi_id=#{id} and mi_pwd=#{pwd}
+</select> 
+
+
+<select id="selectMemberInfo" resultType="com.shoppingMall.vo.MemberInfoVO">
+ select 
+  mi_seq,mi_id,mi_name,mi_email,mi_address,mi_birth,mi_gen,mi_phone,mi_grade,mi_point,mi_status
+ from member_info where mi_id=#{id}
+</select>
+</mapper>

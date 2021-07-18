@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.shoppingMall.mapper.ProductMapper">
+  
+  <select id="getSellerName" resultType="java.lang.String">
+  select si_name from seller_info where si_seq =#{si_seq}
+  </select>
+  <select id="getProductImageFileName" resultType="java.lang.String">
+  select pimg_file_name from prod_image where pimg_uri = #{uri}
+  </select>
+  <select id="selectProductBySeq" resultType="com.shoppingMall.vo.ProductInfoVO">
+  select * from product_info where pi_seq=#{seq}
+  </select>
+  <select id="getCategoryName" resultType="java.lang.String">
+  select cate_name from category where cate_seq =#{cate_seq}
+  </select>
+  </mapper>

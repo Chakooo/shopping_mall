@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.shoppingMall.mapper.ReviewMapper">
+<insert id="insertReview">
+  insert into review (rev_pi_seq,rev_mi_seq,rev_oi_seq,rev_content,rev_rate)
+  values(#{rev_pi_seq},#{rev_mi_seq},#{rev_oi_seq},#{rev_content},#{rev_rate})
+</insert>
+<select id="selectMemberProdReviewCnt" resultType="java.lang.Integer">
+select count(*) from review where rev_oi_seq  = #{oi_seq};
+</select>
+<select id="selectProdReviewRateAvg" resultType="java.lang.Double">
+select  AVG(rev_rate) as rev_rate_avg from review where rev_pi_seq= #{pi_seq} group by rev_pi_seq;
+</select>
+
+  </mapper>

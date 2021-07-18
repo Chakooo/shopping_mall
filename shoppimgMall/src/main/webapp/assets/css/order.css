@@ -1,0 +1,34 @@
+/* order.css */
+h1{
+    font-size: 28px; text-align: center; font-weight: bold; margin: 30px;
+    /* 글자 크기  /   글자 위치   /  글자굵기   /   margin-top */
+}
+.order_list{
+    width: 1050px; margin: 0 auto;
+}
+.order_item{
+overflow: hidden;
+/* 밑줄없앤다. */
+padding: 20px;border: 1px solid #ccc; border: 1px solid #ccc;
+margin: 0 auto; margin-bottom: 20px; border-radius: 5px; width: 940px; 
+}
+.order_item > div{    
+    float: left; 
+    /* order_item 에 있는 div를 왼쪽정렬시키고 나머지 배송조회,반품신청,리뷰작성하기를 빼낸다. */
+    
+}
+.item_info img {width: 60px;}
+.item_info {overflow: hidden; width: 660px;}
+.item_info > * {float: left;}
+/* 그림 옆으로 정렬시켜 붙인다. */
+.order_date { font-size: 20px; margin-bottom: 20px;}
+.order_status { font-weight: 500; color: rgb(151, 20, 151);}
+.order_status::before{
+    /* status 앞에 무언가를 추가하기위함 ::before */
+    content: "."; color: #999; margin: 3px;
+}
+.item_detail p {font-size: 18px; margin-top: 11px; margin-left: 20px;}
+.order_buttons{padding:0 20px; border-left: 1px solid #ccc;  box-sizing: border-box; width: 280px; height: 115px;}
+.order_buttons a{color: #333; border: 1px solid #ccc; width: 100%;display: inline-block;
+                    text-align: center;margin: 5px 0;padding: 5px 0; text-decoration: none; font-size: 14px; border-radius: 3px;}
+#delivery_detail{color: rgb(168, 28, 168); border-color: rgb(168, 28, 168);}
