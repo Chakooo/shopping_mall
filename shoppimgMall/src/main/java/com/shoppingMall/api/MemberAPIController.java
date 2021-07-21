@@ -72,8 +72,11 @@ public class MemberAPIController {
         Map<String, Object> resultMap =  service.loginMember(vo);
         session.setAttribute("member",resultMap.get("member"));
         //resulmap 에 담김 member를 기본형태가 object타입이기때매 멤버인포vo형태로 형변환해서 멤버변수에 접근가능.
+        // System.out.println(resultMap.get("member"));
         MemberInfoVO member = (MemberInfoVO)resultMap.get("member");
-        if(member!=null){ //이해해라
+
+        
+        if(member!=null){ 
         Integer cart_cnt = sc_service.selectCount(member.getMi_seq());
         session.setAttribute("cart_cnt", cart_cnt);       
     } 

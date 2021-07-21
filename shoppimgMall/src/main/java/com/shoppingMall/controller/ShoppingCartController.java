@@ -17,19 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ShoppingCartController {
     @Autowired ShoppingCartService service;
 
-
-
     @GetMapping("/cart")
     public String getShoppingCart(){return "redirect:/login";}
-    // cart라고 입력시 그냥 바로 메인으로 보내버림
 
 
 
     // http://localhost/cart/아이디?dqxSrEp=123
     @GetMapping("/cart/{member_id}")
-    public String getShoppingCart(@PathVariable @Nullable String member_id , @RequestParam Integer dqxSrEp , Model model){
+    public String getShoppingCart(@PathVariable @Nullable String member_id , @RequestParam @Nullable Integer  dqxSrEp , Model model){
     // dqxSrEp = 사용자의 db상의 mi_seq 번호
-        if(member_id==null){
+        if(member_id==null || dqxSrEp==null || member_id==""||dqxSrEp==0){          
             return "redirect:/login";
         }
         List<ProductInfoVO> list= service.selectCartProducts(dqxSrEp);

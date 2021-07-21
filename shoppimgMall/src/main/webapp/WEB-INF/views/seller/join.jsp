@@ -45,7 +45,7 @@
                 </td>
             </tr>
             <tr>
-                <td>이름</td>
+                <td>업체명</td>
                 <td colspan="3">
                     <input type="text" id="user_name">
                 </td>
@@ -58,9 +58,7 @@
                 <td>
                     <button id="chk_email">중복확인</button>
                 </td>
-            </tr>
-       
-         
+            </tr>  
             <tr>
                 <td>주소</td>
                 <td colspan="3">
@@ -73,7 +71,6 @@
                     <input type="text"  id="user_phone">
                 </td>
             </tr>
-           
             <tr>
                 <td colspan="4">
                     <button id="join">회원가입</button>

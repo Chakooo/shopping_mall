@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/MemberLogin.js"></script>
     <script>
         <c:if test="${member != null}">
         location.href="/";
@@ -17,7 +17,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>로그인</h1>
+<h1>회원 로그인</h1>
 <div class="login_form">
     <input type="text" name="" id="user_id" placeholder="아이디">
     <input type="password" name="" id="user_pwd" placeholder="비밀번호">

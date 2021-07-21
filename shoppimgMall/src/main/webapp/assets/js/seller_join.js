@@ -2,6 +2,7 @@
 $(function(){
     let idCheck = false;
     let emailCheck=false;
+   
     $("#join").click(function(){
       
         if(idCheck==false){
@@ -69,43 +70,48 @@ $(function(){
             return;        }
     
         let user_address=$("#user_address").val();
-        let user_phone=$("#user_phone").val();
-        let user_card=$("#user_card").val();
-        let user_account=$("#user_account").val();   
+        let user_phone=$("#user_phone").val();        
+        if(user_phone.length >13 ){
+            alert("연락처는 13자리를 넘길수 없습니다.")
+        }
         if(!inputValidation(user_address,"주소")){return;}
         if(!inputValidation(user_phone,"전화번호")){return;}
         
         let data={
-        mi_id:user_id,
-        mi_pwd:user_pwd,
-        mi_name:user_name,
-        mi_email:user_email,
-        mi_address:user_address,      
-        mi_phone:user_phone     
+        si_id:user_id,
+        si_pwd:user_pwd,
+        si_name:user_name,
+        si_email:user_email,
+        si_address:user_address,      
+        si_phone:user_phone     
              }
 
              $.ajax({
                 type:'post',
-                url:'/member/join',
+                url:'/seller/regist',
                 data:JSON.stringify(data),
                 contentType:'application/json',
                 success:function(r){
-                    alert(r.message)
-                    if(r.status){
+                    if(r.result == 'success'){
+                        alert(r.message)
                         location.href="/";
-                    }                    
+                    }else{
+                        alert(r.message)
+                    }                                    
                 },
                 error:function(e){
                     console.log(e)
                 }
              })
         })
+
+
         $("#chk_id").click(function(){
-            // alert("클릭");
-            const pattern = /\s/g; //공백체크 정규표현식
-        let user_id = $("#user_id").val()
+      
+        const pattern = /\s/g; //공백체크 정규표현식
+        let user_id = $("#user_id").val()       
         if(user_id==""||user_id==null||user_id==undefined){
-            alert("아이디를 입력주세요")
+            alert("아이디를 입력주세요!")
             return;
         }
         if(user_id.match(pattern)){
@@ -115,22 +121,22 @@ $(function(){
 
         $.ajax({
             type:"get",
-            url:"/member/id_check?id="+user_id,
+            url:"/seller/isDuplicateId?id="+user_id,
             success:function(r){
                 alert(r.message)
                 if(r.status==false){
-                    idCheck=false;
+                    idCheck=true;
                 }
                 else{
-                    idCheck=true;
+                    idCheck=false;
                 }
             }
 
         })
         })
-        $("#chk_email").click(function(){
-            // alert("클릭")
+        $("#chk_email").click(function(){          
             const pattern = /\s/g;
+
             const patternEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;          
             let user_email = $("#user_email").val()
             if(user_email==""||user_email==null||user_email==undefined){
@@ -142,13 +148,14 @@ $(function(){
                 return;
             }
             if(!user_email.match(patternEmail)){ 
-                // not을 붙여서 변수 이메일형식에 맞게 입력이 되지않았을때를 검사한다.
                 alert("올바른 이메일형식을 입력하세요\n 예시)aaa@service.com")
                 return;
             }
+
+
             $.ajax({
                 type:"get",
-                url:"/member/email_check?email="+user_email,
+                url:"/seller/email_check?email="+user_email,
                 success:function(r){
                     alert(r.message)
                    emailCheck=r.status;

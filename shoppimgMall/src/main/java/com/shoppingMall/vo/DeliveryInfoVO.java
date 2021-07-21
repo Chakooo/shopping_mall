@@ -8,4 +8,5 @@ public class DeliveryInfoVO {
     private String di_name;
     private String di_phone;
     private Integer di_price;
+    private Integer delivery_prod_cnt;
 }

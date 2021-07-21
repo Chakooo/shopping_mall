@@ -3,17 +3,40 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.shoppingMall.mapper.ProductMapper">
+
+  <insert id="insertProduct">
+    insert into product_info(pi_name,pi_cate_seq,pi_stock,pi_si_seq,pi_discount_rate,pi_caution,pi_weight,pi_point_rate,pi_di_seq,pi_price,pi_img_uri)
+    values
+    (#{pi_name},#{pi_cate_seq},#{pi_stock},#{pi_si_seq},#{pi_discount_rate},#{pi_caution},#{pi_weight},#{pi_point_rate},#{pi_di_seq},#{pi_price},#{pi_img_uri})
+  </insert>
   
   <select id="getSellerName" resultType="java.lang.String">
-  select si_name from seller_info where si_seq =#{si_seq}
+    select si_name from seller_info where si_seq =#{si_seq}
   </select>
   <select id="getProductImageFileName" resultType="java.lang.String">
-  select pimg_file_name from prod_image where pimg_uri = #{uri}
+    select pimg_file_name from prod_image where pimg_uri = #{uri}
   </select>
   <select id="selectProductBySeq" resultType="com.shoppingMall.vo.ProductInfoVO">
-  select * from product_info where pi_seq=#{seq}
+    select * from product_info where pi_seq=#{seq}
   </select>
   <select id="getCategoryName" resultType="java.lang.String">
-  select cate_name from category where cate_seq =#{cate_seq}
+    select cate_name from category where cate_seq =#{cate_seq}
+  </select>
+
+  <select id="selectProducts" resultType="com.shoppingMall.vo.ProductInfoVO">
+    select a.pi_seq ,a.pi_name,a.pi_img_uri,b.cate_name as category_name,a.pi_stock,a.pi_create_dt,a.pi_discount_rate,a.pi_point_rate,a.pi_caution,a.pi_weight,a.di_name as delivery_name,a.pi_price from 
+    (select * from product_info p inner join delivery_info d on p.pi_di_seq=d.di_seq) a inner join 
+    category b on a.pi_cate_seq = b.cate_seq where a.pi_si_seq = #{si_seq} order by a.pi_create_dt desc;
+  </select>
+
+  <insert id="insertProductImage">
+    INSERT INTO prod_image
+    (pimg_file_name, pimg_uri, pimg_size)
+    VALUES
+    (#{pimg_file_name},#{pimg_uri},#{pimg_size});
+  </insert>
+
+  <select id="selectProductsByCategory" resultType="com.shoppingMall.vo.ProductInfoVO">
+    select * from product_info where pi_cate_seq =#{cate_seq}
   </select>
   </mapper>

@@ -18,6 +18,8 @@ public class ProductInfoVO {
     private Integer pi_di_seq;
     private Integer pi_price;
     private String pi_img_uri;
+    private String cate_name;
+    private String di_name;
 
     // 판매자 이름을 가져오기위해 추가
     private String seller_name;
@@ -26,6 +28,8 @@ public class ProductInfoVO {
     private String discounted_price;
     private String origin_price;
     private String category_name;
+    private String delivery_name;
+    
 
 
     // 쇼핑카트에 있는 물품개수

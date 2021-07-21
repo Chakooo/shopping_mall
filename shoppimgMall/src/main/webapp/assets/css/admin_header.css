@@ -1,0 +1,12 @@
+header {position: fixed; background-color: #fdd835; padding:30px; height: 100vh;
+    left: 0; top: 0; box-shadow:2px 0px 5px rgba(0,0,0,0.1); width: 180px;}    
+body { padding-left:280px; padding-top: 30px;}
+#logo {display: block; overflow: hidden; margin-top: 10px; margin-bottom: 30px; }
+#logo > * {float: left;}
+#logo > span {font-size: 16px; line-height: 1.3; margin-left: 10px;
+font-weight: 700; color: #333;}
+#logo > img {width: 170px;height: 100px;}
+#gnb a {display: block; padding:10px 15px; margin:10px 0; color: #666; 
+    text-decoration: none; font-weight: 300; font-size: 14px; border-radius: 5px;}
+#gnb a:hover {background-color: #fff; color: #333;}
+#gnb a.current {background-color: #fff; color: #333;}

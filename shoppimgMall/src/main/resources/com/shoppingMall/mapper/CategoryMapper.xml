@@ -6,4 +6,24 @@
 <select id="selectCategories" resultType="com.shoppingMall.vo.CategoryVO">
 select * from category
 </select>
+<insert id="insertCategory">
+insert into category(cate_name) values(#{name})
+</insert>
+<select id="isDuplicateCategory" resultType="java.lang.Integer">
+select count(*) from category where cate_name=#{name}
+</select>
+<select id="selectCategoryAll" resultType="com.shoppingMall.vo.CategoryVO">
+select * from category;
+</select>
+<delete id="deleteCategory">
+delete from category where cate_seq=#{seq}
+</delete>
+<select id="selectCategoryName" resultType="java.lang.String">
+  select cate_name from category where cate_seq=#{seq}
+</select>
+
+<select id="selectCateProdCnt" resultType="java.lang.Integer">
+  select count(*) from product_info where pi_cate_seq=#{seq}
+</select>
+
 </mapper>

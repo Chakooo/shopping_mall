@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="/WEB-INF/views/includes/header.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,7 @@
     <title>Everyday EveryTime 쇼핑 1번지</title>
 </head>
 <body>
+   
     <main>
         <section class="main_banner_area"> 
             <div class="banner_item">
@@ -48,6 +50,7 @@
             </div>
         </section>
     </main>
+    <%@include file="/WEB-INF/views/includes/footer.jsp" %>
     
 </body>
 </html>

@@ -14,7 +14,10 @@
     <title>Everyday EveryTime 쇼핑 1번지</title>
 </head>
 <body>
+    
     <header>
+        ${seller}
+        ${member}
         <div class="header_top">
             
             <div class="container">
@@ -30,13 +33,13 @@
                    <span>실시간 순위구현</span>
                 </a>
                 <div class="user_menu">
-                    <c:if test="${member==null}">
+                    <c:if test="${member==null && seller==null}">
                         <a href="/login">로그인</a>
                         <span>|</span>
                         <a href="/join">회원가입</a>
                         <span>|</span>
                     </c:if>
-                    <c:if test="${member!=null}">
+                    <c:if test="${member!=null || seller !=null}">
                         <a href="/member/order">
                             <span class="user_grade">
                                 <c:if test="${member.mi_grade==1}">웰컴</c:if>
@@ -46,6 +49,7 @@
                                 <c:if test="${member.mi_grade==5}">퍼플</c:if>
                                 <c:if test="${member.mi_grade==6}">더퍼플</c:if>
                                 <c:if test="${member.mi_grade==99}">관리자</c:if>
+                                <c:if test="${seller.si_grade==1}">${seller.si_name}</c:if>
                             </span>                            
                             ${member.mi_name}님</a>
                         <span>|</span>
@@ -61,6 +65,7 @@
                 <a href="/" id="logo">
                     <img src="/assets/images/logo2.png" alt="">
                 </a>
+                <span><img src="" alt=""></span>
                 
             </div>
             <div class="hc_bot">
@@ -82,13 +87,19 @@
                         <img src="/assets/images/ico_delivery_setting.svg" alt="">
                     </a>
                     <!-- ${member} -->
+                    <c:if test="${seller == null}">
                     <a href="/cart/${member.mi_id}?dqxSrEp=${member.mi_seq}" id="shopping_cart">
                         <img src="/assets/images/ico_cart.svg" alt="">
                         <c:if test="${cart_cnt != null && cart_cnt !=0}">
                             <span class="cart_badge">${cart_cnt}</span>
-                        </c:if>
-                        
+                        </c:if>                        
                     </a>
+                     </c:if>
+                     <c:if test="${seller != null}">
+                    <a href="/seller/home/${seller.si_id}" id="seller_home" class="seller_home_icon">
+                        <img src="/assets/images/free-icon-house-5103132.png" alt="" style="width:35.99px;height:35.99px">                                           
+                    </a>
+                     </c:if>
                 </div>
             </div>
 
