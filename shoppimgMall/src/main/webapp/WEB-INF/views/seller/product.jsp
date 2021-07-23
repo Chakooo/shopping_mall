@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="/assets/css/admin_css/table_style.css">
     </head>
 <body>        
-    ${seller}
     <input type="text" name="" id="si_seq" value="${seller.si_seq}" disabled hidden>
 
     <h1>${seller.si_name}업체 상품관리</h1>

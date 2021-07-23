@@ -1,0 +1,67 @@
+.item_list {
+    width: 1050px;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.item_list a {
+    display: inline-block;
+    width: calc((100% - 40px)/3);
+    height: 605px;
+    margin-right: 20px;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+/* 3의 배수 위치에 있는 a태그 */
+.item_list a:nth-child(3n) {
+    margin-right: 0;
+}
+
+.item_list a img {
+    width: 100%;
+    vertical-align: top;
+}
+
+.item_list a>span {
+    display: inline-block;
+    width: 100%;
+}
+
+.item_list a .name {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #333;
+}
+
+.item_list a .price {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.item_list a .price .discount_rate {
+    color: orangered;
+}
+
+.item_list a .price .discounted_price {
+    color: #333;
+}
+
+.item_list a .origin_price {
+    margin-top: 10px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 50px 0;
+}
+.nodata {text-align: center; font-size: 18px; color: #666; padding: 20px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
+        width: 1050px; margin: 0 auto;
+}

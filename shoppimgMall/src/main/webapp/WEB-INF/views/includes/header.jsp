@@ -1,5 +1,14 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    response.setHeader("Cache-Control", "no-store");
+    response.setHeader("Pragma", "no-cache");
+    response.setDateHeader("Expires", 0);
+%>
+<!-- 빠른 페이지전환을 위해서 이전페이지를 캐시 저장해두기때문에 디테일 페이지에서 
+    아이템을 장바구니에 추가시 뒤로가기를 누르면 장바구니에 아이템이 담겨있지않음. 그것을 방지하기위해서 캐시 삭제를 한다.
+    회원가입완료후에도 뒤로가기를하면 데이터가 남아있는데 캐시삭제를 하면 남아있지않는다.
+-->
 <!DOCTYPE html>
 <html>
 <head>

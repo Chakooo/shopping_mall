@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.shoppingMall.mapper.CategoryMapper;
-import com.shoppingMall.mapper.RecommandMapper;
 import com.shoppingMall.service.RecommandService;
 import com.shoppingMall.vo.CategoryVO;
 

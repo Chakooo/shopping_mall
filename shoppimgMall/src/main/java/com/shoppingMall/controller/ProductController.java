@@ -2,7 +2,6 @@ package com.shoppingMall.controller;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.shoppingMall.mapper.CategoryMapper;
 import com.shoppingMall.service.ProductService;
 import com.shoppingMall.vo.ProductInfoVO;

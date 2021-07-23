@@ -24,6 +24,10 @@
             </head>
 
             <body>
+                ${si_seq}
+                <input type="text" name="" id="seller_seq" value="${si_seq}" disabled hidden>
+                <input type="text" name="" id="mi_seq" value="${member.mi_seq}" disabled hidden>
+
                 <!-- ${member}  멤버가 로그인이 되었을때 session이 유지되면서 member를 resultmap에서 가져와서 화면에 확인한다.-->
                 <div class="detail_container" data-prod-seq="${product.pi_seq}">
 
@@ -94,6 +98,7 @@
                             <b></b>
                             <span>적립</span>
                         </div>
+                        <div class="regular_regist"><button>단골 가게 등록</button></div>
                         <c:if test="${seller == null}">
                             <div class="buttons">
                                 <button id="shopping_bag">장바구니</button>

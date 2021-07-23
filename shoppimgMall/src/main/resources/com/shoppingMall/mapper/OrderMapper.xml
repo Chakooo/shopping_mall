@@ -21,4 +21,41 @@ VALUES(#{oi_mi_seq},#{oi_pi_seq},#{oi_delivery_no},#{oi_prod_count});
 <update id ="updateOrderDeliveryStatus">
     update order_info set oi_delivery_status=#{status} where oi_seq = #{seq}
 </update>
+
+<select id="orderInfo" resultType ="com.shoppingMall.vo.OrderInfoVO">
+    select 
+       oi_seq, oi_reg_dt, oi_pay_info, oi_delivery_no, oi_delivery_status,
+       oi_prod_count, mi_seq, mi_id, mi_name, mi_email, mi_address, mi_phone,
+       pi_seq,   pi_name, pi_discount_rate, pi_point_rate, pi_price, pi_img_uri,
+       si_seq, si_name, si_address, si_email, si_phone,
+       (pi_price-(pi_price * pi_discount_rate / 100))* oi_prod_count as final_price,
+       pi_price*pi_point_rate / 100 * oi_prod_count  as final_point
+    from
+    (
+       (
+          select * from order_info oi inner join member_info mi
+          on oi.oi_mi_seq = mi.mi_seq
+       ) od
+       inner join
+       (
+          select * from product_info pi inner join seller_info si 
+          on pi.pi_si_seq = si.si_seq
+       ) product
+       on od.oi_pi_seq = product.pi_seq
+    )
+    where product.si_seq =#{seq}
+    order by oi_reg_dt desc
+    limit 10 offset #{offset}
+</select>
+
+<select id="selectOrderCount" resultType ="java.lang.Integer">
+    select count(*) from order_info
+</select>
+
+<update id="UpdateDeliveryStatus">
+    UPDATE order_info
+    SET oi_delivery_status= #{status}
+    WHERE oi_seq= #{oi_seq}
+</update>
+
 </mapper>

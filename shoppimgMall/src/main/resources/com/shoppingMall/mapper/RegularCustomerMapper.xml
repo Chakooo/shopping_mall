@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shoppingMall.mapper.RegularCustomerMapper">
+<select id="showRegularMember" resultType="com.shoppingMall.vo.MemberInfoVO">
+    select mi_id ,mi_name ,mi_address , mi_birth ,mi_email ,mi_phone,rc_regist_dt from regular_customer_info r inner join member_info m on r.rc_mi_seq = m.mi_seq  where r.rc_si_seq =#{si_seq};
+</select>
+
+
+<!-- 단골고객이 볼수있는 seller detail페이지가 필요하다. -->
+</mapper>

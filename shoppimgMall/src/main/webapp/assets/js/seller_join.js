@@ -1,5 +1,5 @@
 // seller_join.js
-$(function(){
+$(function(){  
     let idCheck = false;
     let emailCheck=false;
    
@@ -47,6 +47,8 @@ $(function(){
             alert("판매업체에는 공백이 들어갈 수 없습니다.")
             return;
         }
+
+        
         
 
         const patternEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;         
@@ -62,7 +64,7 @@ $(function(){
         }
         if(!user_email.match(patternEmail)){ 
             // not을 붙여서 변수 이메일형식에 맞게 입력이 되지않았을때를 검사한다.
-            alert("올바른 이메일형식을 입력하세요\n 예시)aaa@service.com")
+            alert("올바른 이메일형식을 입력하세요\n 예시)aaa@servicce.com")
             return;
         }
         if(emailCheck==false){
@@ -74,6 +76,7 @@ $(function(){
         if(user_phone.length >13 ){
             alert("연락처는 13자리를 넘길수 없습니다.")
         }
+        console.log(user_phone)
         if(!inputValidation(user_address,"주소")){return;}
         if(!inputValidation(user_phone,"전화번호")){return;}
         

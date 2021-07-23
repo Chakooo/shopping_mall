@@ -34,7 +34,9 @@ public class ImageFileController {
     @GetMapping("/image/{uri}")
     public ResponseEntity<Resource> getImage(@PathVariable String uri,HttpServletRequest request)throws Exception{
     // HttpServletRequest 가져온파일의 유형을 알아낼떄 쓴다.
-    Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
+   
+    // Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
+    Path folderLocation = Paths.get("C:/shopping/images");
 
     String fileName =service.getProductImageFileName(uri);
     if(fileName==null){
@@ -59,7 +61,8 @@ public class ImageFileController {
     public Map<String, Object> postFileUpload(@RequestPart MultipartFile file) { // 멤버메서드
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
-        Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
+        // Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
+        Path folderLocation = Paths.get("C:/shopping/images");
         // StringUtils로 부터cleanPath 기능을 이용하여 파일의 경로를 가져온다
         // cleanPath는 운영체제 환경이 다를수있으니 한가지 표현방식으로 통일한다.
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());

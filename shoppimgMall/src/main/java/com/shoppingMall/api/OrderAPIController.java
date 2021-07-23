@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OrderAPIController {
     @Autowired OrderService service;
-    @PostMapping("/order/add")
+    @PostMapping("/order")
     public Map<String,Object> postOrderAdd(@RequestBody OrderInfoVO vo){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
         service.insertOrderInfo(vo);
@@ -40,13 +40,22 @@ public class OrderAPIController {
         resultMap.put("status",true);
         return resultMap;
     }
-    @PatchMapping("/order/status")    
-    public Map<String,Object> patchOrder(@RequestParam Integer seq , @RequestParam Integer status){
+    // @PatchMapping("/order/status")    
+    // public Map<String,Object> patchOrder(@RequestParam Integer seq , @RequestParam Integer status){
+    //     Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
+    //     service.updateOrderStatus(seq,status);
+    //     resultMap.put("status",true);
+    //     return resultMap;
+    // }
+     @PatchMapping("/order/status")
+    public Map<String,Object> pathchOrderStatus(@RequestParam Integer status, @RequestParam Integer oi_seq){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
-        service.updateOrderStatus(seq,status);
-        resultMap.put("status",true);
-        return resultMap;
-    }
+
+        service.UpdateDeliveryStatus(status, oi_seq);
+        resultMap.put("status", true);
+        return resultMap;   
+    } 
+    
     @PatchMapping("/order/status/delivery")    
     public Map<String,Object> patchOrderDelivery(@RequestParam Integer seq , @RequestParam Integer status){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();

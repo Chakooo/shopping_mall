@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MemberController {
     @GetMapping("/login")
     public String getLogin(){
-
-
-
         return "/member/login";
     }
     @GetMapping("/join")

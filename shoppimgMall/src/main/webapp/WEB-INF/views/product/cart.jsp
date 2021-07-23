@@ -41,7 +41,7 @@
                         <td colspan="6" class="nodata">장바구니에 담긴 상품이 없습니다.</td>
                     </tr>
                     </c:if>
-                    <c:forEach items="${list}" var="item">
+                    <c:forEach items="${list}" var="item">                        
                         <tr class="cart_prod" data-seq="${item.pi_seq}" data-mi-seq=${member.mi_seq} >
                             <td>
                                 <input type="checkbox" data-seq="${item.pi_seq}" id="sel${item.pi_seq}">

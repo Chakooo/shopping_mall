@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shoppingMall.mapper.DetailMapper">
+<select id ="selectProductBySellerSeq" resultType="Integer">
+    select pi_si_seq from product_info p inner join seller_info s on p.pi_si_seq =s.si_seq where p.pi_seq=#{prod_seq}
+</select>
+
+<insert id="insertRegularCustomer">
+    insert into regular_customer_info (rc_si_seq,rc_mi_seq) values (#{rc_si_seq},#{rc_mi_seq});
+</insert>
+
+<select id="isDupRegularCustomer" resultType="java.lang.Integer">
+select count(*) from regular_customer_info rci where rc_si_seq=#{si_seq} and rc_mi_seq =#{mi_seq};
+</select>
+
+</mapper>

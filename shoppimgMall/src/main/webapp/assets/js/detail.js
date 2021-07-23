@@ -53,4 +53,26 @@ $(function(){
         }
       })
     })
+
+    $(".regular_regist").click(function(){
+    let si_seq = $("#seller_seq").val();
+    let mi_seq = $("#mi_seq").val();
+
+      // console.log(si_seq , mi_seq)
+    
+    let data={
+      rc_si_seq:si_seq,
+      rc_mi_seq:mi_seq
+    }
+
+    $.ajax({
+      type:"post",
+      url:"/regular/regist",
+      contentType:"application/json",
+      data:JSON.stringify(data),
+      success:function(r){
+        alert(r.message)
+      }
+    })
+  })
 })

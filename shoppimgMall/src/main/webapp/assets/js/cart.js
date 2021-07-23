@@ -169,6 +169,7 @@ $(function () {
     }
     $("#order_btn").click(function () {
         let len = $(".cart_prod").length;
+        console.log(len)
         if (len == 0) {
             alert("장바구니에 상품이 없습니다.")
             return;
@@ -187,7 +188,7 @@ $(function () {
                 url: "/cart/remove?mi_seq="+mi_seq+"&pi_seq="+pi_seq,
                 success:function(r){
                  console.log(r.message);
-            
+                                    
                 }
             })
             let data = {
@@ -198,10 +199,11 @@ $(function () {
             }
             $.ajax({
                 type:"post",
-                url:"/order/add",
+                url:"/order",
                 data:JSON.stringify(data),
                 contentType:"application/json",
                 success:function(r){
+                 
                  
                     
                 }

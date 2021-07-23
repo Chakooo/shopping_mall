@@ -53,7 +53,7 @@
             <tr>
                 <td>이메일</td>
                 <td colspan="3">
-                    <input type="text" id="user_email" placeholder=" ex ) aaa@service.com ">
+                    <input type="text" id="user_email" placeholder=" ex ) aaa@service..com ">
                 </td>
                 <td>
                     <button id="chk_email">중복확인</button>

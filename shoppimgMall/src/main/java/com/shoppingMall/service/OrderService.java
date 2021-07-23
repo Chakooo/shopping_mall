@@ -62,5 +62,14 @@ public class OrderService {
     public void updateOrderDeliveryStatus(Integer seq, Integer status) {
         mapper.updateOrderDeliveryStatus(seq, status);
     }
+    public List<OrderInfoVO> orderInfo(Integer offset,Integer seq){
+        return mapper.orderInfo(offset,seq);
+    }
 
+    public Integer selectOrderCount(){
+        return mapper.selectOrderCount();
+    }
+    public void UpdateDeliveryStatus(Integer status , Integer oi_seq){
+        mapper.UpdateDeliveryStatus(status, oi_seq);
+   }
 }
