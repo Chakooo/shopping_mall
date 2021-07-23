@@ -24,7 +24,6 @@
             </head>
 
             <body>
-                ${si_seq}
                 <input type="text" name="" id="seller_seq" value="${si_seq}" disabled hidden>
                 <input type="text" name="" id="mi_seq" value="${member.mi_seq}" disabled hidden>
 
@@ -98,8 +97,8 @@
                             <b></b>
                             <span>적립</span>
                         </div>
-                        <div class="regular_regist"><button>단골 가게 등록</button></div>
                         <c:if test="${seller == null}">
+                        <div class="regular_regist"><button>단골 가게 등록</button></div>                       
                             <div class="buttons">
                                 <button id="shopping_bag">장바구니</button>
                                 <button id="buy">구매하기</button>
@@ -107,6 +106,7 @@
                         </c:if>
                     </div>
                 </div>
+                <%@include file="/WEB-INF/views/includes/footer.jsp" %>
             </body>
 
             </html>
