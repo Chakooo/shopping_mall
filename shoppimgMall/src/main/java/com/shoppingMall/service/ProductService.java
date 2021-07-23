@@ -18,6 +18,7 @@ public class ProductService {
 
     @Autowired
     ProductMapper mapper;
+
     public Map<String, Object> insertProduct(ProductVO vo) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         if (vo.getPi_name() == "" || vo.getPi_name() == null) {
@@ -71,31 +72,37 @@ public class ProductService {
         item.setDiscounted_price(formatter.format(discounted));
         item.setOrigin_price(formatter.format(item.getPi_price()));
 
-
-        i= item.getPi_cate_seq();
-        String cate_name =mapper.getCategoryName(i);
+        i = item.getPi_cate_seq();
+        String cate_name = mapper.getCategoryName(i);
         item.setCategory_name(cate_name);
 
-        
         return item;
     }
-    
+
     public void insertProductImage(ProductImageVO vo) {
         mapper.insertProductImage(vo);
     }
- 
 
     public String getProductImageFileName(String uri) {
         return mapper.getProductImageFileName(uri);
     }
 
-    public List<ProductInfoVO> selectProducts(Integer si_seq){
-        List<ProductInfoVO> list= mapper.selectProducts(si_seq);
+    public List<ProductInfoVO> selectProducts(Integer offset, String keyword, Integer category, Integer si_seq) {
+        System.out.println("서비스 인");
+        if (offset == null)
+            offset = 0;
+        if (keyword == null) {
+            keyword = "%%";
+        } else {
+            keyword = "%" + keyword + "%";
+        }
+        List<ProductInfoVO> list = mapper.selectProducts(offset,keyword,category,si_seq);
 
         return list;
 
     }
-    public List<ProductInfoVO> selectProductsByCategory(Integer cate_seq){
+
+    public List<ProductInfoVO> selectProductsByCategory(Integer cate_seq) {
 
         List<ProductInfoVO> list = mapper.selectProductsByCategory(cate_seq);
         for (ProductInfoVO item : list) {
@@ -113,6 +120,18 @@ public class ProductService {
             item.setOrigin_price(formatter.format(item.getPi_price()));
         }
         return list;
+    }
+
+    public void deleteProduct(Integer seq) {
+        mapper.deleteProduct(seq);
+    }
+
+    public ProductVO productBySeq(Integer seq) {// 수정할때 하나의 정보가져와서 보여주는 용도
+        return mapper.productBySeq(seq);
+    }
+
+    public void updateProduct(ProductVO vo) {
+        mapper.updateProduct(vo);
     }
 
 }

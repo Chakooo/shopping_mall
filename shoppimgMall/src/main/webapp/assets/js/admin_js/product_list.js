@@ -8,7 +8,7 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
 
     });
     $("#close").click(function(){
-        if(confirm("입력을 취소하시겠습니까?\n(저장하지 않은 정보는 모두사라집니다."))
+        if(confirm("입력을 취소하시겠습니까?\n(저장하지 않은 정보는 모두사라집니다!.)"))
         $(".product_form").css("display","");
         $(".product_form input").val("");
         $(".product_form select option:first-child").prop("selected",true);
@@ -19,24 +19,32 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
         handle:'h1'
     })
     $("#product").addClass("current")    
+
     getProductData();
     function getProductData(keyword, cate_seq, offset) {
         ($("#product_tbody").html("")); //안쪽 내용을 괄호안의 내용으로 바꾼다. 없으면 밑에다가 계속 쌓이게 된다.
-        let pi_seq = $("#si_seq").val();
-        console.log(pi_seq)
+        let si_seq = $("#si_seq").val();
+      
 
-        let url = "/product/api/list?si_seq="+pi_seq;
+        let url = "/product/api/list"
+        if(si_seq != ""||si_seq != undefined || si_seq != null){
+            url += "?si_seq="+si_seq
+        }
+        if(si_seq == ""||si_seq == undefined || si_seq == null){
+            alert("로그인후 이용가능합니다")
+            location.href="/seller/login";
+        }
         if (keyword == undefined || keyword == null) {
             keyword = "";
         }
         url += "&keyword=" + keyword
-        if (cate_seq != undefined && cate_seq != null) {
-            console.log(cate_seq) // seq 값 받아오는지 콘솔확인
+        if (cate_seq != undefined && cate_seq != null) {            
             url += "&category=" + cate_seq;
         }
         if (offset != undefined && offset != null) {
             url += "&offset=" + offset;
         }
+        console.log(url)
         $.ajax({
             type: "get",
             url: url,
@@ -58,10 +66,10 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
                         '<td>' + r.data[i].pi_price + '</td>' +
                         '<td>' +
                         '<button class="product_modify" data-seq="' + r.data[i].pi_seq + '">수정</button>' +
-                        '<td>' +
+                        '</td>' +
                         '<td>' +
                         '<button class="product_delete" data-seq="' + r.data[i].pi_seq + '">삭제</button>' +
-                        '<td>' +
+                        '</td>' +
                         '</tr>'
                     $('#product_tbody').append(tag);
                 }
@@ -78,13 +86,12 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
                         type:"get",
                         url:"/product/api/get?seq="+seq,
                         success:function(r){
-                        //    console.log(r)
+                        
                         
                         $("#pi_name").val(r.data.pi_name);
                         $("#pi_price").val(r.data.pi_price);
                         $("#pi_cate_seq").val(r.data.pi_cate_seq);
                         $("#pi_stock").val(r.data.pi_stock);
-                        $("#pi_si_seq").val(r.data.pi_si_seq);
                         $("#pi_discount_rate").val(r.data.pi_discount_rate)
                         $("#pi_point_rate").val(r.data.pi_point_rate);
                         $("#pi_caution").val(r.data.pi_caution);
@@ -105,7 +112,7 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
                 $(".product_delete").click(function () {
                     if (!confirm("삭제하시겠습니까")) return;
                     let seq = $(this).attr("data-seq")
-                    console.log(seq)
+                    
                     $.ajax({
                         type: "delete",
                         url: "/product/api/delete?seq=" + seq,
@@ -189,7 +196,6 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
         let pi_price = $("#pi_price").val();
         let pi_cate_seq = $("#pi_cate_seq option:selected").val();
         let pi_stock = $("#pi_stock").val();
-        let pi_si_seq = $("#pi_si_seq option:selected").val();
         let pi_discount_rate = $("#pi_discount_rate").val();
         let pi_point_rate = $("#pi_point_rate").val();
         let pi_caution = $("#pi_caution").val();
@@ -200,7 +206,6 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
         if (pi_name == null || pi_name == "" || pi_name == undefined) {
             alert("상품명을 입력하세요"); return;
         }
-
         if (pi_price == null || pi_price == "" || pi_price == undefined) {
             alert("가격을 입력하세요"); return;
         }
@@ -209,10 +214,7 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
         }
         if (pi_stock == null || pi_stock == "" || pi_stock == undefined) {
             alert("재고를 입력하세요"); return;
-        }
-        if (pi_si_seq == null || pi_si_seq == "" || pi_si_seq == undefined) {
-            alert("판매자를 입력하세요"); return;
-        }
+        }       
         if (pi_discount_rate == null || pi_discount_rate == "" || pi_discount_rate == undefined) {
             alert("할인율을 입력하세요"); return;
         }
@@ -231,7 +233,6 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
             pi_price: pi_price,
             pi_cate_seq: pi_cate_seq,
             pi_stock: pi_stock,
-            pi_si_seq: pi_si_seq,
             pi_discount_rate: pi_discount_rate,
             pi_point_rate: pi_point_rate,
             pi_caution: pi_caution,
@@ -262,8 +263,8 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
     })
 
     $("#cate_search").change(function () { //해당 id값의 option선택자에 변경사항이 있으면 alert 띄워준다.
-        // alert("값 변경됨"); <<<<<<<<<<<<<<<<<<<<<<<<<
         let seq = $("#cate_search option:selected").val();
+        console.log("카테번호"+seq)
         let keyword = $("#search_keyword").val();
         if (seq == "전체") seq = null;
         getProductData(keyword, seq, 0);

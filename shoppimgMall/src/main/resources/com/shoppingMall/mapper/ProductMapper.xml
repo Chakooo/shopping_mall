@@ -26,7 +26,11 @@
   <select id="selectProducts" resultType="com.shoppingMall.vo.ProductInfoVO">
     select a.pi_seq ,a.pi_name,a.pi_img_uri,b.cate_name as category_name,a.pi_stock,a.pi_create_dt,a.pi_discount_rate,a.pi_point_rate,a.pi_caution,a.pi_weight,a.di_name as delivery_name,a.pi_price from 
     (select * from product_info p inner join delivery_info d on p.pi_di_seq=d.di_seq) a inner join 
-    category b on a.pi_cate_seq = b.cate_seq where a.pi_si_seq = #{si_seq} order by a.pi_create_dt desc;
+    category b on a.pi_cate_seq = b.cate_seq  where pi_name like #{keyword} and a.pi_si_seq = #{si_seq} 
+    <if test="category != null">
+    and pi_cate_seq = #{category} 
+    </if>
+    order by a.pi_create_dt desc limit 15 offset #{offset}
   </select>
 
   <insert id="insertProductImage">
@@ -39,4 +43,27 @@
   <select id="selectProductsByCategory" resultType="com.shoppingMall.vo.ProductInfoVO">
     select * from product_info where pi_cate_seq =#{cate_seq}
   </select>
+
+  <select id="productBySeq" resultType="com.shoppingMall.vo.ProductVO">
+    select*from product_info where pi_seq =#{seq}
+  </select>
+
+  <update id="updateProduct">
+    UPDATE product_info
+    SET 
+    pi_name=#{pi_name},
+    pi_cate_seq=#{pi_cate_seq},
+    pi_stock=#{pi_stock},
+    pi_discount_rate=#{pi_discount_rate},
+    pi_caution=#{pi_caution},
+    pi_weight=#{pi_weight},
+    pi_point_rate=#{pi_point_rate},
+    pi_di_seq=#{pi_di_seq},
+    pi_price=#{pi_price},
+    pi_img_uri=#{pi_img_uri}
+    where pi_seq = #{pi_seq}
+</update>
+<delete id="deleteProduct">
+delete from product_info where pi_seq=#{seq}
+</delete>
   </mapper>

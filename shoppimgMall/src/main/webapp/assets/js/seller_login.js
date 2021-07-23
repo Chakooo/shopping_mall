@@ -32,7 +32,7 @@ $(function(){
             contentType:"application/json",
             success:function(r){
                 if(r.status){
-                location.href="/";
+                location.href="/seller/home/{id}";
             }
             else{
                 alert(r.message);
