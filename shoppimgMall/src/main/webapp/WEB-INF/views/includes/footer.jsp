@@ -63,7 +63,6 @@
                         <span>|</span>
                     </c:if>
                 </div>
-
             </footer>
         </body>
 

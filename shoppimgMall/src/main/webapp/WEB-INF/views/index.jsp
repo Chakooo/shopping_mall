@@ -1,7 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="/WEB-INF/views/includes/header.jsp" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,8 +49,7 @@
             </div>
         </section>
     </main>
-    <%@include file="/WEB-INF/views/includes/footer.jsp" %>
-    
+    <%@include file="/WEB-INF/views/includes/footer.jsp" %>    
 </body>
 </html>
 

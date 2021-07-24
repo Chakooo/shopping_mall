@@ -16,8 +16,8 @@
      margin-top: 40px; }
 .info .company_info{width: 500px; float: left; border-right: 1px solid #dfdfdf; margin-left: 5px;}
 .info .help_center{width: 500px; float: left;margin-left: 40px;}
-.info >*> p {font-size: 18px;}
-.info >* >p > b {font-size: 23px; font-weight: bold; color:  rgb(87, 144, 177);}
+.info >*> p {font-size: 15px;}
+.info >* >p > b {font-size: 18px; font-weight: bold; color:  rgb(87, 144, 177);}
 .company_info >p:nth-child(1) {margin-bottom: 15px;}
 .help_center >p:nth-child(1) {margin-bottom: 15px;}
 

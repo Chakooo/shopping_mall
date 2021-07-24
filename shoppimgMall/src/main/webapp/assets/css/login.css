@@ -1,4 +1,45 @@
 /* login.css */
+
+
+/* login header */
+
+
+.box_header{border-bottom: 1px solid #fdd835; height: 80px;}
+.box_title_logo{float: left;}
+.box_title_logo a > span > img{width: 80px; height: 80px; margin-left: 15px;}
+.search_box{float: left; margin-left: 20px; margin-top: 20px;}
+.search_box img {width: 30px;}
+.search_box button {padding: 0; margin: 0; border: 0; background-color: transparent;
+    outline: none; cursor: pointer; height: 30px;margin-bottom: 5px;  margin-top: 7px;
+}
+.search_box input {border: 0; outline:none; background-color: transparent; margin-left: 20px;
+    width: 160px; 
+}
+.search_box > * {vertical-align: middle;}
+.search_box {background-color: #f7f7f7; display: inline-block; padding:3px;
+    border-radius: 99px; margin-right: 50px;
+}
+
+.category > *>a {text-decoration: none; color: #333;font-size: 15px;}
+
+.category span {font-size: 10px; color: #ccc; margin: 10px;
+    position: relative; top: -1px;}
+
+.category{float: right; margin-top: 25px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* login body */
 .title{
     text-align: center;
     font-size: 28px;
@@ -6,9 +47,11 @@
     margin-bottom: 50px;
     margin-top: 50px;
 }
+
 .login_form td{
     padding: 5px;
 }
+.login{margin-top: 150px;}
 .login_form input{
     width: 300px;
     padding: 10px;
@@ -30,4 +73,4 @@
 .login_form button:hover{
     background-color: #333;
 }
-.login_form{width: 350px; margin:0 auto}
+.login_form{width: 350px; margin:0 auto; margin-bottom: 300px;}
