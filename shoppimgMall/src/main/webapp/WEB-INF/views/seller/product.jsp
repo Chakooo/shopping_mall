@@ -18,7 +18,7 @@
     </head>
 <body>        
     <input type="text" name="" id="si_seq" value="${seller.si_seq}" disabled hidden>
-    검색구현
+   
     <h1>${seller.si_name}업체 상품관리</h1>
     <div class="product_form">
         <h1>상품 추가</h1>       

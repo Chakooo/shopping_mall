@@ -58,4 +58,11 @@ VALUES(#{oi_mi_seq},#{oi_pi_seq},#{oi_delivery_no},#{oi_prod_count});
     WHERE oi_seq= #{oi_seq}
 </update>
 
+<!-- product_count / 주문완료될때 판매량추가  -->
+<insert id="insertProductConunt">
+    INSERT INTO product_count
+    (pc_pi_seq, pc_count, pc_date, pc_mi_seq ,pc_si_seq)
+    VALUES(#{pc_pi_seq},#{pc_count}, CURRENT_TIMESTAMP, #{pc_mi_seq},#{pc_si_seq});
+</insert>
+
 </mapper>

@@ -22,4 +22,7 @@ public interface SellerMapper {
     public SellerInfoVO selectSellerInfoById(String id);
 
 
+    // 
+
+
 }

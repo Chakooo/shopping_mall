@@ -27,13 +27,13 @@
                     
                     <ul>
                         <li>
-                            <a href="/seller/product" id="category">상품 관리</a>
+                            <a href="/seller/product/${seller.si_seq}" id="category">상품 관리</a>
                         </li>
                         <li>
                             <a href="/seller/regular/${seller.si_seq}" id="regular">단골 손님</a>
                         </li>
                         <li>
-                            <a href="#" id="">상품 판매 현황</a>
+                            <a href="/seller/chart/${seller.si_seq}" id="">상품 판매 현황</a>
                         </li>
                         <li>
                             <a href="#" id="recommand">추천 상품 관리</a>

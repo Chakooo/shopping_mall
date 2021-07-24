@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.shoppingMall.vo.OrderInfoVO;
 import com.shoppingMall.vo.OrderProductVO;
+import com.shoppingMall.vo.productCountVO;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,6 +18,11 @@ public interface OrderMapper {
     public List<OrderInfoVO> orderInfo(Integer offset,Integer seq);
     public Integer selectOrderCount();
     public void UpdateDeliveryStatus(Integer status , Integer oi_seq);
+
+
+    // 상품 주문시 상품 +Count
+
+    public void insertProductConunt(productCountVO vo);
 
 
     

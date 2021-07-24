@@ -179,36 +179,54 @@ $(function () {
         }
         //  ajax 통신을 for 문을 이용하여 장바구니에 있는 모든 상품을 없애준다.
         for (let i = 0; i < len; i++) {
-            let mi_seq =$(".cart_prod").eq(i).attr("data-mi-seq");
-            let pi_seq =$(".cart_prod").eq(i).attr("data-seq");
+            let mi_seq = $(".cart_prod").eq(i).attr("data-mi-seq");
+            let pi_seq = $(".cart_prod").eq(i).attr("data-seq");
+            let si_seq = $(".cart_prod").eq(i).attr("data-si-seq");
             let count = $(".cart_prod").eq(i).find(".cnt").val();
+            console.log(si_seq)
             // alert("mi_seq" + mi_seq + ", pi_seq : "+pi_seq+", count : "+count);
             $.ajax({
                 type: "delete",
-                url: "/cart/remove?mi_seq="+mi_seq+"&pi_seq="+pi_seq,
-                success:function(r){
-                 console.log(r.message);
-                                    
+                url: "/cart/remove?mi_seq=" + mi_seq + "&pi_seq=" + pi_seq,
+                success: function (r) {
+                    console.log(r.message);
+
                 }
             })
             let data = {
-                oi_mi_seq:mi_seq,
-                oi_pi_seq:pi_seq,
-                oi_delivery_no:"0000000000",
-                oi_prod_count:count
+                oi_mi_seq: mi_seq,
+                oi_pi_seq: pi_seq,
+                oi_delivery_no: "0000000000",
+                oi_prod_count: count
+            }
+            let productCnt={
+                pc_pi_seq:pi_seq,
+                pc_mi_seq:mi_seq,
+                pc_si_seq:si_seq,
+                pc_count:count
             }
             $.ajax({
-                type:"post",
-                url:"/order",
+                type: "post",
+                url: "/order",
                 data:JSON.stringify(data),
-                contentType:"application/json",
-                success:function(r){
-                 
-                 
+                contentType: "application/json",
+                success: function (r) {
                     
+                    $.ajax({
+                        
+                        type:"post",
+                        url:"/order/product/count",
+                        contentType: "application/json",
+                        data:JSON.stringify(productCnt),
+                        success:function(r){
+                            console.log(r.message)                            
+                        }
+                    })
                 }
             })
+
         }
+        alert("주문이 완료되었습니다");
     })
 
 })

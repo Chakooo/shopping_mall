@@ -45,8 +45,12 @@ public class SellerController {
         return "/seller/home";
     }
 
-    @GetMapping("/seller/product")
-    public String productManagement(Model model){
+    @GetMapping("/seller/product/{si_seq}")
+    public String productManagement(Model model, @PathVariable Integer si_seq){
+        if(si_seq==null){
+            return "redirect:/seller/login";
+        }
+        
         List<CategoryVO> clist = cate_service.selectCategoryAll();
         List<DeliveryInfoVO> dlist = delivery_service.selectDeliveryAll();
         List<SellerInfoVO> slist = seller_service.selectSellerAll();
@@ -57,6 +61,25 @@ public class SellerController {
          model.addAttribute("slist", slist);
         return "/seller/product";
     }
-
+    @GetMapping("/seller/product")
+    public String productManagement(){
+      // seller/chart로 직접 입력시 로그인으로 보내는 처리
+       
+      return "redirect:/seller/login";
+    }
     
+   
+    @GetMapping("/seller/chart")
+    public String getProductChart(){
+            // seller/chart로 직접 입력시 로그인으로 보내는 처리
+        return "redirect:/seller/login";
+    } 
+       
+    @GetMapping("/seller/chart/{si_seq}")
+    public String getProductChart(@PathVariable Integer si_seq){
+               if(si_seq==null){
+                   return "redirect:/seller/login";
+               }
+        return "/seller/chart";
+    }  
 }

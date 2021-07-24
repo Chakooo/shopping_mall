@@ -18,6 +18,7 @@ public class ProductController {
     @Autowired ProductService p_service;
     @GetMapping("/products")
     public String getProducts(@RequestParam Integer cate_seq,Model model){
+       
         String cate_name = c_mapper.selectCategoryName(cate_seq);
         model.addAttribute("category", cate_name);
         List<ProductInfoVO> list = p_service.selectProductsByCategory(cate_seq);
@@ -25,5 +26,6 @@ public class ProductController {
 
         return "/product/list";
     }
+    
     
 }
