@@ -30,20 +30,35 @@
         
         <select id="showProdCnt" resultType="com.shoppingMall.vo.ChartVO">
            select sum(a.pc_count)as pc_count,pi_name from product_count a inner join product_info b 
-           on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} group by a.pc_pi_seq 
+           on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} group by a.pc_pi_seq order by pc_count desc 
         </select>
 
         <select id="showProdCntYesterDay" resultType="com.shoppingMall.vo.ChartVO">
            select sum(a.pc_count)as pc_count,pi_name  from product_count a inner join product_info b 
            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date = current_date() - interval 1 day
-           group by a.pc_pi_seq order by b.pi_name asc ;
+           group by a.pc_pi_seq order by pc_count desc  ;
         </select>
 
         <select id="showProdCntByDate" resultType="com.shoppingMall.vo.ChartVO">
            select sum(a.pc_count)as pc_count,pi_name,pc_pi_seq from product_count a inner join product_info b 
            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} and pc_date = #{date}
-           group by a.pc_pi_seq order by b.pi_name asc ;
+           group by a.pc_pi_seq order by pc_count desc ;
         </select>
-        
-        
+
+        <select id="showProdCntMonth" resultType="com.shoppingMall.vo.ChartVO">
+            select sum(a.pc_count)as pc_count,pi_name from product_count a inner join product_info b 
+            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 month ) AND NOW()
+            group by a.pc_pi_seq order by pc_count desc ;
+        </select>
+
+        <select id="showProdCntWeek" resultType="com.shoppingMall.vo.ChartVO">
+            select sum(a.pc_count)as pc_count,pi_name from product_count a inner join product_info b 
+            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 week ) AND NOW()
+            group by a.pc_pi_seq order by pc_count desc ;
+        </select>        
+
+        <select id="showProdCntRank" resultType="com.shoppingMall.vo.ChartVO">
+           select sum(a.pc_count)as pc_count,pi_name from product_count a inner join product_info b 
+           on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} group by a.pc_pi_seq order by pc_count desc limit 5;
+        </select>
   </mapper>

@@ -1,12 +1,10 @@
 package com.shoppingMall.service;
 
 
-import java.lang.reflect.Member;
 import java.util.List;
 
 import com.shoppingMall.mapper.RegularCustomerMapper;
 import com.shoppingMall.vo.MemberInfoVO;
-import com.shoppingMall.vo.RegularCustomerInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

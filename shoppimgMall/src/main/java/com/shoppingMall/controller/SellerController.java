@@ -94,11 +94,14 @@ public class SellerController {
               model.addAttribute("list_size",list.size());
               model.addAttribute("list",list);
 
-              List<ChartVO> y_list = seller_mapper.showProdCntYesterDay(si_seq);
+              List<ChartVO> m_list = seller_mapper.showProdCntMonth(si_seq);
 
-              model.addAttribute("y_size",y_list.size());
-              model.addAttribute("y_list",y_list);
-             
+              model.addAttribute("m_list_size",m_list.size());
+              model.addAttribute("m_list",m_list);
+
+              List<ChartVO> w_list = seller_mapper.showProdCntWeek(si_seq);            
+              model.addAttribute("w_list_size",w_list.size());
+              model.addAttribute("w_list",w_list);
               
         return "/seller/chart";
     }  

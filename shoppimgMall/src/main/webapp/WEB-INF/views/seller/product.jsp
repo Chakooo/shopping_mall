@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="/assets/css/admin_css/table_style.css">
     </head>
 <body>        
+    ${seller}
     <input type="text" name="" id="si_seq" value="${seller.si_seq}" disabled hidden>
    <h1> 오더되어있는 상품수 체크해서 있으면 삭제버튼 비활성되게 하기</h1>
     <h1>${seller.si_name}업체 상품관리</h1>

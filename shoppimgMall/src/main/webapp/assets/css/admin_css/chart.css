@@ -14,7 +14,8 @@ h3{
 .prod_cnt { text-align: center;}
 .prod_area > div { width: 1300px ; margin-left: 130px;}
 
-.table{ margin-top: 30px;width: 1300px ;margin-left: 130px;}
+.table{ margin-top: 30px;width: 1300px ;margin-left: 130px; margin-bottom: 50px;}
+
 .table td{
     border:1px solid #ccc;
     border:1px solid #ccc;
@@ -23,8 +24,37 @@ h3{
     text-align: center;
     width: 10px;
 }
-
 .cnt_check b{
     font-size: 25px;
 }
 .name {background-color: #fdd835;}
+input{
+    width: 300px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+}
+button{
+    border: 0;
+    border-radius: 3px;
+    background-color: #fdd835;
+    color: #fff; padding:10px 20px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #333;
+}
+.select_date_button{
+    text-align: center;
+    margin-bottom: 150px;
+}
+.table  #date_prod_cnt_headaer {
+    background-color: #fdd835
+}
+
+b{
+    font-size: 30px;
+    color:#db7500;
+}

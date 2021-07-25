@@ -24,7 +24,7 @@
 
                     <h1>총 판매량</h1>
                     <h3>
-                        <총 ${list_size}개 품목 판매>
+                       <총<b> ${list_size}</b> 개 품목 판매>
                     </h3>
                     <div class="prod_area">
                         <div class="all_prod_cnt">
@@ -50,14 +50,15 @@
                 </div>
 
                 <div class="main">
-                    <h1>어제 판매량</h1>
-                    <h1>(<span id="yesterDay"></span>)</h1>
+                    <h1>최근 한달간 판매량</h1>
                     <h3>
-                        <총 ${y_size}개 품목 판매>
+                        <총 <b>${m_list_size}</b>개 품목 판매>
                     </h3>
+
+
                     <div class="prod_area">
                         <div class="all_prod_cnt">
-                            <canvas id="yesterDay_cnt"></canvas>
+                            <canvas id="prod_cnt_month"></canvas>
                         </div>
                     </div>
                 </div>
@@ -65,13 +66,13 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <c:forEach items="${y_list}" var="y_list">
-                                    <td class="name">${y_list.pi_name}</td>
+                                <c:forEach items="${m_list}" var="m_list">
+                                    <td class="name">${m_list.pi_name}</td>
                                 </c:forEach>
                             </tr>
                             <tr>
-                                <c:forEach items="${y_list}" var="y_list">
-                                    <td>${y_list.pc_count}</td>
+                                <c:forEach items="${m_list}" var="m_list">
+                                    <td>${m_list.pc_count}</td>
                                 </c:forEach>
                             </tr>
                         </tbody>
@@ -79,7 +80,38 @@
                 </div>
 
                 <div class="main">
-                    <h1>기간별 판매량</h1>
+                    <h1>최근 일주일간 판매량</h1>
+                    <h3>
+                      <총 <b>${w_list_size}</b>개 품목 판매>
+                    </h3>
+                    <div class="prod_area">
+                        <div class="all_prod_cnt">
+                            <canvas id="prod_cnt_week"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <c:forEach items="${w_list}" var="w_list">
+                                    <td class="name">${w_list.pi_name}</td>
+                                </c:forEach>
+                            </tr>
+                            <tr>
+                                <c:forEach items="${w_list}" var="w_list">
+                                    <td>${w_list.pc_count}</td>
+                                </c:forEach>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="main">
+                    <h1>날짜별 판매량</h1>
+                    <h3 class="prod_cnt_date"></h3>
+                    <h3 class="prod_cnt_today"></h3>
+                    <h3 class="prod_cnt_chice"></h3>
                     <div class="prod_area">
                         <div class="all_prod_cnt">
                             <canvas id="prod_cnt_search"></canvas>
@@ -88,22 +120,20 @@
                 </div>
                 <div>
                     <table class="table">
-                        <tbody>
-                            <tr>
-                                <c:forEach items="${y_list}" var="y_list">
-                                    <td class="name">${y_list.pi_name}</td>
-                                </c:forEach>
+                        <thead>
+                            <tr id="date_prod_cnt_headaer">
                             </tr>
-                            <tr>
-                                <c:forEach items="${y_list}" var="y_list">
-                                    <td>${y_list.pc_count}</td>
-                                </c:forEach>
+                        </thead>
+                        <tbody>
+                            <tr id="date_prod_cnt_body">
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                날짜 선택 : <input type="date" name="" id="select_date">
-                <button class="btn">gd</button>
+                <div class="select_date_button">
+                    <input type="date" name="" id="select_date">
+                    <button class="btn">선택</button>
+                </div>
             </body>
 
             </html>
