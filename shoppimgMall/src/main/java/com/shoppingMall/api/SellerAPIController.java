@@ -1,14 +1,17 @@
 package com.shoppingMall.api;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import com.shoppingMall.service.SellerService;
+import com.shoppingMall.vo.ChartVO;
 import com.shoppingMall.vo.LoginVO;
+import com.shoppingMall.vo.ProductInfoVO;
 import com.shoppingMall.vo.SellerInfoVO;
-
+import org.springframework.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -73,11 +76,24 @@ public class SellerAPIController {
 
     
     @GetMapping("/seller/showChart")
-    public Map<String,Object> getSellerChart(){
-
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+    public Map<String,Object> getSellerChart(@RequestParam Integer si_seq){
+        Map<String, Object> resultMap = s_service.showProdCnt(si_seq);
+     
         return resultMap;
-           }
+    }
+    @GetMapping("/seller/showChartYesterDay")
+    public Map<String,Object> getSellerChartYesterDay(@RequestParam Integer si_seq){
+        Map<String, Object> resultMap = s_service.showProdCntYesterDay(si_seq);
+           
+        return resultMap;
+    }
+    @GetMapping("/seller/showChartByDate")
+    public Map<String,Object> getSellerChartYe(@RequestParam Integer si_seq,@RequestParam @Nullable String date){
+        Map<String, Object> resultMap = s_service.showProdCntByDate(si_seq,date);
+           
+        return resultMap;
+    }
+  
 
     
 }

@@ -1,0 +1,30 @@
+/* chart_css */
+
+h1 {
+    margin: 30px auto;
+    margin-left: 130px;    
+    font-size: 50px;
+    
+}
+h3{
+    margin: 30px auto;
+    margin-left: 130px;    
+    font-size: 20px;
+}
+.prod_cnt { text-align: center;}
+.prod_area > div { width: 1300px ; margin-left: 130px;}
+
+.table{ margin-top: 30px;width: 1300px ;margin-left: 130px;}
+.table td{
+    border:1px solid #ccc;
+    border:1px solid #ccc;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    width: 10px;
+}
+
+.cnt_check b{
+    font-size: 25px;
+}
+.name {background-color: #fdd835;}

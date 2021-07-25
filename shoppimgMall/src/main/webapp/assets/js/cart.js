@@ -183,7 +183,8 @@ $(function () {
             let pi_seq = $(".cart_prod").eq(i).attr("data-seq");
             let si_seq = $(".cart_prod").eq(i).attr("data-si-seq");
             let count = $(".cart_prod").eq(i).find(".cnt").val();
-            console.log(si_seq)
+            let pi_name = $(".cart_prod").eq(i).attr("data-pi-name");
+            console.log(pi_name)
             // alert("mi_seq" + mi_seq + ", pi_seq : "+pi_seq+", count : "+count);
             $.ajax({
                 type: "delete",
@@ -212,8 +213,7 @@ $(function () {
                 contentType: "application/json",
                 success: function (r) {
                     
-                    $.ajax({
-                        
+                    $.ajax({                        
                         type:"post",
                         url:"/order/product/count",
                         contentType: "application/json",

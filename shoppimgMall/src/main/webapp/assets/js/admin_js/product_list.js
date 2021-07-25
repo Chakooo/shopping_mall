@@ -135,7 +135,10 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
         let pi_caution = $("#pi_caution").val();
         let pi_weight = $("#pi_weight").val();
         let pi_di_seq = $("#pi_di_seq option:selected").val();
-        let pi_seq = $("#si_seq").val();
+        let pi_si_seq = $("#si_seq").val();
+
+        
+
 
 
         if (pi_name == null || pi_name == "" || pi_name == undefined) {
@@ -145,25 +148,31 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
         if (pi_price == null || pi_price == "" || pi_price == undefined) {
             alert("가격을 입력하세요"); return;
         }
-        if (pi_cate_seq == null || pi_cate_seq == "" || pi_cate_seq == undefined) {
+        if (pi_cate_seq == null || pi_cate_seq == "" || pi_cate_seq == undefined || pi_cate_seq == 'null') {
             alert("카테고리를 입력하세요"); return;
         }
         if (pi_stock == null || pi_stock == "" || pi_stock == undefined) {
             alert("재고를 입력하세요"); return;
         }
-     
+        if (pi_weight == null || pi_weight == "" || pi_weight == undefined) {
+            alert("무게를 입력하세요"); return;
+        }     
         if (pi_discount_rate == null || pi_discount_rate == "" || pi_discount_rate == undefined) {
             alert("할인율을 입력하세요"); return;
         }
         if (pi_point_rate == null || pi_point_rate == "" || pi_point_rate == undefined) {
             alert("적립율를 입력하세요"); return;
-        }
-        if (pi_weight == null || pi_weight == "" || pi_weight == undefined) {
-            alert("무게를 입력하세요"); return;
-        }
-        if (pi_di_seq == null || pi_di_seq == "" || pi_di_seq == undefined) {
+        }        
+        if (pi_di_seq == null || pi_di_seq == "" || pi_di_seq == undefined ||pi_di_seq == 'null') {
             alert("배송업체를 입력하세요"); return;
         }
+        let member_seq=0
+        let count =0
+        console.log(pi_name)
+        console.log(member_seq)
+        console.log(count)
+        console.log(pi_si_seq)
+
         let data = {
             pi_name: pi_name,
             pi_price: pi_price,
@@ -171,19 +180,29 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
             pi_stock: pi_stock,
             pi_discount_rate: pi_discount_rate,
             pi_point_rate: pi_point_rate,
-            pi_si_seq:pi_seq,
+            pi_si_seq:pi_si_seq,
             pi_caution: pi_caution,
             pi_weight: pi_weight,
             pi_di_seq: pi_di_seq,
             pi_img_uri: $("#img_preview").attr("img-uri")
         }
+        
+        
+       
         $.ajax({
             type: "post",
             url: "/product/api/add",
             data: JSON.stringify(data),
             contentType: "application/json",
-            success: function (r) {
-                alert(r.message)
+            success: function (r) {   
+                $.ajax({
+                    type:"get",
+                    url:"/product/get/lastSeq",
+                    success:function(r){
+                        alert(r.data)
+                    }
+                })                         
+                alert(r.message)                 
                 location.reload()
             },
             error: function (r) {

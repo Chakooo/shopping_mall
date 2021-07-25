@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <h1> 아이템 검색 + 가격별 이름별 오름내림차순 구현</h1>
     <h1>${category}</h1>
     <c:if test="${list.size()==0}">
         <p class="nodata">등록된 제품이 없습니다.</p>

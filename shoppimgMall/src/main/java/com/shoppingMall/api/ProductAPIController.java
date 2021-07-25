@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.shoppingMall.mapper.ProductMapper;
 import com.shoppingMall.service.ProductService;
 import com.shoppingMall.vo.ProductInfoVO;
 import com.shoppingMall.vo.ProductVO;
@@ -22,20 +23,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductAPIController {
     @Autowired
     ProductService service;
-    
+    ProductMapper mapper;
+
     @GetMapping("/product/api/list")
     public Map<String, Object> getProductList(@RequestParam @Nullable String keyword,
-            @RequestParam @Nullable Integer offset, @RequestParam @Nullable Integer category, @RequestParam Integer si_seq) {
+            @RequestParam @Nullable Integer offset, @RequestParam @Nullable Integer category,
+            @RequestParam Integer si_seq) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        List<ProductInfoVO> list = service.selectProducts(offset,keyword,category,si_seq);
+        List<ProductInfoVO> list = service.selectProducts(offset, keyword, category, si_seq);
         resultMap.put("data", list);
         return resultMap;
     }
+
     @PostMapping("/product/api/add")
     public Map<String, Object> getProduct(@RequestBody ProductVO vo) {
 
         return service.insertProduct(vo);
     }
+
     @DeleteMapping("/product/api/delete")
     public Map<String, Object> deleteProduct(@RequestParam Integer seq) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
@@ -45,24 +50,26 @@ public class ProductAPIController {
     }
 
     @PatchMapping("/product/api/update")
-    public Map<String,Object> postProductUpdateAPI(@RequestBody ProductVO vo){
+    public Map<String, Object> postProductUpdateAPI(@RequestBody ProductVO vo) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         service.updateProduct(vo);
-        resultMap.put("status",true);
+        resultMap.put("status", true);
         resultMap.put("message", "수정되었습니다.");
 
         return resultMap;
 
     }
+
     @GetMapping("/product/api/get")
-    public Map<String,Object> getProduct(@RequestParam Integer seq){
-     Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+    public Map<String, Object> getProduct(@RequestParam Integer seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
-     ProductVO vo = service.productBySeq(seq);
-     resultMap.put("status",true);
-     resultMap.put("data",vo);
+        ProductVO vo = service.productBySeq(seq);
+        resultMap.put("status", true);
+        resultMap.put("data", vo);
 
-     return resultMap;
+        return resultMap;
     }
-    
+
+  
 }

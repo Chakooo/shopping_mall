@@ -42,7 +42,8 @@
                     </tr>
                     </c:if>
                     <c:forEach items="${list}" var="item">                        
-                        <tr class="cart_prod" data-seq="${item.pi_seq}" data-mi-seq=${member.mi_seq} data-si-seq=${item.pi_si_seq}>
+                        <tr class="cart_prod" data-seq="${item.pi_seq}" data-mi-seq=${member.mi_seq} data-si-seq=${item.pi_si_seq}
+                            data-pi-name= ${item.pi_name} >
                             <td>
                                 <input type="checkbox" data-seq="${item.pi_seq}" id="sel${item.pi_seq}">
                                 <label for="sel${item.pi_seq}">선택</label>

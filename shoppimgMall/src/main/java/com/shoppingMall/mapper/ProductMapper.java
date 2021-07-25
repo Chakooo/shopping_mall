@@ -23,11 +23,13 @@ public interface ProductMapper {
     public void updateProduct(ProductVO vo);
     public void deleteProduct(Integer seq);
     public ProductVO productBySeq(Integer seq);
+    public List<String> selectProdNameBySeller(Integer si_seq);
     
 
     
 
     // insertProduct
+    public Integer getLastSeq();
 
     
     

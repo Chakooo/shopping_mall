@@ -28,7 +28,7 @@ public class ProductService {
         }
         if (vo.getPi_cate_seq() == null) {
             resultMap.put("status", "failed");
-            resultMap.put("message", "판매자가 설정되지 않았습니다.");
+            resultMap.put("message", "카테고리가 설정되지 않았습니다.");
             return resultMap;
         }
         if (vo.getPi_di_seq() == null) {

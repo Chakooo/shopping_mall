@@ -9,8 +9,11 @@
     width: calc((100% - 40px)/3);
     height: 605px;
     margin-right: 20px;
+    margin-top:50px;
     font-size: 16px;
     vertical-align: top;
+    border-bottom: 1px solid #ccc;
+
 }
 
 /* 3의 배수 위치에 있는 a태그 */

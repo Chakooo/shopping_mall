@@ -34,5 +34,6 @@ public class ProductInfoVO {
 
     // 쇼핑카트에 있는 물품개수
     private Integer sc_count;
+   
     
 }

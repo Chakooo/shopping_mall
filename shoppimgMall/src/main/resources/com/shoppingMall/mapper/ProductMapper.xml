@@ -64,6 +64,15 @@
     where pi_seq = #{pi_seq}
 </update>
 <delete id="deleteProduct">
-delete from product_info where pi_seq=#{seq}
+    delete from product_info where pi_seq=#{seq}
 </delete>
+
+<select id="selectProdNameBySeller" resultType="java.lang.String">
+  select pi_name from product_count a inner join product_info b 
+  on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} group by a.pc_pi_seq 
+</select>
+
+<select id="getLastSeq" resultType="java.lang.Integer">
+     SELECT pi_seq FROM product_info ORDER BY pi_seq DESC LIMIT 1
+</select>
   </mapper>

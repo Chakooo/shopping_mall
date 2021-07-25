@@ -74,6 +74,7 @@ public class OrderService {
         mapper.UpdateDeliveryStatus(status, oi_seq);
    }
    public void insertProductConunt(productCountVO vo){
+       System.out.println(vo.getPc_mi_seq());
        mapper.insertProductConunt(vo);
    }
 }

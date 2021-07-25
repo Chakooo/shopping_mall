@@ -2,6 +2,7 @@ package com.shoppingMall.mapper;
 
 import java.util.List;
 
+import com.shoppingMall.vo.ChartVO;
 import com.shoppingMall.vo.LoginVO;
 import com.shoppingMall.vo.SellerInfoVO;
 
@@ -22,7 +23,12 @@ public interface SellerMapper {
     public SellerInfoVO selectSellerInfoById(String id);
 
 
-    // 
+    // 판매현황 차트구현 mapper
+    public List<ChartVO> showProdCnt(Integer si_seq);
+    public List<ChartVO> showProdCntYesterDay(Integer si_seq);
+    public List<ChartVO> showProdCntByDate(Integer si_seq, String date);
+    public List<ChartVO> showProdCntByToday(Integer si_seq);
+    
 
 
 }

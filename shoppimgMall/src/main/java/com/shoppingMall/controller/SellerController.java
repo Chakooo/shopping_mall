@@ -2,10 +2,13 @@ package com.shoppingMall.controller;
 
 import java.util.List;
 
+import com.shoppingMall.mapper.ProductMapper;
+import com.shoppingMall.mapper.SellerMapper;
 import com.shoppingMall.service.CategoryService;
 import com.shoppingMall.service.DeliveryService;
 import com.shoppingMall.service.SellerService;
 import com.shoppingMall.vo.CategoryVO;
+import com.shoppingMall.vo.ChartVO;
 import com.shoppingMall.vo.DeliveryInfoVO;
 import com.shoppingMall.vo.SellerInfoVO;
 
@@ -21,6 +24,10 @@ public class SellerController {
     @Autowired CategoryService  cate_service; 
     @Autowired DeliveryService delivery_service;
     @Autowired SellerService seller_service;
+    @Autowired SellerMapper seller_mapper;
+    @Autowired ProductMapper p_mapper;
+    
+    
 
     @GetMapping("/seller/join")
     public String getSeller(){
@@ -76,10 +83,23 @@ public class SellerController {
     } 
        
     @GetMapping("/seller/chart/{si_seq}")
-    public String getProductChart(@PathVariable Integer si_seq){
+    public String getProductChart(Model model,@PathVariable Integer si_seq){
                if(si_seq==null){
                    return "redirect:/seller/login";
                }
+              List<String> prod_name= p_mapper.selectProdNameBySeller(si_seq);
+              model.addAttribute("prod_name", prod_name);
+
+              List<ChartVO> list = seller_mapper.showProdCnt(si_seq);
+              model.addAttribute("list_size",list.size());
+              model.addAttribute("list",list);
+
+              List<ChartVO> y_list = seller_mapper.showProdCntYesterDay(si_seq);
+
+              model.addAttribute("y_size",y_list.size());
+              model.addAttribute("y_list",y_list);
+             
+              
         return "/seller/chart";
     }  
 }
