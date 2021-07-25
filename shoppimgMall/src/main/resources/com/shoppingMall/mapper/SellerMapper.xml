@@ -61,4 +61,11 @@
            select sum(a.pc_count)as pc_count,pi_name from product_count a inner join product_info b 
            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} group by a.pc_pi_seq order by pc_count desc limit 5;
         </select>
+
+        <select id="showReiview" resultType="com.shoppingMall.vo.ReviewVO">
+            select si_seq,rev_reg_dt,rev_mod_dt,rev_rate,pi_name,pi_price,rev_content,mi_id from member_info a inner join
+            (select * from seller_info a inner join
+            (select * from review a inner join product_info b on a.rev_pi_seq = b.pi_seq )b on a.si_seq = b.pi_si_seq)
+            b on a.mi_seq = b.rev_mi_seq where si_seq=#{si_seq} order by rev_reg_dt desc limit 10;
+        </select>
   </mapper>

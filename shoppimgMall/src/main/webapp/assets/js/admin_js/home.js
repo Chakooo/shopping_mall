@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
     let si_seq = $("#seller_seq").val();
     console.log(si_seq)
     $.ajax({
@@ -21,5 +21,24 @@ $(function(){
             })
         }
     })
+
+    $.ajax({
+        type: "get",
+        url: "/seller/showReiview?si_seq=" + si_seq,
+        success: function (r) {
+            for (let i = 0; i < r.list.length; i++) {
+                let tag =
+                    '<tr>' +
+                    '<td>' + r.list[i].pi_name + '</td>' +
+                    '<td>' + r.list[i].mi_id + '</td>' +                    
+                    '<td>' + r.list[i].rev_content + '</td>' +
+                    '<td>' + r.list[i].rev_rate + '</td>' +                   
+                    '<td>' + r.list[i].rev_reg_dt + '</td>' +
+                    '</tr>'
+                $('#review_tbody').append(tag);
+            }
+        }
+    })
+
 
 })

@@ -21,7 +21,6 @@ div {
     width: 50%;
     float: right;
     box-sizing: border-box;
-    background: #ece6cc;
   }
   div.right>h1{
     font-size: 30px;
@@ -30,3 +29,16 @@ div {
       width: 600px;
   }
   
+
+  .list table td{
+    border-bottom:1px solid #ccc;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+.list table tr:nth-child(even){
+    background-color: #fbfbfb;
+}
+.list table {min-width: 700px;}
+.list thead td{background-color: #fdd835; color: #fff; border-color: #fdd835;}
+body > h1 {font-size: 32px; font-weight: 700; margin-bottom: 30px;}

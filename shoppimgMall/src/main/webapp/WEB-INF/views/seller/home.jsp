@@ -20,8 +20,6 @@
 
                 <input type="text" name="" id="seller_seq" value="${seller.si_seq}" disabled hidden>
                 <h1 class="main_h1"> ${seller.si_name} </h1>
-
-
                 <div>
                     <div class="left">
                         <h1>
@@ -35,10 +33,25 @@
                         <h1>
                             <리뷰 확인하기>
                         </h1>
-                        <canvas id="prod_cnt2"></canvas>
+                        <div class="list">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>제품명</td>
+                                        <td>아이디</td>
+                                        <td>내용</td>
+                                        <td>별점</td>                                        
+                                        <td>리뷰 등록일</td>                                        
+                                    </tr>
+                                </thead>
+                                <tbody id="review_tbody">
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-
+                
 
 
 

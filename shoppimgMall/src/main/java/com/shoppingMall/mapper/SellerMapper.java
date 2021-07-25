@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.shoppingMall.vo.ChartVO;
 import com.shoppingMall.vo.LoginVO;
+import com.shoppingMall.vo.ReviewVO;
 import com.shoppingMall.vo.SellerInfoVO;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -32,6 +33,8 @@ public interface SellerMapper {
     public List<ChartVO> showProdCntRank(Integer si_seq);
 
     
-
+    // 리뷰정보 판매자로 가져오기
+     
+    public List<ReviewVO> showReiview(Integer si_seq);
 
 }

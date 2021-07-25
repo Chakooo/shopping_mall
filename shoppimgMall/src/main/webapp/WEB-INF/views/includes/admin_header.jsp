@@ -33,6 +33,9 @@
                             <a href="/seller/regular/${seller.si_seq}" id="regular">단골 손님</a>
                         </li>
                         <li>
+                            <a href="/seller/review/${seller.si_seq}">리뷰 관리</a>
+                        </li>
+                        <li>
                             <a href="/seller/chart/${seller.si_seq}" id="">상품 판매 현황</a>
                         </li>
                         <li>
@@ -41,6 +44,7 @@
                         <li>
                             <a href="/order/${seller.si_seq}">배송 현황 관리</a>
                         </li>
+                       
                         <li>
                             <a href="/" id="home">EE Market 으로 돌아가기</a>
                         </li>
