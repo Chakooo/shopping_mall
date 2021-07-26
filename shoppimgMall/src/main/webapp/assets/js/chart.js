@@ -1,9 +1,11 @@
 $(function () {
     let DateChart = null;
-    let yDaychart = null;
+    let termChart = null;
+    termByChart();
     selectDateChart();
-     
-   
+
+    let term = null;
+
     $("#yesterDay").html(yesterDay());
     let si_seq = $("#seller_seq").val();
 
@@ -14,18 +16,17 @@ $(function () {
 
     // All Cnt Chart
     $.ajax({
+
         type: "get",
         url: "/seller/showChart?si_seq=" + si_seq,
         success: function (r) {
-            console.log(r.p_name)
-            console.log(r.y_prod_cnt)
             yDaychart = new Chart($("#prod_cnt"), {
                 type: 'bar',
                 data: {
                     labels: r.p_name,
                     datasets: [{
                         label: "총 판매 현황",
-                        data: r.y_prod_cnt,
+                        data: r.prod_cnt,
                         backgroundColor: ["skyblue", "orangered", "#3cba9f", "#e8c3b9", "#c45850", "orange"],
                         borderColor: ["pink", "pink", "pink", "pink", "pink", "pink"]
                     }]
@@ -37,50 +38,63 @@ $(function () {
 
 
     //Moth Chart
-    $.ajax({
-        type: "get",
-        url: "/seller/showChartMonth?si_seq=" + si_seq,
-        success: function (r) {
-            console.log(r.p_name)
-            console.log(r.y_prod_cnt)
-            yDaychart = new Chart($("#prod_cnt_month"), {
-                type: 'bar',
-                data: {
-                    labels: r.p_name,
-                    datasets: [{
-                        label: "최근 한달 제품 판매 현황",
-                        data: r.prod_cnt,
-                        backgroundColor: ["skyblue", "orangered", "#3cba9f", "#e8c3b9", "#c45850", "orange"],
-                        borderColor: ["pink", "pink", "pink", "pink", "pink", "pink"]
-                    }]
-                }
-            })
+
+    function termByChart(term) {
+        let si_seq = $("#seller_seq").val();
+        
+        let url;
+        if (term == null || term == '' || term == undefined) { 
+            url= "/seller/showChart?si_seq=" + si_seq
+         }
+        else{ url= "/seller/showProdCntByTerm?si_seq=" + si_seq + "&term=" + term }
+        if (termChart != null) { termChart.destroy() }
+        let termName =null;
+        if(term==null||term==undefined||term==''){
+            termName= ""
         }
+        if(term=='week'){
+            termName='이번 주'
+        }
+        
+        if(term=='month'){
+            termName='이번 달'
+        }
+        if(term=='year'){
+            termName='올해'
+        }
+        $.ajax({
+            type: "get",
+            url: url,
+
+            success: function (r) {
+                termChart = new Chart($("#prod_cnt_month"), {
+                    type: 'bar',
+                    data: {
+                        labels: r.p_name,
+                        datasets: [{
+                            label:  termName+ " 제품 판매 현황",
+                            data: r.prod_cnt,
+                            backgroundColor: ["skyblue", "orangered", "#3cba9f", "#e8c3b9", "#c45850", "orange"],
+                            borderColor: ["pink", "pink", "pink", "pink", "pink", "pink"]
+                        }]
+                    }
+                })
+            }
+        })
+    }
+    $(".term_select_week").click(function () {
+        term = 'week'
+        termByChart(term)
+    })
+    $(".term_select_month").click(function () {
+        term = 'month'
+        termByChart(term)
+    })
+    $(".term_select_year").click(function () {
+        term = 'year'
+        termByChart(term)
     })
 
-
-
-     //Week Chart
-     $.ajax({
-        type: "get",
-        url: "/seller/showChartWeek?si_seq=" + si_seq,
-        success: function (r) {
-            console.log(r.p_name)
-            console.log(r.y_prod_cnt)
-            yDaychart = new Chart($("#prod_cnt_week"), {
-                type: 'bar',
-                data: {
-                    labels: r.p_name,
-                    datasets: [{
-                        label: "최근 일주일 제품 판매 현황",
-                        data: r.prod_cnt,
-                        backgroundColor: ["skyblue", "orangered", "#3cba9f", "#e8c3b9", "#c45850", "orange"],
-                        borderColor: ["pink", "pink", "pink", "pink", "pink", "pink"]
-                    }]
-                }
-            })
-        }
-    })
 
 
     //Date Chart
@@ -100,8 +114,6 @@ $(function () {
             type: "get",
             url: url,
             success: function (r) {
-                console.log(r.p_name)
-                console.log(r.y_prod_cnt)
                 DateChart = new Chart($("#prod_cnt_search"), {
                     type: 'bar',
                     data: {
@@ -114,42 +126,42 @@ $(function () {
                         }]
                     }
                 })
-                
-               
-               
-               
+
+
+
+
                 $(".prod_cnt_date").html('');
-                let prod_cnt_date='<span><총<b>'+ r.allCnt+'</b>개 품목 판매></span>'                    
+                let prod_cnt_date = '<span><총<b>' + r.allCnt + '</b>개 품목 판매></span>'
                 $(".prod_cnt_date").append(prod_cnt_date)
 
-                
+
                 $(".prod_cnt_today").html('');
-                let prod_cnt_today='<span><기본 날짜:'+ today()+'></span>'
+                let prod_cnt_today = '<span><기본 날짜:' + today() + '></span>'
                 $(".prod_cnt_today").append(prod_cnt_today)
 
 
                 $(".prod_cnt_chice").html('');
-                let choice_date=$("#select_date").val();
-                let prod_cnt_chice='<span><선택 날짜:'+ choice_date+'></span>'
+                let choice_date = $("#select_date").val();
+                let prod_cnt_chice = '<span><선택 날짜:' + choice_date + '></span>'
                 $(".prod_cnt_chice").append(prod_cnt_chice)
 
 
-                $("#date_prod_cnt_headaer").html('')  
-                for(let i = 0;i< r.p_name.length;i++){
-                    let headTr=
-                     
-                    '<td>' + r.p_name[i] + '</td>'
-                    
+                $("#date_prod_cnt_headaer").html('')
+                for (let i = 0; i < r.p_name.length; i++) {
+                    let headTr =
+
+                        '<td>' + r.p_name[i] + '</td>'
+
                     $("#date_prod_cnt_headaer").append(headTr)
                 }
-                $("#date_prod_cnt_body").html('')  
-                for(let i = 0;i< r.p_name.length;i++){
-                    let bodyTr=                 
+                $("#date_prod_cnt_body").html('')
+                for (let i = 0; i < r.p_name.length; i++) {
+                    let bodyTr =
 
-                    '<td>' + r.prod_cnt[i] + '</td>'     
+                        '<td>' + r.prod_cnt[i] + '</td>'
 
                     $("#date_prod_cnt_body").append(bodyTr)
-                }                               
+                }
             }
         })
     }

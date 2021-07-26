@@ -45,17 +45,24 @@
            group by a.pc_pi_seq order by pc_count desc ;
         </select>
 
-        <select id="showProdCntMonth" resultType="com.shoppingMall.vo.ChartVO">
+        <select id="showProdCntByTerm" resultType="com.shoppingMall.vo.ChartVO">
             select sum(a.pc_count)as pc_count,pi_name from product_count a inner join product_info b 
-            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 month ) AND NOW()
+            <if test="term.equals('month')">
+             on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date between date_format(now(),'%Y-%m-01') and now()
+            </if>
+            <if test="term.equals('week')">
+            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date between  adddate(curdate(), - weekday(curdate()) + 0 ) and adddate(curdate(), - weekday(curdate()) + 6)
+            </if>
+            <if test="term.equals('year')">
+             on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date between  date_format(sysdate(),'%Y-01-01') and date_format(sysdate(),'%Y-%m-%d')
+            </if>
+            <if test="term==null||term==''">
+             on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} 
+            </if>
             group by a.pc_pi_seq order by pc_count desc ;
         </select>
 
-        <select id="showProdCntWeek" resultType="com.shoppingMall.vo.ChartVO">
-            select sum(a.pc_count)as pc_count,pi_name from product_count a inner join product_info b 
-            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 week ) AND NOW()
-            group by a.pc_pi_seq order by pc_count desc ;
-        </select>        
+          
 
         <select id="showProdCntRank" resultType="com.shoppingMall.vo.ChartVO">
            select sum(a.pc_count)as pc_count,pi_name from product_count a inner join product_info b 

@@ -111,15 +111,15 @@ public class SellerService {
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
         List<ChartVO> list = mapper.showProdCnt(si_seq);
 
-        List<Integer> y_prod_cnt = new ArrayList<Integer>();
+        List<Integer> prod_cnt = new ArrayList<Integer>();
         List<String> p_name = new ArrayList<String>();
 
         for(ChartVO vo : list){
-            y_prod_cnt.add(vo.getPc_count());
+            prod_cnt.add(vo.getPc_count());
             p_name.add(vo.getPi_name());
             
         }
-        resultMap.put("y_prod_cnt", y_prod_cnt);
+        resultMap.put("prod_cnt", prod_cnt);
         resultMap.put("p_name", p_name);
         resultMap.put("allCnt",list.size());
         resultMap.put("status", true);
@@ -171,9 +171,9 @@ public class SellerService {
         return resultMap;
 
     }
-    public Map<String,Object> showProdCntMonth(Integer si_seq){
+    public Map<String,Object> showProdCntByTerm(Integer si_seq,String term){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       
-        List<ChartVO> list = mapper.showProdCntMonth(si_seq);
+        List<ChartVO> list = mapper.showProdCntByTerm(si_seq,term);
 
         List<Integer> prod_cnt = new ArrayList<Integer>();
         List<String> p_name = new ArrayList<String>();
@@ -192,27 +192,7 @@ public class SellerService {
         return resultMap;
 
     }
-    public Map<String,Object> showProdCntWeek(Integer si_seq){
-        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       
-        List<ChartVO> list = mapper.showProdCntWeek(si_seq);
-
-        List<Integer> prod_cnt = new ArrayList<Integer>();
-        List<String> p_name = new ArrayList<String>();
-
-        for(ChartVO vo : list){
-            prod_cnt.add(vo.getPc_count());
-            p_name.add(vo.getPi_name());
-            
-        }
-        resultMap.put("prod_cnt", prod_cnt);
-        resultMap.put("p_name", p_name);
-        resultMap.put("allCnt",list.size());
-        resultMap.put("status", true);
-        
-
-        return resultMap;
-
-    }
+    
     public Map<String,Object> showProdCntRank(Integer si_seq){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       
         List<ChartVO> list = mapper.showProdCntRank(si_seq);

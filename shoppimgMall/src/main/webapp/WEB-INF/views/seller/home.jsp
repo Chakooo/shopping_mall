@@ -19,11 +19,11 @@
             <body>
 
                 <input type="text" name="" id="seller_seq" value="${seller.si_seq}" disabled hidden>
-                <h1 class="main_h1"> ${seller.si_name} </h1>
+                <h1 class="main_h1">< ${seller.si_name} HOME ></h1>
                 <div>
                     <div class="left">
                         <h1>
-                            <우리가게 탑 5>
+                            <우리가게 탑 5 상품>
                         </h1>
                         <div class="chart">
                             <canvas id="prod_cnt"></canvas>

@@ -20,7 +20,7 @@
             <header>
                 <a href="/seller/home/{seller_id}" id="logo">
                     <img src="/assets/images/logo46.png" alt="">
-                    <span>${seller.si_name}님 <p>어서오세요</p></span>
+                    <span>${seller.si_name}님 !! <p>어서오세요</p></span>
 
                 </a>
                 <nav id="gnb">
