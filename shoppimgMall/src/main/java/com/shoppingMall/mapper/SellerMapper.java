@@ -27,6 +27,7 @@ public interface SellerMapper {
     // 판매현황 차트구현 mapper
     public List<ChartVO> showProdCnt(Integer si_seq);
     public List<ChartVO> showProdCntYesterDay(Integer si_seq);
+    public List<ChartVO> showProdCntToDay(Integer si_seq);
     public List<ChartVO> showProdCntByDate(Integer si_seq, String date);
     public List<ChartVO> showProdCntByTerm(Integer si_seq , String term);
     public List<ChartVO> showProdCntByTermDate(Integer si_seq , String start_date ,String end_date);
@@ -35,6 +36,6 @@ public interface SellerMapper {
     
     // 리뷰정보 판매자로 가져오기
      
-    public List<ReviewVO> showReiview(Integer si_seq);
+    public List<ReviewVO> showReiview(Integer si_seq); 
 
-}
+} 

@@ -131,17 +131,26 @@ public class SellerService {
     public Map<String,Object> showProdCntYesterDay(Integer si_seq) {
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
         List<ChartVO> list = mapper.showProdCntYesterDay(si_seq);
+        List<ChartVO> list2 = mapper.showProdCntToDay(si_seq);
+        List<ChartVO> name  = mapper.showProdCnt(si_seq);
 
         List<Integer> y_prod_cnt = new ArrayList<Integer>();
-        List<String> p_name = new ArrayList<String>();
+        List<Integer> t_prod_cnt = new ArrayList<Integer>();
+        List<String> all_name = new ArrayList<String>();
+       
 
         for(ChartVO vo : list){
             y_prod_cnt.add(vo.getPc_count());
-            p_name.add(vo.getPi_name());
-            
+        }
+        for(ChartVO vo : list2){
+            t_prod_cnt.add(vo.getPc_count());
+        }
+        for(ChartVO vo : name){
+            all_name.add(vo.getPi_name());
         }
         resultMap.put("y_prod_cnt", y_prod_cnt);
-        resultMap.put("p_name", p_name);
+        resultMap.put("t_prod_cnt", t_prod_cnt);
+        resultMap.put("all_name", all_name);
         resultMap.put("allCnt",list.size());
         resultMap.put("status", true);
         

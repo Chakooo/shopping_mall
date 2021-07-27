@@ -19,7 +19,7 @@
                 <input type="text" name="" id="seller_seq" value="${si_seq}" disabled hidden>
                 <input type="text" name="" id="prod_name" value="${prod_name}" disabled hidden>
                 <input type="text" name="" id="list_size" value="${list_size}" disabled hidden>
-
+                <h1 class="main_date"></h1>
                 <div class="main">
                     <h1>총 판매량</h1>
                     <h3>
@@ -52,7 +52,6 @@
                     <h1>기간별 판매량</h1>
                       
                     <h3 class="prod_cnt_date">
-                        <총<b> ${list_size}</b> 개 품목 판매>
                     </h3>              
                     <div class="prod_area">
                         <div class="all_prod_cnt">
@@ -82,6 +81,30 @@
                             <button class="select_date_btn">선택</button>
                         </div>
                     </div>
+                </div>
+
+                <div class="main">
+                    <h1>어제오늘 판매량 비교</h1>
+                      
+                    <h3 class="prod_cnt_date">
+                    </h3>              
+                    <div class="prod_area">
+                        <div class="all_prod_cnt">
+                            <canvas id="prod_cnt_ydate"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr id="ydate_prod_cnt_headaer">
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="ydate_prod_cnt_body">
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
 

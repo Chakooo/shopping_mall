@@ -33,10 +33,16 @@
            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} group by a.pc_pi_seq order by pc_count desc 
         </select>
 
-        <select id="showProdCntYesterDay" resultType="com.shoppingMall.vo.ChartVO">
-           select sum(a.pc_count)as pc_count,pi_name  from product_count a inner join product_info b 
-           on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date = current_date() - interval 1 day
-           group by a.pc_pi_seq order by pc_count desc  ;
+         <select id="showProdCntYesterDay" resultType="com.shoppingMall.vo.ChartVO">           
+           select sum(a.pc_count)as pc_count,pi_name,pc_date from product_count a inner join product_info b            
+           on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date= curdate()- INTERVAL 1 day         
+           group  by pi_name;
+        </select>
+
+        <select id="showProdCntToDay" resultType="com.shoppingMall.vo.ChartVO">    
+           select sum(a.pc_count)as pc_count,pi_name,pc_date from product_count a inner join product_info b 
+           on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date= curdate()
+           group  by pi_name;
         </select>
 
         <select id="showProdCntByDate" resultType="com.shoppingMall.vo.ChartVO">
