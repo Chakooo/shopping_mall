@@ -48,9 +48,7 @@
                         <li>
                             <a href="/" id="home">EE Market 으로 돌아가기</a>
                         </li>
-                        <c:if test="${seller ==null}">                            
-                             <button id="login">로그인</button>                               
-                        </c:if>
+                     
                         <c:if test="${seller!=null}">                         
                              <button id="logout">로그아웃</button></a>                           
                         </c:if>
