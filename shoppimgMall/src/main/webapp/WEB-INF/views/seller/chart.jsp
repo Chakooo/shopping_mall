@@ -18,10 +18,9 @@
             <body>
                 <input type="text" name="" id="seller_seq" value="${si_seq}" disabled hidden>
                 <input type="text" name="" id="prod_name" value="${prod_name}" disabled hidden>
-
+                <input type="text" name="" id="list_size" value="${list_size}" disabled hidden>
 
                 <div class="main">
-
                     <h1>총 판매량</h1>
                     <h3>
                         <총<b> ${list_size}</b> 개 품목 판매>
@@ -51,14 +50,13 @@
 
                 <div class="main">
                     <h1>기간별 판매량</h1>
-                    <h3>
-                        <총<b>${m_list_size}</b>개 품목 판매>
-                    </h3>
-
-
+                      
+                    <h3 class="prod_cnt_date">
+                        <총<b> ${list_size}</b> 개 품목 판매>
+                    </h3>              
                     <div class="prod_area">
                         <div class="all_prod_cnt">
-                            <canvas id="prod_cnt_month"></canvas>
+                            <canvas id="prod_cnt_term"></canvas>
                         </div>
                     </div>
                 </div>
@@ -73,42 +71,21 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div>
+                </div>
+                <div class = "select_btn_area">
+                    <div class="select_date_button">
                         <button class="term_select_week" value="week">이번 주 (월 ~ 일)</button>
                         <button class="term_select_month" value="month">이번 달</button>
                         <button class="term_select_year" value="year">올해</button>
-                    </div>
-                </div>
-
-
-
-                <div class="main">
-                    <h1>날짜별 판매량</h1>
-                    <h3 class="prod_cnt_date"></h3>
-                    <h3 class="prod_cnt_today"></h3>
-                    <h3 class="prod_cnt_chice"></h3>
-                    <div class="prod_area">
-                        <div class="all_prod_cnt">
-                            <canvas id="prod_cnt_search"></canvas>
+                        <div class="select_date_button">
+                            <input type="date" name="" id="start_date"> ~ <input type="date" name="" id="end_date">
+                            <button class="select_date_btn">선택</button>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <table class="table">
-                        <thead>
-                            <tr id="date_prod_cnt_headaer">
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id="date_prod_cnt_body">
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="select_date_button">
-                    <input type="date" name="" id="select_date">
-                    <button class="btn">선택</button>
-                </div>
+
+
+
             </body>
 
             </html>

@@ -12,9 +12,9 @@ h3{
     font-size: 20px;
 }
 .prod_cnt { text-align: center;}
-.prod_area > div { width: 1300px ; margin-left: 130px;}
+.prod_area > div { width: 1500px ; margin-left: 130px;}
 
-.table{ margin-top: 30px;width: 1300px ;margin-left: 130px; margin-bottom: 50px;}
+.table{ margin-top: 30px;width: 1500px ;margin-left: 130px; margin-bottom: 50px;}
 
 .table td{
     border:1px solid #ccc;
@@ -46,15 +46,27 @@ button{
 button:hover{
     background-color: #333;
 }
+.table_div {
+    width: 1500px ; margin-left: 130px;
+}
 .select_date_button{
     text-align: center;
     margin-bottom: 150px;
 }
-.table  #date_prod_cnt_headaer {
+.select_date_button > input { width: 146px;}
+.table  #date_prod_cnt_headaer ,#term_prod_cnt_headaer {
     background-color: #fdd835
 }
+.select_date_button > button{ width: 150px; margin-bottom: 20px;}
 
 b{
     font-size: 30px;
     color:#db7500;
+}
+
+.select_btn_area {
+    width: 1500px ;margin-left: 130px;
+}
+.select_date_button .btn {
+ width: 100px; background-color: #df9139;
 }

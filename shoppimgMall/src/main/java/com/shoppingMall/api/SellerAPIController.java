@@ -95,12 +95,16 @@ public class SellerAPIController {
     }
 
     @GetMapping("/seller/showProdCntByTerm")
-    public Map<String, Object> getSellerChartMonth(@RequestParam Integer si_seq , @RequestParam @Nullable String term) {
+    public Map<String, Object> getSellerChartTerm(@RequestParam Integer si_seq , @RequestParam @Nullable String term) {
         Map<String, Object> resultMap = s_service.showProdCntByTerm(si_seq,term);
         return resultMap;
     }
-
-  
+    @GetMapping("/seller/showProdCntByTermDate")
+    public Map<String, Object> getSellerChartByTermDate(@RequestParam Integer si_seq , @RequestParam @Nullable String start_date,
+    @RequestParam @Nullable String end_date) {
+        Map<String, Object> resultMap = s_service.showProdCntByTermDate(si_seq,start_date,end_date);
+        return resultMap;
+    }  
 
     @GetMapping("/seller/showChartRank")
     public Map<String, Object> getSellerChartRank(@RequestParam Integer si_seq) {

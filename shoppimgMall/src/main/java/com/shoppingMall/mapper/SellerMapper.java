@@ -29,6 +29,7 @@ public interface SellerMapper {
     public List<ChartVO> showProdCntYesterDay(Integer si_seq);
     public List<ChartVO> showProdCntByDate(Integer si_seq, String date);
     public List<ChartVO> showProdCntByTerm(Integer si_seq , String term);
+    public List<ChartVO> showProdCntByTermDate(Integer si_seq , String start_date ,String end_date);
     public List<ChartVO> showProdCntRank(Integer si_seq);
 
     

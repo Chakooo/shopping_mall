@@ -192,6 +192,28 @@ public class SellerService {
         return resultMap;
 
     }
+    public Map<String,Object> showProdCntByTermDate(Integer si_seq , String start_date ,String end_date){
+        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       
+        List<ChartVO> list = mapper.showProdCntByTermDate(si_seq,start_date,end_date);
+
+        List<Integer> prod_cnt = new ArrayList<Integer>();
+        List<String> p_name = new ArrayList<String>();
+
+        for(ChartVO vo : list){
+            prod_cnt.add(vo.getPc_count());
+            p_name.add(vo.getPi_name());
+            
+        }
+        resultMap.put("prod_cnt", prod_cnt);
+        resultMap.put("p_name", p_name);
+        resultMap.put("allCnt",list.size());
+        resultMap.put("status", true);
+        
+
+        return resultMap;
+
+
+    }
     
     public Map<String,Object> showProdCntRank(Integer si_seq){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       

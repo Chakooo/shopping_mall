@@ -55,13 +55,15 @@
             </if>
             <if test="term.equals('year')">
              on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date between  date_format(sysdate(),'%Y-01-01') and date_format(sysdate(),'%Y-%m-%d')
-            </if>
-            <if test="term==null||term==''">
-             on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} 
-            </if>
+            </if>          
             group by a.pc_pi_seq order by pc_count desc ;
         </select>
 
+        <select id="showProdCntByTermDate" resultType="com.shoppingMall.vo.ChartVO">
+             select sum(a.pc_count)as pc_count,pi_name from product_count a inner join product_info b 
+             on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq}  and pc_date between #{start_date} and #{end_date}
+             group by a.pc_pi_seq order by pc_count desc ;
+        </select>
           
 
         <select id="showProdCntRank" resultType="com.shoppingMall.vo.ChartVO">
