@@ -89,6 +89,7 @@ public class SellerService {
         if (result == 1) {
             resultMap.put("status", true);
             SellerInfoVO seller = mapper.selectSellerInfoById(vo.getId());
+            resultMap.put("si_seq",seller.getSi_seq());
             resultMap.put("seller", seller);
         } else {
             resultMap.put("status", false);

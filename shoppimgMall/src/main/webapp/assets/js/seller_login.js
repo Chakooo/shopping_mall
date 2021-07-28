@@ -33,7 +33,8 @@ $(function(){
             contentType:"application/json",
             success:function(r){
                 if(r.status){
-                location.href="/seller/home/{id}";
+                location.href="/seller/home/"+r.si_seq;
+             
             }
             else{
                 alert(r.message);

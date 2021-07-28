@@ -104,7 +104,7 @@
                     </a>
                      </c:if>
                      <c:if test="${seller != null}">
-                    <a href="/seller/home/${seller.si_id}" id="seller_home" class="seller_home_icon">
+                    <a href="/seller/home/${seller.si_seq}" id="seller_home" class="seller_home_icon">
                         <img src="/assets/images/free-icon-house-5103132.png" alt="" style="width:35.99px;height:35.99px">                                           
                     </a>
                      </c:if>

@@ -13,6 +13,7 @@ import com.shoppingMall.vo.DeliveryInfoVO;
 import com.shoppingMall.vo.SellerInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,17 +40,18 @@ public class SellerController {
     }
 
     @GetMapping("/seller/home")
-    public String getHome(){
+    public String getHome(){        
 
         return "redirect:/seller/login";
     }
 
-    @GetMapping("/seller/home/{seller_id}")
-    public String getHome(@PathVariable String seller_id){
-        if(seller_id==null){
-            return "redirect:/seller/join";
+    @GetMapping("/seller/home/{si_seq}")
+    public String getHome(@PathVariable @Nullable Integer si_seq){
+        if(si_seq == null){
+            return "/";
         }
-        return "/seller/home";
+           
+        return "/seller/home";  
     }
 
     @GetMapping("/seller/product/{si_seq}")

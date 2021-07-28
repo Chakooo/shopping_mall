@@ -16,15 +16,14 @@
         </head>
 
         <body>
-            
+            <input type="text" name="" id="si_seq" value="${seller.si_seq}" disabled hidden>
             <header>
-                <a href="/seller/home/{seller_id}" id="logo">
+                <a href="/seller/home/${seller.si_seq}" id="logo">
                     <img src="/assets/images/logo46.png" alt="">
                     <span>${seller.si_name}님 !! <p>어서오세요</p></span>
 
                 </a>
-                <nav id="gnb">
-                    
+                <nav id="gnb">                    
                     <ul>
                         <li>
                             <a href="/seller/product/${seller.si_seq}" id="category">상품 관리</a>

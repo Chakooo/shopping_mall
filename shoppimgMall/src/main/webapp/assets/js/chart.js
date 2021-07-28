@@ -1,19 +1,15 @@
 $(function () {
     let termChart = null;
     let term = null;
-
-    termByChart();
-    // selectDateChart();
-    $(".main_date").html("< " + today() + " >");
     let si_seq = $("#seller_seq").val();
-    $(".btn").click(function () {
-        let select_date = $("#select_date").val();
-        selectDateChart(select_date);
-    })
+    
+    termByChart();
+
+    $(".main_date").html("< " + today() + " >");   
 
     // All Cnt Chart
+    
     $.ajax({
-
         type: "get",
         url: "/seller/showChart?si_seq=" + si_seq,
         success: function (r) {
@@ -24,7 +20,7 @@ $(function () {
                     datasets: [{
                         label: "총 판매 현황",
                         data: r.prod_cnt,
-                        backgroundColor: ["skyblue", "orangered", "#3cba9f", "#e8c3b9", "#c45850", "orange"],
+                        backgroundColor: ["#D3D1FF", "#C7EDD5", "#FFF8DB", "#E9C9C9", "#c45850", "#BDC5FC"],
                         borderColor: ["pink", "pink", "pink", "pink", "pink", "pink"]
                     }]
                 }
@@ -87,7 +83,7 @@ $(function () {
                         datasets: [{
                             label: termName + "총 판매 현황",
                             data: r.prod_cnt,
-                            backgroundColor: ["skyblue", "orangered", "#3cba9f", "#e8c3b9", "#c45850", "orange"],
+                            backgroundColor: ["#D3D1FF", "#C7EDD5", "#FFF8DB", "#E9C9C9", "#c45850", "#BDC5FC"],
                             borderColor: ["pink", "pink", "pink", "pink", "pink", "pink"]
                         }]
                     }
@@ -146,7 +142,7 @@ $(function () {
                     datasets: [{
                         label: yesterDay(),
                         data: r.y_prod_cnt,
-                        backgroundColor: ["skyblue"
+                        backgroundColor: ["#D3D1FF"
                         ],
                         borderColor: ["pink"
                         ]
@@ -154,7 +150,7 @@ $(function () {
                     {
                         label:today(),
                         data: r.t_prod_cnt,
-                        backgroundColor: ["#da70d6"],
+                        backgroundColor: ["#C7EDD5"],
                         borderColor: ["pink", "pink", "pink", "pink", "pink",
                             "pink"]
                     }
