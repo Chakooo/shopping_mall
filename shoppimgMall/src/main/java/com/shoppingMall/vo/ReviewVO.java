@@ -15,6 +15,8 @@ private String rev_content;
 private Integer rev_rate;    
 private Integer rev_oi_seq;
 
+private String result_reg_dt;
+private String result_mod_dt;
 
 // 리뷰정보 가져오기위한 vo변수 추가
 private Integer si_seq;

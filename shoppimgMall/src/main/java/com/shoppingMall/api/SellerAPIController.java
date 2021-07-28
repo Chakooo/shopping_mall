@@ -113,11 +113,4 @@ public class SellerAPIController {
         return resultMap;
     }
 
-    @GetMapping("/seller/showReiview")
-    public Map<String, Object> showReiview(@RequestParam Integer si_seq) {
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        List<ReviewVO> list =   s_service.showReiview(si_seq);
-        resultMap.put("list",list);
-        return resultMap;
-    }
 }

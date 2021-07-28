@@ -34,8 +34,6 @@ public interface SellerMapper {
     public List<ChartVO> showProdCntRank(Integer si_seq);
 
     
-    // 리뷰정보 판매자로 가져오기
-     
-    public List<ReviewVO> showReiview(Integer si_seq); 
+    
 
 } 

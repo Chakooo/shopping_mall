@@ -18,8 +18,11 @@
 
             <body>
 
+
                 <input type="text" name="" id="seller_seq" value="${seller.si_seq}" disabled hidden>
-                <h1 class="main_h1">< ${seller.si_name} HOME ></h1>
+                <h1 class="main_h1">
+                    < ${seller.si_name} HOME>
+                </h1>
                 <div>
                     <div class="left">
                         <h1>
@@ -31,7 +34,7 @@
                     </div>
                     <div class="right">
                         <h1>
-                            <리뷰 확인하기>
+                            <a href="/seller/review"><리뷰 확인하기></a>
                         </h1>
                         <div class="list">
                             <table>
@@ -40,19 +43,27 @@
                                         <td>제품명</td>
                                         <td>아이디</td>
                                         <td>내용</td>
-                                        <td>별점</td>                                        
-                                        <td>리뷰 등록일</td>                                        
+                                        <td>별점</td>
+                                        <td>리뷰 등록일</td>
+                                        <td>답변 여부</td>
                                     </tr>
                                 </thead>
                                 <tbody id="review_tbody">
+                                    <c:forEach items="${r_list}" var="list">
+                                        <tr>                                           
+                                            <td>${list.pi_name}</td>
+                                            <td>${list.mi_id}</td>
+                                            <td><a href="/seller/review/${list.si_seq}/${list.rev_seq}">${list.rev_content}</a></td>
+                                            <td>${list.rev_rate}</td>
+                                            <td>${list.result_reg_dt}</td>                                       
+                                        </tr>
 
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                
-
 
 
 

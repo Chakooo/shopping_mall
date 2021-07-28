@@ -3,13 +3,16 @@ package com.shoppingMall.controller;
 import java.util.List;
 
 import com.shoppingMall.mapper.ProductMapper;
+import com.shoppingMall.mapper.ReviewMapper;
 import com.shoppingMall.mapper.SellerMapper;
 import com.shoppingMall.service.CategoryService;
 import com.shoppingMall.service.DeliveryService;
+import com.shoppingMall.service.ReviewService;
 import com.shoppingMall.service.SellerService;
 import com.shoppingMall.vo.CategoryVO;
 import com.shoppingMall.vo.ChartVO;
 import com.shoppingMall.vo.DeliveryInfoVO;
+import com.shoppingMall.vo.ReviewVO;
 import com.shoppingMall.vo.SellerInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,7 @@ public class SellerController {
     @Autowired SellerService seller_service;
     @Autowired SellerMapper seller_mapper;
     @Autowired ProductMapper p_mapper;
+    @Autowired ReviewService r_service;
     
     
 
@@ -46,10 +50,13 @@ public class SellerController {
     }
 
     @GetMapping("/seller/home/{si_seq}")
-    public String getHome(@PathVariable @Nullable Integer si_seq){
+    public String getHome(@PathVariable Integer si_seq,Model model){
         if(si_seq == null){
             return "/";
         }
+        List<ReviewVO> r_list = r_service.showReview(si_seq);
+        model.addAttribute("r_list", r_list);
+        
            
         return "/seller/home";  
     }
@@ -99,5 +106,22 @@ public class SellerController {
         
               
         return "/seller/chart";
+    }  
+           
+    @GetMapping("/seller/review/{si_seq}")
+    public String getSellerReview(@PathVariable Integer si_seq,Model model){
+        List<ReviewVO> r_list = r_service.showReview(si_seq);
+        model.addAttribute("r_list", r_list);
+        
+              
+        return "/seller/review";
+    }  
+    @GetMapping("/seller/review/{si_seq}/{rev_seq}")
+    public String getSellerReview(@PathVariable Integer si_seq ,@PathVariable @Nullable Integer rev_seq, Model model){
+        List<ReviewVO> r_list = r_service.showReview(si_seq);
+        model.addAttribute("r_list", r_list);
+        
+              
+        return "/seller/r_detail";
     }  
 }

@@ -247,9 +247,6 @@ public class SellerService {
 
     }
 
-    public List<ReviewVO> showReiview(Integer si_seq){
-        return mapper.showReiview(si_seq);
-        
-    }
+  
  
 }
