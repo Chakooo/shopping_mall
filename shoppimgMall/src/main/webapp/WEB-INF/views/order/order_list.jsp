@@ -14,8 +14,6 @@
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/assets/js/admin_js/order_list.js"></script>
     <link rel="stylesheet" href="/assets/css/admin_css/table_style.css">
-
-    
     <title>Document</title>
 </head>
 

@@ -1,4 +1,5 @@
 $(function () {
+    $("#chart_managed").addClass("current")
     let termChart = null;
     let term = null;
     let si_seq = $("#seller_seq").val();

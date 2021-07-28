@@ -1,4 +1,5 @@
 $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이거랑 같다. html로드가 완료됐을떄      
+    $("#product_managed").addClass("current")
     $("#add_product").click(function(){
         $(".product_form").css("display","block");
         $("#img_preview").html("");

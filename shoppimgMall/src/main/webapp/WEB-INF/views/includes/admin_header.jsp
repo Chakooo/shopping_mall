@@ -26,22 +26,22 @@
                 <nav id="gnb">                    
                     <ul>
                         <li>
-                            <a href="/seller/product/${seller.si_seq}" id="category">상품 관리</a>
+                            <a href="/seller/product/${seller.si_seq}" id="product_managed">상품 관리</a>
                         </li>
                         <li>
-                            <a href="/seller/regular/${seller.si_seq}" id="regular">단골 손님</a>
+                            <a href="/seller/regular/${seller.si_seq}" id="regular_managed">단골 손님</a>
                         </li>
                         <li>
-                            <a href="/seller/review/${seller.si_seq}">리뷰 관리</a>
+                            <a href="/seller/review/${seller.si_seq}" id="review_managed">리뷰 관리</a>
                         </li>
                         <li>
-                            <a href="/seller/chart/${seller.si_seq}" id="">상품 판매 현황</a>
+                            <a href="/seller/chart/${seller.si_seq}" id="chart_managed">상품 판매 현황</a>
                         </li>
                         <li>
-                            <a href="#" id="recommand">추천 상품 관리</a>
+                            <a href="#" id="recommand_managed">추천 상품 관리</a>
                         </li>
                         <li>
-                            <a href="/order/${seller.si_seq}">배송 현황 관리</a>
+                            <a href="/order/${seller.si_seq}"  id="order_managed">배송 현황 관리</a>
                         </li>
                        
                         <li>

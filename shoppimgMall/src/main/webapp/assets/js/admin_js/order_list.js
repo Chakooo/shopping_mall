@@ -1,5 +1,6 @@
 $(function () {
-    $("#status_change button").click(function () {
+    $("#order_managed").addClass("current")
+    $("#status_change button").click(function () {       
         let status = $(this).attr("data-status");
         let oi_seq = $(this).parent().parent().attr("data-oi-seq");
         // let pi_seq =$(this).parent().parent().attr("data-pi-seq");

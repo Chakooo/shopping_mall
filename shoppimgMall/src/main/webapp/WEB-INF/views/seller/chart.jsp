@@ -73,12 +73,12 @@
                 </div>
                 <div class = "select_btn_area">
                     <div class="select_date_button">
-                        <button class="term_select_week" value="week">이번 주 (월 ~ 일)</button>
-                        <button class="term_select_month" value="month">이번 달</button>
-                        <button class="term_select_year" value="year">올해</button>
+                        <button class="term_select_week c_button" value="week">이번 주 (월 ~ 일)</button>
+                        <button class="term_select_month c_button" value="month">이번 달</button>
+                        <button class="term_select_year c_button" value="year">올해</button>
                         <div class="select_date_button">
                             <input type="date" name="" id="start_date"> ~ <input type="date" name="" id="end_date">
-                            <button class="select_date_btn">선택</button>
+                            <button class="select_date_btn c_button">선택</button>
                         </div>
                     </div>
                 </div>
