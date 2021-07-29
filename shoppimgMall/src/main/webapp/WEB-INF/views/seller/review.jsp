@@ -39,7 +39,7 @@
                         <tbody id="review_tbody">
                             <c:forEach items="${r_list}" var="list">
                                 <tr>
-                                    <td>${list.pi_name}</td>
+                                    <td>${list.pi_name}${list.rev_seq}</td>
                                     <td>${list.mi_id}</td>
                                     <td><button value="${list.rev_seq}"class="rev_seq" style="border:0; outline:0; cursor: pointer; background-color: white;" >${list.rev_content}</button></td>
                                     <td>${list.rev_rate}</td>
@@ -52,7 +52,7 @@
                                         <p>답변등록</p>
                                         <textarea cols="30" rows="10"></textarea>
                                     </td>
-                                </tr>
+                                </tr>                 
 
                             </c:forEach>
 
