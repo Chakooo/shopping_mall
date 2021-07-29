@@ -141,7 +141,7 @@ $(function () {
                 data: {
                     labels: r.all_name,
                     datasets: [{
-                        label: yesterDay(),
+                        label: yesterDay()+" 어제",
                         data: r.y_prod_cnt,
                         backgroundColor: ["#D3D1FF"
                         ],
@@ -149,7 +149,7 @@ $(function () {
                         ]
                     },
                     {
-                        label:today(),
+                        label:today()+" 오늘",
                         data: r.t_prod_cnt,
                         backgroundColor: ["#C7EDD5"],
                         borderColor: ["pink", "pink", "pink", "pink", "pink",

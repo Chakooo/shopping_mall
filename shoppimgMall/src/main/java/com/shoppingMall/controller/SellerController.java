@@ -3,7 +3,6 @@ package com.shoppingMall.controller;
 import java.util.List;
 
 import com.shoppingMall.mapper.ProductMapper;
-import com.shoppingMall.mapper.ReviewMapper;
 import com.shoppingMall.mapper.SellerMapper;
 import com.shoppingMall.service.CategoryService;
 import com.shoppingMall.service.DeliveryService;
@@ -16,7 +15,6 @@ import com.shoppingMall.vo.ReviewVO;
 import com.shoppingMall.vo.SellerInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -108,20 +106,5 @@ public class SellerController {
         return "/seller/chart";
     }  
            
-    @GetMapping("/seller/review/{si_seq}")
-    public String getSellerReview(@PathVariable Integer si_seq,Model model){
-        List<ReviewVO> r_list = r_service.showReview(si_seq);
-        model.addAttribute("r_list", r_list);
-        
-              
-        return "/seller/review";
-    }  
-    @GetMapping("/seller/review/{si_seq}/{rev_seq}")
-    public String getSellerReview(@PathVariable Integer si_seq ,@PathVariable @Nullable Integer rev_seq, Model model){
-        List<ReviewVO> r_list = r_service.showReview(si_seq);
-        model.addAttribute("r_list", r_list);
-        
-              
-        return "/seller/r_detail";
-    }  
+   
 }

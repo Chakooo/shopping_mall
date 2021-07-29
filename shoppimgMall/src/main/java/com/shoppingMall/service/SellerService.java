@@ -9,7 +9,6 @@ import com.shoppingMall.mapper.SellerMapper;
 import com.shoppingMall.utils.AESAlgorithm;
 import com.shoppingMall.vo.ChartVO;
 import com.shoppingMall.vo.LoginVO;
-import com.shoppingMall.vo.ReviewVO;
 import com.shoppingMall.vo.SellerInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;

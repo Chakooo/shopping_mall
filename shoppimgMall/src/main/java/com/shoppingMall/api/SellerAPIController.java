@@ -1,14 +1,12 @@
 package com.shoppingMall.api;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import com.shoppingMall.service.SellerService;
 import com.shoppingMall.vo.LoginVO;
-import com.shoppingMall.vo.ReviewVO;
 import com.shoppingMall.vo.SellerInfoVO;
 import org.springframework.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;

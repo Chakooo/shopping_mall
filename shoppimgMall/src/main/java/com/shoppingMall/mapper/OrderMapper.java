@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.shoppingMall.vo.OrderInfoVO;
 import com.shoppingMall.vo.OrderProductVO;
-import com.shoppingMall.vo.productCountVO;
+import com.shoppingMall.vo.ProductCountVO;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -22,7 +22,7 @@ public interface OrderMapper {
 
     // 상품 주문시 상품 +Count
 
-    public void insertProductConunt(productCountVO vo);
+    public void insertProductConunt(ProductCountVO vo);
 
 
     

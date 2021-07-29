@@ -2,6 +2,7 @@ package com.shoppingMall.mapper;
 
 import java.util.List;
 
+import com.shoppingMall.vo.ReviewAnswerVO;
 import com.shoppingMall.vo.ReviewVO;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -16,4 +17,14 @@ public interface ReviewMapper {
     // 리뷰정보 판매자로 가져오기
      
     public List<ReviewVO> showReview(Integer si_seq); 
+    public ReviewVO showReviewBySeq(Integer si_seq,Integer rev_seq);
+
+    // 리뷰에 대한 판매자의 리뷰답변 달기
+
+    public void insertReivewAnswer(Integer si_seq,Integer rev_seq);
+    public ReviewAnswerVO selectReviewAnsewer (Integer si_seq,Integer rev_seq);
+
+
+
+    
 }

@@ -12,7 +12,7 @@
             <link rel="stylesheet" href="/assets/css/admin_css/admin_header.css">
             <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
             <script src="/assets/js/admin_js/header.js"></script>
-
+            <link rel="shortcut icon" type="image/x-icon" href="/assets/images/free-icon-shopping-cart-1136140.png">
         </head>
 
         <body>

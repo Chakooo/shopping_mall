@@ -42,4 +42,5 @@ public class DetailController {
 
         return "/detail/info";
     }   
+ 
 }

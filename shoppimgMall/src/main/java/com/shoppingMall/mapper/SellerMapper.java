@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.shoppingMall.vo.ChartVO;
 import com.shoppingMall.vo.LoginVO;
-import com.shoppingMall.vo.ReviewVO;
 import com.shoppingMall.vo.SellerInfoVO;
 
 import org.apache.ibatis.annotations.Mapper;

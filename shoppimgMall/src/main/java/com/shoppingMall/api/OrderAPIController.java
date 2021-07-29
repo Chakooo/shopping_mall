@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.shoppingMall.service.OrderService;
 import com.shoppingMall.vo.OrderInfoVO;
-import com.shoppingMall.vo.productCountVO;
+import com.shoppingMall.vo.ProductCountVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -65,7 +65,7 @@ public class OrderAPIController {
     }
 
     @PostMapping("/order/product/count")
-    public Map<String, Object> addProductCount(@RequestBody productCountVO vo) {
+    public Map<String, Object> addProductCount(@RequestBody ProductCountVO vo) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         service.insertProductConunt(vo);
         resultMap.put("status",true);

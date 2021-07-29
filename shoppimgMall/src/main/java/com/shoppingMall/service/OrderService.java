@@ -7,7 +7,7 @@ import com.shoppingMall.mapper.OrderMapper;
 import com.shoppingMall.mapper.ReviewMapper;
 import com.shoppingMall.vo.OrderInfoVO;
 import com.shoppingMall.vo.OrderProductVO;
-import com.shoppingMall.vo.productCountVO;
+import com.shoppingMall.vo.ProductCountVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,7 +73,7 @@ public class OrderService {
     public void UpdateDeliveryStatus(Integer status , Integer oi_seq){
         mapper.UpdateDeliveryStatus(status, oi_seq);
    }
-   public void insertProductConunt(productCountVO vo){
+   public void insertProductConunt(ProductCountVO vo){
        System.out.println(vo.getPc_mi_seq());
        mapper.insertProductConunt(vo);
    }

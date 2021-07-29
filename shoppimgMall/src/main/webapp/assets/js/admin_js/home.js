@@ -18,7 +18,7 @@ $(function () {
                     datasets: [{
                         label: "최근 한달 제품 판매 현황",
                         data: r.prod_cnt,
-                        backgroundColor: ["skyblue", "orangered", "#3cba9f", "#e8c3b9", "#c45850", "orange"],
+                        backgroundColor: ["#D3D1FF", "#C7EDD5", "#FFF8DB", "#E9C9C9", "#c45850", "orange"],
                         borderColor: ["black"]
                     }]
                 }

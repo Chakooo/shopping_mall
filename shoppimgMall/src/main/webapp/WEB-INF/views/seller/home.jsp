@@ -34,7 +34,7 @@
                     </div>
                     <div class="right">
                         <h1>
-                            <a href="/seller/review"><리뷰 확인하기></a>
+                            <a href="/seller/review/${seller.si_seq}"><리뷰 확인하기></a>
                         </h1>
                         <div class="list">
                             <table>
@@ -53,7 +53,7 @@
                                         <tr>                                           
                                             <td>${list.pi_name}</td>
                                             <td>${list.mi_id}</td>
-                                            <td><a href="/seller/review/${list.si_seq}/${list.rev_seq}">${list.rev_content}</a></td>
+                                            <td>${list.rev_content}</td>
                                             <td>${list.rev_rate}</td>
                                             <td>${list.result_reg_dt}</td>                                       
                                         </tr>

@@ -3,7 +3,7 @@ package com.shoppingMall.vo;
 import lombok.Data;
 
 @Data
-public class productCountVO {
+public class ProductCountVO {
   private Integer  pc_seq;
   private Integer  pc_pi_seq;
   private Integer  pc_count;

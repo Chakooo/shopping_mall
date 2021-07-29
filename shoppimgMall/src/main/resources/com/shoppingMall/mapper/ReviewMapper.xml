@@ -4,21 +4,40 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.shoppingMall.mapper.ReviewMapper">
 <insert id="insertReview">
-  insert into review (rev_pi_seq,rev_mi_seq,rev_oi_seq,rev_content,rev_rate)
-  values(#{rev_pi_seq},#{rev_mi_seq},#{rev_oi_seq},#{rev_content},#{rev_rate})
+      insert into review (rev_pi_seq,rev_mi_seq,rev_oi_seq,rev_content,rev_rate)
+      values(#{rev_pi_seq},#{rev_mi_seq},#{rev_oi_seq},#{rev_content},#{rev_rate})
 </insert>
-<select id="selectMemberProdReviewCnt" resultType="java.lang.Integer">
-select count(*) from review where rev_oi_seq  = #{oi_seq};
+      <select id="selectMemberProdReviewCnt" resultType="java.lang.Integer">
+      select count(*) from review where rev_oi_seq  = #{oi_seq};
 </select>
-<select id="selectProdReviewRateAvg" resultType="java.lang.Double">
-select  AVG(rev_rate) as rev_rate_avg from review where rev_pi_seq= #{pi_seq} group by rev_pi_seq;
+      <select id="selectProdReviewRateAvg" resultType="java.lang.Double">
+      select  AVG(rev_rate) as rev_rate_avg from review where rev_pi_seq= #{pi_seq} group by rev_pi_seq;
 </select>
 
  <select id="showReview" resultType="com.shoppingMall.vo.ReviewVO">
-            select rev_seq,si_seq,rev_reg_dt,rev_mod_dt,rev_rate,pi_name,pi_price,rev_content,mi_id from member_info a inner join
-            (select * from seller_info a inner join
-            (select * from review a inner join product_info b on a.rev_pi_seq = b.pi_seq )b on a.si_seq = b.pi_si_seq)
-            b on a.mi_seq = b.rev_mi_seq where si_seq=#{si_seq} order by rev_reg_dt desc limit 10;
+      select rev_seq,si_seq,rev_reg_dt,rev_mod_dt,rev_rate,pi_name,pi_price,rev_content,mi_id from member_info a inner join
+      (select * from seller_info a inner join
+      (select * from review a inner join product_info b on a.rev_pi_seq = b.pi_seq )b on a.si_seq = b.pi_si_seq)
+      b on a.mi_seq = b.rev_mi_seq where si_seq=#{si_seq} order by rev_reg_dt desc limit 10;
+ </select>
+ <select id="showReviewBySeq" resultType="com.shoppingMall.vo.ReviewVO">
+      select rev_seq,si_seq,rev_reg_dt,rev_mod_dt,rev_rate,pi_name,pi_price,rev_content,mi_id from member_info a inner join
+      (select * from seller_info a inner join
+      (select * from review a inner join product_info b on a.rev_pi_seq = b.pi_seq )b on a.si_seq = b.pi_si_seq)
+      b on a.mi_seq = b.rev_mi_seq where si_seq=#{si_seq} and rev_seq =#{rev_seq} order by rev_reg_dt desc limit 10;
  </select>
 
+<select id="selectReviewAnsewer" resultType="com.shoppingMall.vo.ReviewAnswerVO">
+      select * from review_answer where ra_si_seq=#{si_seq} and ra_rev_seq=#{rev_seq}
+</select>
+
+<select id="ReviewAnsewer" resultType="com.shoppingMall.vo.ReviewAnswerVO">
+      select * from review_answer where ra_si_seq=#{si_seq}
+</select>
+
+<insert id="insertReivewAnswer">
+      INSERT INTO shoppingmall.review_answer
+      (ra_rev_seq, ra_reg_dt, ra_mod_dt, ra_content, ra_si_seq)
+      VALUES(#{ra_rev_seq}, #{ra_reg_dt}, #{ra_mod_dt}, #{ra_content}, #{ra_si_seq});
+</insert>
   </mapper>
