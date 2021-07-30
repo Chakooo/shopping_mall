@@ -14,6 +14,7 @@ private Date rev_mod_dt;
 private String rev_content;
 private Integer rev_rate;    
 private Integer rev_oi_seq;
+private Integer rev_status;
 
 private String result_reg_dt;
 private String result_mod_dt;

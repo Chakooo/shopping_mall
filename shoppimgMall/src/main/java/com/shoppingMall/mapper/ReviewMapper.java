@@ -21,9 +21,9 @@ public interface ReviewMapper {
 
     // 리뷰에 대한 판매자의 리뷰답변 달기
 
-    public void insertReivewAnswer(Integer si_seq,Integer rev_seq);
+    public void insertReviewAnswer(ReviewAnswerVO vo);
     public ReviewAnswerVO selectReviewAnsewer (Integer si_seq,Integer rev_seq);
-
+    public void updateReviewStatus(Integer rev_seq);
 
 
     

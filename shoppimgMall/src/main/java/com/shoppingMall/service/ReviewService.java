@@ -36,16 +36,19 @@ public class ReviewService {
         
         return r_vo;
     }
-    public void insertReivewAnswer(Integer si_seq,Integer rev_seq){
+    public void insertReviewAnswer(ReviewAnswerVO vo){
 
         // 백단 Null 값 예외처리해서 mybatis 로 보낼것
 
-        mapper.insertReivewAnswer(si_seq, rev_seq);
+        mapper.insertReviewAnswer(vo);
     }
     public ReviewAnswerVO selectReviewAnsewer (Integer si_seq,Integer rev_seq){
         ReviewAnswerVO list = mapper.selectReviewAnsewer(si_seq, rev_seq);
 
         return list;
+    }
+    public void updateReviewStatus(Integer rev_seq){
+        mapper.updateReviewStatus(rev_seq);
     }
 
 }

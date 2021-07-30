@@ -15,7 +15,7 @@
 </select>
 
  <select id="showReview" resultType="com.shoppingMall.vo.ReviewVO">
-      select rev_seq,si_seq,rev_reg_dt,rev_mod_dt,rev_rate,pi_name,pi_price,rev_content,mi_id from member_info a inner join
+      select rev_status,rev_seq,si_seq,rev_reg_dt,rev_mod_dt,rev_rate,pi_name,pi_price,rev_content,mi_id from member_info a inner join
       (select * from seller_info a inner join
       (select * from review a inner join product_info b on a.rev_pi_seq = b.pi_seq )b on a.si_seq = b.pi_si_seq)
       b on a.mi_seq = b.rev_mi_seq where si_seq=#{si_seq} order by rev_reg_dt desc limit 10;
@@ -35,9 +35,15 @@
       select * from review_answer where ra_si_seq=#{si_seq}
 </select>
 
-<insert id="insertReivewAnswer">
+<insert id="insertReviewAnswer">
       INSERT INTO shoppingmall.review_answer
-      (ra_rev_seq, ra_reg_dt, ra_mod_dt, ra_content, ra_si_seq)
-      VALUES(#{ra_rev_seq}, #{ra_reg_dt}, #{ra_mod_dt}, #{ra_content}, #{ra_si_seq});
+      (ra_rev_seq, ra_content, ra_si_seq)
+      VALUES(#{ra_rev_seq}, #{ra_content}, #{ra_si_seq});
 </insert>
+
+<update id="updateReviewStatus">
+      UPDATE shoppingmall.review
+      SET rev_status=1
+      WHERE rev_seq= #{rev_seq};
+</update>
   </mapper>

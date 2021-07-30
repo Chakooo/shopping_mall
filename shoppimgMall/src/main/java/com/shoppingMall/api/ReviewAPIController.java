@@ -11,7 +11,9 @@ import com.shoppingMall.vo.ReviewVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,13 +37,26 @@ public class ReviewAPIController {
     @GetMapping("/review/select")
     public Map<String,Object> selectReviewAnsewer(@RequestParam Integer si_seq , @RequestParam Integer rev_seq){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
-       ReviewAnswerVO ra_vo =  r_service.selectReviewAnsewer(si_seq, rev_seq);
+       ReviewAnswerVO data =  r_service.selectReviewAnsewer(si_seq, rev_seq);
        
         
-       resultMap.put("ra_vo", ra_vo);
-       resultMap.put("status",true);
-
-       
+       resultMap.put("data", data);
+       resultMap.put("status",true);       
        return resultMap;    
 }
+@PostMapping("/review/answer/regist")
+    public Map<String, Object> postReviewWrite(@RequestBody ReviewAnswerVO vo) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        r_service.insertReviewAnswer(vo);
+        resultMap.put("status", true);
+        resultMap.put("message", "리뷰등록가 성공적으로 등록되었습니다.");
+        return resultMap;
+    }
+    @PatchMapping("/review/status/update")
+    public Map<String, Object> updateReviewStatus(@RequestParam Integer rev_seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        r_service.updateReviewStatus(rev_seq);
+        resultMap.put("status", true);
+        return resultMap;
+    }
 }
