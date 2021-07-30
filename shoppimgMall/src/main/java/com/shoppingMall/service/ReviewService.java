@@ -47,8 +47,14 @@ public class ReviewService {
 
         return list;
     }
-    public void updateReviewStatus(Integer rev_seq){
-        mapper.updateReviewStatus(rev_seq);
+    public void updateReviewStatus(Integer rev_seq,Integer status){
+        mapper.updateReviewStatus(rev_seq,status);
+    }
+    public void deleteReviewAnswer(Integer rev_seq){
+        mapper.deleteReviewAnswer(rev_seq);
+    }
+    public void updateReviewAnswer(ReviewAnswerVO vo){
+        mapper.updateReviewAnswer(vo);
     }
 
 }

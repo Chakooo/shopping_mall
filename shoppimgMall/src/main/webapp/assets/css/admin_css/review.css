@@ -5,3 +5,20 @@
     height: 80px;
 
 }
+button {
+    border: 0;
+    border-radius: 3px;
+    background-color: #fdd835;
+    color: #fff; padding:10px 20px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #333;
+}
+button:disabled{
+    background-color: black;
+}
+#text_area{
+    width: 700px;
+    height: 200px;
+}

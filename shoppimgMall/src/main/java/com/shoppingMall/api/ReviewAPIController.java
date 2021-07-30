@@ -10,6 +10,7 @@ import com.shoppingMall.vo.ReviewAnswerVO;
 import com.shoppingMall.vo.ReviewVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,10 +54,27 @@ public class ReviewAPIController {
         return resultMap;
     }
     @PatchMapping("/review/status/update")
-    public Map<String, Object> updateReviewStatus(@RequestParam Integer rev_seq) {
+    public Map<String, Object> updateReviewStatus(@RequestParam Integer rev_seq, @RequestParam Integer status) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        r_service.updateReviewStatus(rev_seq);
+        r_service.updateReviewStatus(rev_seq,status);
         resultMap.put("status", true);
+        return resultMap;
+    }
+    @DeleteMapping("/review/delete")
+    public Map<String, Object> deleteReviewAnswer(@RequestParam Integer rev_seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        r_service.deleteReviewAnswer(rev_seq);
+        resultMap.put("status", true);
+        resultMap.put("message","삭제되었습니다.");
+        return resultMap;
+    }
+    
+    @PatchMapping("/review/answer/update")
+    public Map<String, Object> updateReviewAnswer(@RequestBody ReviewAnswerVO vo) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        r_service.updateReviewAnswer(vo);
+        resultMap.put("status", true);
+        resultMap.put("message","수정되었습니다.");
         return resultMap;
     }
 }

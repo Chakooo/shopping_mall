@@ -23,7 +23,9 @@ public interface ReviewMapper {
 
     public void insertReviewAnswer(ReviewAnswerVO vo);
     public ReviewAnswerVO selectReviewAnsewer (Integer si_seq,Integer rev_seq);
-    public void updateReviewStatus(Integer rev_seq);
+    public void updateReviewStatus(Integer rev_seq,Integer status);
+    public void updateReviewAnswer(ReviewAnswerVO vo);
+    public void deleteReviewAnswer(Integer rev_seq);
 
 
     

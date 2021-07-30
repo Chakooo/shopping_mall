@@ -75,6 +75,7 @@
                                         <p>답변등록</p>
                                         <textarea cols="30" rows="10" id="text_area"></textarea>
                                         <button class="answer_regist"rev-seq=${list.rev_seq} >등록</button>
+                                        <button class="answer_mod_btn"rev-seq=${list.rev_seq} >수정</button>
                                     </td>
                                 </tr>
                                 <tr class="answer_check" style="display: none;">
