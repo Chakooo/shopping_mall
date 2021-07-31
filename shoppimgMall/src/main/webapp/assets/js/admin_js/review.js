@@ -33,7 +33,12 @@ $(function () {
                     $this.parent().parent().next().next().html('');
                     $(".answer_check").css("display", "none");
                     $this.parent().parent().next().next().css("display", "table-row");
-                    let tag = '<p>' + r.data.ra_content + '</p><button class="answer_mod">수정</button><button class="answer_del">삭제</button>'
+                    let tag = 
+                    '<td><img src="/assets/images/free-icon-right-arrow-724847.png" alt=""></td>'+
+                    '<td class="rejoinder"> 답 변 </td>'+
+                    '<td colspan="3">' + r.data.ra_content + '</td>'+
+                    '<td><button class="answer_mod">수정</button></td>'+
+                    '<td><button class="answer_del">삭제</button></td>'
                     $this.parent().parent().next().next().append(tag)
                     $(".answer_mod").click(function () {
                         $.ajax({

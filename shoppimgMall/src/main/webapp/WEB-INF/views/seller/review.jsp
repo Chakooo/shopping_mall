@@ -38,7 +38,7 @@
                                 <td>별점</td>
                                 <td>리뷰 등록일</td>
                                 <td>리뷰확인</td>
-                                <td>답변하기</td>
+                               
                             </tr>
                         </thead>
                         <tbody id="review_tbody">
@@ -52,21 +52,14 @@
                                     <td>${list.result_reg_dt}</td>
 
                                     <c:if test="${list.rev_status==1}">
-                                        <td><button class="raw_btn" rev-seq=${list.rev_seq}
-                                                rev-status=${list.rev_status}>리뷰 확인</button>
+                                        <td><button class="raw_btn btn" rev-seq=${list.rev_seq}
+                                                rev-status=${list.rev_status}>판매자 댓글 보기</button>
                                         </td>
                                     </c:if>
+                                  
+                                  
                                     <c:if test="${list.rev_status==0}">
-                                        <td><button class="raw_btn" rev-seq=${list.rev_seq} disabled
-                                                rev-status=${list.rev_status}>리뷰 확인</button>
-                                        </td>
-                                    </c:if>
-                                    <c:if test="${list.rev_status==1}">
-                                        <td><button  rev-seq=${list.rev_seq} class="raw_btn" disabled>답글달기</button>
-                                        </td>
-                                    </c:if>
-                                    <c:if test="${list.rev_status==0}">
-                                        <td><button  rev-seq=${list.rev_seq} class="raw_btn" >답글달기</button>
+                                        <td><button  rev-seq=${list.rev_seq} class="raw_btn btn" >답글달기</button>
                                         </td>
                                     </c:if>
                                 </tr>
@@ -74,14 +67,12 @@
                                     <td colspan="6">
                                         <p>답변등록</p>
                                         <textarea cols="30" rows="10" id="text_area"></textarea>
-                                        <button class="answer_regist"rev-seq=${list.rev_seq} >등록</button>
-                                        <button class="answer_mod_btn"rev-seq=${list.rev_seq} >수정</button>
+                                        <button class="answer_regist btn"rev-seq=${list.rev_seq} >등록</button>
+                                        <button class="answer_mod_btn btn"rev-seq=${list.rev_seq} >수정</button>
                                     </td>
                                 </tr>
-                                <tr class="answer_check" style="display: none;">
-                                    <td>
-
-                                    </td>
+                                <tr class="answer_check" style="display: none; ">
+                                    
                                 </tr>
 
                             </c:forEach>
