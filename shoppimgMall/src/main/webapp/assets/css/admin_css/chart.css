@@ -12,9 +12,9 @@ h3{
     font-size: 20px;
 }
 .prod_cnt { text-align: center;}
-.prod_area > div { width: 1500px ; margin-left: 130px;}
+.prod_area > div { width: 1200px ; margin-left: 130px;}
 
-.table{ margin-top: 30px;width: 1500px ;margin-left: 130px; margin-bottom: 50px;}
+.table{ margin-top: 30px;width: 1200px ;margin-left: 130px; margin-bottom: 50px;}
 
 .table td{
     border:1px solid #ccc;
@@ -47,7 +47,7 @@ button:hover{
     background-color: #333;
 }
 .table_div {
-    width: 1500px ; margin-left: 130px;
+    width: 1200px ; margin-left: 130px;
 }
 .select_date_button{
     text-align: center;
@@ -65,7 +65,7 @@ b{
 }
 
 .select_btn_area {
-    width: 1500px ;margin-left: 130px;
+    width: 1200px ;margin-left: 130px;
 }
 .select_date_button .btn {
  width: 100px; background-color: #df9139;

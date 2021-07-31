@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/seller_join.css">
+    <link rel="stylesheet" href="/assets/css/admin_css/seller_join.css">
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/assets/js/seller_join.js"></script>
     <script>
@@ -68,7 +68,7 @@
             <tr>
                 <td>전화번호</td>
                 <td colspan="3">
-                    <input type="text"  id="user_phone">
+                    <input type="text"  id="user_phone"  placeholder="ex ) ooo - oooo - oooo">
                 </td>
             </tr>
             <tr>

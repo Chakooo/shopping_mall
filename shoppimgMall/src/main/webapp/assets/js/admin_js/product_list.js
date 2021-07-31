@@ -1,4 +1,4 @@
-$(function () {// document.addEventListener("DOMContentLoaded",function (){} 이거랑 같다. html로드가 완료됐을떄      
+$(function () {// document.addEventListener("DOMContentLoaded",function (){} 이거랑 같다. html로드가 완료됐을떄 
     $("#product_managed").addClass("current")
     $("#add_product").click(function(){
         $(".product_form").css("display","block");
@@ -82,7 +82,6 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
                   
                     let seq = $(this).attr("data-seq");
                     $("#modify").attr("mod-seq",seq)
-
                     $.ajax({
                         type:"get",
                         url:"/product/api/get?seq="+seq,
@@ -99,15 +98,14 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
                         $("#pi_weight").val(r.data.pi_weight);
                         $("#pi_di_seq").val(r.data.pi_di_seq);
                         $("#img_preview").html("");
+                      
                         if(r.data.pi_img_uri != null){
                             $("#img_preview").html(
                                 '<img src="/image/'+r.data.pi_img_uri+'" img-url="'+r.data.pi_img_uri+'">'
                             )
-                            $("img_preview").attr("img-uri",r.data.pi_img_uri);
+                            $("#img_preview").attr("img-uri",r.data.pi_img_uri);
                         }
-                    
-                        
-                        }
+                      }
                     })
                 })
                 $(".product_delete").click(function () {
@@ -188,7 +186,6 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
             pi_img_uri: $("#img_preview").attr("img-uri")
         }
         
-        
        
         $.ajax({
             type: "post",
@@ -212,6 +209,8 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
         })
     })
     $("#modify").click(function () {
+       
+
         let pi_name = $("#pi_name").val();
         let pi_price = $("#pi_price").val();
         let pi_cate_seq = $("#pi_cate_seq option:selected").val();

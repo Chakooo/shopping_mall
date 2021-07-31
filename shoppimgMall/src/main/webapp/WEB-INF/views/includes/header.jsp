@@ -22,11 +22,13 @@
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/free-icon-shopping-cart-1136140.png">
     <title>Everyday EveryTime 쇼핑 1번지</title>
 </head>
-<body>
-    
+<body>    
     <header>
-        ${seller}
+       ${seller}
         ${member}
+        <input type="text" name="" id="si_grade" value="${seller.si_grade}" disabled hidden>
+        <input type="text" name="" id="si_seq" value="${seller.si_seq}" disabled hidden>
+        <input type="text" name="" id="seller" value="${seller}" disabled hidden>
         <div class="header_top">            
             <div class="container">
                 <p>지금 가입하고 인기상품 <b>100원</b>에 받아가세요.</p>
@@ -58,6 +60,7 @@
                                 <c:if test="${member.mi_grade==6}">더퍼플</c:if>
                                 <c:if test="${member.mi_grade==99}">관리자</c:if>
                                 <c:if test="${seller.si_grade==1}">${seller.si_name}</c:if>
+                                <c:if test="${seller.si_grade==0}">사업자 등록이 필요합니다</c:if>
                             </span>                            
                             ${member.mi_name}님</a>
                         <span>|</span>

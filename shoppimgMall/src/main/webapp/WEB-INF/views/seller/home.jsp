@@ -17,8 +17,7 @@
             </head>
 
             <body>
-
-
+                
                 <input type="text" name="" id="seller_seq" value="${seller.si_seq}" disabled hidden>
                 <h1 class="main_h1">
                     < ${seller.si_name} HOME>

@@ -15,6 +15,7 @@ import com.shoppingMall.vo.ReviewVO;
 import com.shoppingMall.vo.SellerInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -100,11 +101,23 @@ public class SellerController {
               List<ChartVO> list = seller_mapper.showProdCnt(si_seq);
               model.addAttribute("list_size",list.size());
               model.addAttribute("list",list);
-
-        
-              
         return "/seller/chart";
     }  
+    @GetMapping("/seller/recommand/{si_seq}")
+    public String getRecommand(){
+        return "/seller/recommand";
+    }
+
+    @GetMapping("/seller/registration")
+        public String sellerRegistrationDirect(){
+            return "redirect:/seller/login";
+        }
+    
+    @GetMapping("/seller/registration/{si_seq}")
+    public String sellerRegistration(@PathVariable @Nullable Integer si_seq){
+     
+        return "/seller/registration";
+    }
            
    
 }

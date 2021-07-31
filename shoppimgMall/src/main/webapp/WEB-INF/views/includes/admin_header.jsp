@@ -16,7 +16,9 @@
         </head>
 
         <body>
+            
             <input type="text" name="" id="si_seq" value="${seller.si_seq}" disabled hidden>
+            <input type="text" name="" id="si_grade" value="${seller.si_grade}" disabled hidden>
             <header>
                 <a href="/seller/home/${seller.si_seq}" id="logo">
                     <img src="/assets/images/logo46.png" alt="">
@@ -38,7 +40,7 @@
                             <a href="/seller/chart/${seller.si_seq}" id="chart_managed">상품 판매 현황</a>
                         </li>
                         <li>
-                            <a href="#" id="recommand_managed">추천 상품 관리</a>
+                            <a href="/seller/recommand/${seller.si_seq}" id="reco_managed">추천 상품 관리</a>
                         </li>
                         <li>
                             <a href="/order/${seller.si_seq}"  id="order_managed">배송 현황 관리</a>

@@ -37,6 +37,7 @@ $(function(){
             alert("비밀번호와 비밀번호 확인이 일치하지않습니다.")
             return;
         }
+        
 
         let user_name = $("#user_name").val()
         if(user_name==""||user_name==null||user_name==undefined){
@@ -72,9 +73,13 @@ $(function(){
             return;        }
     
         let user_address=$("#user_address").val();
+
+        var regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+
         let user_phone=$("#user_phone").val();        
-        if(user_phone.length >13 ){
-            alert("연락처는 13자리를 넘길수 없습니다.")
+        if(!user_phone.match(regExp)){
+            alert("연락처를 형식에 맞게 입력하세요.")
+            return;
         }
         console.log(user_phone)
         if(!inputValidation(user_address,"주소")){return;}

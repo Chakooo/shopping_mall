@@ -6,7 +6,9 @@ import java.util.List;
 import com.shoppingMall.mapper.ProductMapper;
 import com.shoppingMall.mapper.RecommandMapper;
 import com.shoppingMall.vo.ProductInfoVO;
+import com.shoppingMall.vo.ProductVO;
 
+import org.apache.ibatis.javassist.compiler.ast.Keyword;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,4 +35,30 @@ public class RecommandService {
         }
         return list;
     }
+    public List<ProductVO> selectSellerRecommandProducts(Integer si_seq) {
+
+        List<ProductVO> list = r_mapper.selectSellerRecommandProducts(si_seq);
+
+        return list;
+    }
+    
+    public List<ProductVO> selectSellerNotRecommandProducts(Integer si_seq,String keyword) {
+
+        if(keyword==null){
+            keyword ="%%";
+        }else{
+            keyword = "%"+keyword+"%";
+        }
+
+        List<ProductVO> list = r_mapper.selectSellerNotRecommandProducts(si_seq,keyword);
+
+        return list;
+    }
+    public void insertSellerRecommandProduct(Integer prod_seq,Integer si_seq) {
+        r_mapper.insertSellerRecommandProduct(prod_seq,si_seq);
+    }
+    public void deleteSellerRecommandProduct(Integer prod_seq,Integer si_seq) {
+        r_mapper.deleteSellerRecommandProduct(prod_seq,si_seq);
+    }
+    
 }

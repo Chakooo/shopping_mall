@@ -1,4 +1,11 @@
 $(function(){
+  let si_seq =$("#si_seq").val();
+  let si_grade =$("#si_grade").val();
+  let seller =$("#seller").val();
+  console.log(seller)
+  if(seller != '' && si_grade==0){
+    location.href="/seller/registration/"+si_seq;
+  }
   
 $("#logout").click(function () {
     if (confirm("로그아웃 하시겠습니까?"))   

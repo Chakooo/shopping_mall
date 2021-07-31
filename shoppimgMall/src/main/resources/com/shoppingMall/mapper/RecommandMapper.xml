@@ -7,4 +7,30 @@
         select a.* from product_info a inner join recommand b
         on a.pi_seq = b.reco_pi_seq order by b.reco_seq desc limit 4
   </select>
+  <select id="selectSellerRecommandProducts" resultType="com.shoppingMall.vo.ProductVO" >
+  select pi_seq,pi_name,pi_img_uri,cate_name as category_name , si_name as seller_name from
+(select * from
+(select * from product_info a inner join seller_recommand b on a.pi_seq = b.s_reco_pi_seq) a 
+inner join category c on a.pi_cate_seq=c.cate_seq)a inner join seller_info b on a.pi_si_seq = b.si_seq 
+where a.s_reco_si_seq=#{si_seq}
+</select>
+
+  <select id="selectSellerNotRecommandProducts" resultType="com.shoppingMall.vo.ProductVO" >
+ select pi_seq,pi_name,pi_img_uri,cate_name as category_name , si_name as seller_name from
+(select*from 
+(select * from product_info a left outer join seller_recommand b on a.pi_seq = b.s_reco_pi_seq)a inner join  
+category c on a.pi_cate_seq = c.cate_seq) a inner join seller_info b on a.pi_si_seq = b.si_seq
+where a.s_reco_pi_seq is null
+and a.pi_name like #{keyword}
+and a.pi_si_seq = #{si_seq}
+</select>
+
+<insert id="insertSellerRecommandProduct">
+ insert into seller_recommand(s_reco_pi_seq,s_reco_si_seq) values (#{prod_seq},#{si_seq}) 
+</insert>
+
+<delete id="deleteSellerRecommandProduct">
+delete from seller_recommand where s_reco_pi_seq= #{prod_seq} and s_reco_si_seq = #{si_seq}
+</delete>
+
   </mapper>

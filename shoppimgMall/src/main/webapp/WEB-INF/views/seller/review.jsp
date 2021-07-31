@@ -11,7 +11,6 @@
                 <link rel="stylesheet" href="/assets/css/admin_css/review.css">
                 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
                 <script src="/assets/js/admin_js/review.js"></script>
-                <link rel="stylesheet" href="/assets/css/admin_css/table_style.css">
                 <title>Document</title>
             </head>
 
@@ -28,7 +27,7 @@
                 <h1>
                     <리뷰 확인하기>
                 </h1>
-                <div class="list">
+                <div class="review_table list">
                     <table>
                         <thead>
                             <tr>
@@ -37,7 +36,9 @@
                                 <td>내용</td>
                                 <td>별점</td>
                                 <td>리뷰 등록일</td>
+                                <td>리뷰 수정일</td>
                                 <td>리뷰확인</td>
+                               
                                
                             </tr>
                         </thead>
@@ -48,8 +49,21 @@
                                     <td>${list.pi_name}${list.rev_seq}</td>
                                     <td>${list.mi_id}</td>
                                     <td>${list.rev_content}</td>
-                                    <td>${list.rev_rate}</td>
+                                    <td>
+                                        <c:if test="${list.rev_rate ==0}">
+                                            <span>평점이 없습니다.</span>
+                                        </c:if>
+                                        <c:if test="${list.rev_rate > 0}">
+                                            <span class="star">
+                                                <c:forEach var="i" begin="1" end="${list.rev_rate}"><img src="/assets/images/free-icon-star-2107957.png" alt=""></c:forEach>
+                                                <c:forEach var="i" begin="1" end="${5 - list.rev_rate}"><img src="/assets/images/free-icon-star-1828970.png" alt=""></c:forEach>
+                                            </span>
+                                        </c:if>
+                                        
+                                    
+                                    </td>                                    
                                     <td>${list.result_reg_dt}</td>
+                                    <td>${list.result_mod_dt}</td>
 
                                     <c:if test="${list.rev_status==1}">
                                         <td><button class="raw_btn btn" rev-seq=${list.rev_seq}
@@ -67,9 +81,11 @@
                                     <td colspan="6">
                                         <p>답변등록</p>
                                         <textarea cols="30" rows="10" id="text_area"></textarea>
-                                        <button class="answer_regist btn"rev-seq=${list.rev_seq} >등록</button>
+                                    </td>
+                                    <td><button class="answer_regist btn"rev-seq=${list.rev_seq} >등록</button>
                                         <button class="answer_mod_btn btn"rev-seq=${list.rev_seq} >수정</button>
                                     </td>
+                                    
                                 </tr>
                                 <tr class="answer_check" style="display: none; ">
                                     

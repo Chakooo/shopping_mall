@@ -37,8 +37,8 @@ $(function () {
                     '<td><img src="/assets/images/free-icon-right-arrow-724847.png" alt=""></td>'+
                     '<td class="rejoinder"> 답 변 </td>'+
                     '<td colspan="3">' + r.data.ra_content + '</td>'+
-                    '<td><button class="answer_mod">수정</button></td>'+
-                    '<td><button class="answer_del">삭제</button></td>'
+                    '<td><button class="answer_mod btn">수정</button></td>'+
+                    '<td><button class="answer_del btn">삭제</button></td>'
                     $this.parent().parent().next().next().append(tag)
                     $(".answer_mod").click(function () {
                         $.ajax({
@@ -55,7 +55,7 @@ $(function () {
 
                                 $(".answer_mod_btn").click(function () {
                                     if(!confirm("이대로 수정하시겠습니까?"))return;
-                                    let content = $(this).parent().children("textarea").val();
+                                    let content = $(this).parent().parent().children().children("textarea").val();
                                     let data = {
                                         ra_rev_seq: rev_seq,
                                         ra_content: content,
@@ -109,6 +109,10 @@ $(function () {
         if (!confirm("리뷰 댓글을 등록하시겠습니까?")) return;
         let rev_seq = $(this).attr("rev-seq");
         let content = $(this).parent().children("textarea").val();
+        if(content==null||content==''||content==undefined){
+            alert("내용을 입력하세요")
+            return;
+        }
         let data = {
             ra_si_seq: si_seq,
             ra_content: content,

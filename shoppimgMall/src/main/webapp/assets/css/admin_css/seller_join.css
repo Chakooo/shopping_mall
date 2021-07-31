@@ -1,0 +1,49 @@
+/* reset 먼저 해라 */
+.title {
+    /* tac+fz28+fw500+mb50+mt50 */
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.join_table input,
+.join_table select {
+    width: 300px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.join_table td {
+    padding: 5px
+}
+
+.join_table #user_birth_year,
+.join_table #user_birth_month,
+.join_table #user_birth_date {
+    width: 60px;
+}
+
+.join_table button {
+    font-family: 'Noto Sans KR', sans-serif;
+    border: 0;
+    border-radius: 3px;
+    background-color: #fdd835;
+    color: #fff; padding:10px 20px;
+    cursor: pointer;
+}
+.join_table #join{
+    width: 200px; margin-top:  30px; margin-left: 100px;
+}
+.join_table button:hover{
+    background-color: #333;
+}
+.join_table{width: 540px; margin:0 auto}
+.join_table tr:last-child{text-align: center;}
+.join_table select {width:322px}
+body{background-color: #fcfcfc;}
