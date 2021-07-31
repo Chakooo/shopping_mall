@@ -97,12 +97,12 @@ public class SellerService {
         return resultMap;
     }
 
-    public List<SellerInfoVO> selectSellerAll() {
-        List<SellerInfoVO> list = mapper.selectSellerAll();
-        // for(int i=0; i<list.size();i++){
-        // Integer cnt = mapper.selectSellerProdCnt(list.get(i).getSi_seq());
-        // list.get(i).setSeller_prod_cnt(cnt);
-        // }
+    public List<SellerInfoVO> getSellerList() {
+        List<SellerInfoVO> list = mapper.getSellerList();
+        for(int i=0; i<list.size();i++){
+        Integer cnt = mapper.selectSellerProdCnt(list.get(i).getSi_seq());
+        list.get(i).setSeller_prod_cnt(cnt);
+        }
         return list;
     }
 
@@ -247,5 +247,29 @@ public class SellerService {
     }
 
   
- 
+ // admin page 에 구성된 service //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

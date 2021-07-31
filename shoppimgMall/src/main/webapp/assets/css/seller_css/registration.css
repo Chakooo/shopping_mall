@@ -1,0 +1,15 @@
+/* registration.css */
+
+
+
+
+
+
+#img_preview img {width: 200px;}
+.preview img {height: 80px;}
+
+#image_form button {
+    background-color: #fdd835; color: #fff; 
+    font-family: "Noto Sans KR", sans-serif; border: 0; padding:3px 20px;margin-left: 5px;
+    border-radius: 3px; font-size: 14px;
+}

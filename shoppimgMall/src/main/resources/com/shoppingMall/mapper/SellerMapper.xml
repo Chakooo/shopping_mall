@@ -77,5 +77,13 @@
            on a.pc_pi_seq = b.pi_seq where a.pc_si_seq=#{si_seq} group by a.pc_pi_seq order by pc_count desc limit 5;
         </select>
 
+       <!-- 업체의 제품개수 카운트 -->
+        <select id="selectSellerProdCnt" resultType="java.lang.Integer">
+          select count(*) from product_info where pi_si_seq=#{seq}
+        </select>
+
+        <select id="getSellerList"  resultType="com.shoppingMall.vo.SellerInfoVO" >
+          select*from seller_info;
+        </select>
        
   </mapper>

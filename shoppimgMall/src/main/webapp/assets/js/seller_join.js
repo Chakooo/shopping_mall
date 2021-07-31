@@ -77,10 +77,15 @@ $(function(){
         var regExp = /^\d{3}-\d{3,4}-\d{4}$/;
 
         let user_phone=$("#user_phone").val();        
+        if(user_phone.length >13){
+            alert("연락처를 13자이하로 입력하세요.")
+            return;
+        }
         if(!user_phone.match(regExp)){
             alert("연락처를 형식에 맞게 입력하세요.")
             return;
         }
+        
         console.log(user_phone)
         if(!inputValidation(user_address,"주소")){return;}
         if(!inputValidation(user_phone,"전화번호")){return;}

@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="/WEB-INF/views/includes/admin_header.jsp"%>
+<%@ include file="/WEB-INF/views/includes/seller_header.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,9 +12,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
             integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="/assets/js/admin_js/product_list.js"></script>
-        <link rel="stylesheet" href="/assets/css/admin_css/product.css">
-        <link rel="stylesheet" href="/assets/css/admin_css/table_style.css">
+        <script src="/assets/js/seller_js/product_list.js"></script>
+        <link rel="stylesheet" href="/assets/css/seller_css/product.css">
+        <link rel="stylesheet" href="/assets/css/seller_css/table_style.css">
     </head>
 <body>        
     ${seller}

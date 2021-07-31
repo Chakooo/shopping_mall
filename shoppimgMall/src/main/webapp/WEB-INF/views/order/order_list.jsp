@@ -1,7 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@include file="/WEB-INF/views/includes/admin_header.jsp" %>
+<%@include file="/WEB-INF/views/includes/seller_header.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/order.css">
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="/assets/js/admin_js/order_list.js"></script>
-    <link rel="stylesheet" href="/assets/css/admin_css/table_style.css">
+    <script src="/assets/js/seller_js/order_list.js"></script>
+    <link rel="stylesheet" href="/assets/css/seller_css/table_style.css">
     <title>Document</title>
 </head>
 

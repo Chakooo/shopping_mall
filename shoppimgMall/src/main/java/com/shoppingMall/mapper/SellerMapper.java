@@ -32,6 +32,9 @@ public interface SellerMapper {
     public List<ChartVO> showProdCntByTermDate(Integer si_seq , String start_date ,String end_date);
     public List<ChartVO> showProdCntRank(Integer si_seq);
 
+    //admin_page 제품리스트 count
+    public Integer selectSellerProdCnt(Integer seq);
+    public List<SellerInfoVO> getSellerList();
     
     
 

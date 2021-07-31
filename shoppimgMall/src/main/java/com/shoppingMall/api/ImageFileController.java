@@ -19,10 +19,12 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,7 +34,7 @@ public class ImageFileController {
     @Autowired 
     ProductService service;
     @GetMapping("/image/{uri}")
-    public ResponseEntity<Resource> getImage(@PathVariable String uri,HttpServletRequest request)throws Exception{
+    public ResponseEntity<Resource> getImage(@PathVariable String uri, HttpServletRequest request)throws Exception{
     // HttpServletRequest 가져온파일의 유형을 알아낼떄 쓴다.
    
      Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
@@ -58,7 +60,7 @@ public class ImageFileController {
 
     }
     @PostMapping("/upload")
-    public Map<String, Object> postFileUpload(@RequestPart MultipartFile file) { // 멤버메서드
+    public Map<String, Object> postFileUpload(@RequestPart MultipartFile file , @RequestParam @Nullable Integer si_seq) { // 멤버메서드
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
         Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
@@ -96,6 +98,7 @@ public class ImageFileController {
         // resolve는 운영체제 환경이 다를수있으니 한가지 표현방식으로 통일한다.
         // String 을 file객체에서 사용가능한 path 형태로 변환
         Path target = folderLocation.resolve(saveFileName);
+       
 
         try {
             // getInputStream>파일을 열어서 처음부터 읽는다. target 으로 복사한다 있으면 덮어쓰기
@@ -115,6 +118,13 @@ public class ImageFileController {
         // pimgVO.setPimg_pi_seq(seq);
         pimgVO.setPimg_uri(image_uri);
         service.insertProductImage(pimgVO);
+
+        System.out.println(image_uri);
+        if(si_seq != null){
+            service.insertSellerRegistImage(si_seq,image_uri,saveFileName);
+            // 사업자 등록에 필요한 mapper처리
+        }
+
 
         resultMap.put("status", true);
         resultMap.put("message", "파일 업로드 완료");

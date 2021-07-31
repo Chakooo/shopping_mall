@@ -1,4 +1,0 @@
-// registration
-$(function(){
-    
-})

@@ -32,12 +32,14 @@ $(function(){
             data:JSON.stringify(data),
             contentType:"application/json",
             success:function(r){
-                if(r.status){
-                location.href="/seller/home/"+r.si_seq;
-             
+                if(r.seller.si_grade == 99){
+                    location.href="/admin";
+                }
+                else if(r.seller.si_grade != 99 && r.status==true){
+                location.href="/seller/home/"+r.si_seq;             
             }
             else{
-                alert(r.message);
+                alert("gㅎㅇ");
             }
         }    
         })

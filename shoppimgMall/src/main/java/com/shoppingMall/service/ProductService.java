@@ -134,4 +134,9 @@ public class ProductService {
         mapper.updateProduct(vo);
     }
 
+    public void insertSellerRegistImage(Integer si_seq, String imageUri ,String saveFileName){
+        mapper.insertSellerRegistImage(si_seq,imageUri,saveFileName);
+
+    }
+
 }

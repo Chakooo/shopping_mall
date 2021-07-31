@@ -1,6 +1,7 @@
 package com.shoppingMall.api;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -111,4 +112,14 @@ public class SellerAPIController {
         return resultMap;
     }
 
+
+
+    // admin_page 에서 리스트 가져오기
+    @GetMapping("/seller/api/list")
+    public  Map<String,Object> getSellerList(){
+        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
+        List<SellerInfoVO> list= s_service.getSellerList();
+        resultMap.put("data", list);
+        return resultMap;
+    }
 }

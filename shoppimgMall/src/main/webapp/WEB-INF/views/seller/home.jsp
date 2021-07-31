@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-        <%@ include file="/WEB-INF/views/includes/admin_header.jsp" %>
+        <%@ include file="/WEB-INF/views/includes/seller_header.jsp" %>
             <!DOCTYPE html>
             <html>
 
@@ -10,8 +10,8 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <script src="/assets/js/admin_js/home.js"></script>
-                <link rel="stylesheet" href="/assets/css/admin_css/home.css">
+                <script src="/assets/js/seller_js/home.js"></script>
+                <link rel="stylesheet" href="/assets/css/seller_css/home.css">
                 <title>쇼핑몰</title>
 
             </head>

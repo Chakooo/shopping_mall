@@ -31,6 +31,10 @@ public interface ProductMapper {
     // insertProduct
     public Integer getLastSeq();
 
+    //사업자 등록 상인seq ,  파일uri 등록
+    public void insertSellerRegistImage(Integer si_seq,String imageUri ,String saveFileName);
+    
+
     
     
 }

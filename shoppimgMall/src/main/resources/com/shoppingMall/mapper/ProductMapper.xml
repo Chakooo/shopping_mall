@@ -75,4 +75,11 @@
 <select id="getLastSeq" resultType="java.lang.Integer">
      SELECT pi_seq FROM product_info ORDER BY pi_seq DESC LIMIT 1
 </select>
+
+<!-- 상인 사업자등록 이미지 등록 -->
+<insert id="insertSellerRegistImage">
+INSERT INTO seller_regist_image
+(sr_si_seq, sr_uri ,sr_filename)
+VALUES(#{si_seq}, #{imageUri},#{saveFileName});
+</insert>
   </mapper>

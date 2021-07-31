@@ -58,9 +58,9 @@
                                 <c:if test="${member.mi_grade==4}">라벤더</c:if>
                                 <c:if test="${member.mi_grade==5}">퍼플</c:if>
                                 <c:if test="${member.mi_grade==6}">더퍼플</c:if>
-                                <c:if test="${member.mi_grade==99}">관리자</c:if>
-                                <c:if test="${seller.si_grade==1}">${seller.si_name}</c:if>
                                 <c:if test="${seller.si_grade==0}">사업자 등록이 필요합니다</c:if>
+                                <c:if test="${seller.si_grade==1}">${seller.si_name}</c:if>
+                                <c:if test="${seller.si_grade==99}">관리자</c:if>
                             </span>                            
                             ${member.mi_name}님</a>
                         <span>|</span>
@@ -106,9 +106,14 @@
                         </c:if>                        
                     </a>
                      </c:if>
-                     <c:if test="${seller != null}">
+                     <c:if test="${seller != null && seller.si_grade==1 }">
                     <a href="/seller/home/${seller.si_seq}" id="seller_home" class="seller_home_icon">
                         <img src="/assets/images/free-icon-house-5103132.png" alt="" style="width:35.99px;height:35.99px">                                           
+                    </a>
+                     </c:if>
+                     <c:if test="${seller != null && seller.si_grade==99}">
+                    <a href="/admin" id="seller_home" class="seller_home_icon">
+                        <img src="/assets/images/admin (1).png" alt="" style="width:35.99px;height:35.99px">                                           
                     </a>
                      </c:if>
                 </div>
