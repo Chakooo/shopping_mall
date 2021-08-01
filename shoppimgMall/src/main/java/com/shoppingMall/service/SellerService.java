@@ -10,6 +10,7 @@ import com.shoppingMall.utils.AESAlgorithm;
 import com.shoppingMall.vo.ChartVO;
 import com.shoppingMall.vo.LoginVO;
 import com.shoppingMall.vo.SellerInfoVO;
+import com.shoppingMall.vo.SellerRegistImageVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -88,7 +89,7 @@ public class SellerService {
         if (result == 1) {
             resultMap.put("status", true);
             SellerInfoVO seller = mapper.selectSellerInfoById(vo.getId());
-            resultMap.put("si_seq",seller.getSi_seq());
+            resultMap.put("si_seq", seller.getSi_seq());
             resultMap.put("seller", seller);
         } else {
             resultMap.put("status", false);
@@ -97,179 +98,170 @@ public class SellerService {
         return resultMap;
     }
 
-    public List<SellerInfoVO> getSellerList() {
-        List<SellerInfoVO> list = mapper.getSellerList();
-        for(int i=0; i<list.size();i++){
-        Integer cnt = mapper.selectSellerProdCnt(list.get(i).getSi_seq());
-        list.get(i).setSeller_prod_cnt(cnt);
-        }
-        return list;
-    }
-
     // 차트 표시위한 판매량 조회
-    public Map<String,Object> showProdCnt(Integer si_seq) {
-        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
+    public Map<String, Object> showProdCnt(Integer si_seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         List<ChartVO> list = mapper.showProdCnt(si_seq);
 
         List<Integer> prod_cnt = new ArrayList<Integer>();
         List<String> p_name = new ArrayList<String>();
 
-        for(ChartVO vo : list){
+        for (ChartVO vo : list) {
             prod_cnt.add(vo.getPc_count());
             p_name.add(vo.getPi_name());
-            
+
         }
         resultMap.put("prod_cnt", prod_cnt);
         resultMap.put("p_name", p_name);
-        resultMap.put("allCnt",list.size());
+        resultMap.put("allCnt", list.size());
         resultMap.put("status", true);
-        
 
         return resultMap;
     }
 
-    public Map<String,Object> showProdCntYesterDay(Integer si_seq) {
-        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
+    public Map<String, Object> showProdCntYesterDay(Integer si_seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         List<ChartVO> list = mapper.showProdCntYesterDay(si_seq);
         List<ChartVO> list2 = mapper.showProdCntToDay(si_seq);
-        List<ChartVO> name  = mapper.showProdCnt(si_seq);
+        List<ChartVO> name = mapper.showProdCnt(si_seq);
 
         List<Integer> y_prod_cnt = new ArrayList<Integer>();
         List<Integer> t_prod_cnt = new ArrayList<Integer>();
         List<String> all_name = new ArrayList<String>();
-       
 
-        for(ChartVO vo : list){
+        for (ChartVO vo : list) {
             y_prod_cnt.add(vo.getPc_count());
         }
-        for(ChartVO vo : list2){
+        for (ChartVO vo : list2) {
             t_prod_cnt.add(vo.getPc_count());
         }
-        for(ChartVO vo : name){
+        for (ChartVO vo : name) {
             all_name.add(vo.getPi_name());
         }
         resultMap.put("y_prod_cnt", y_prod_cnt);
         resultMap.put("t_prod_cnt", t_prod_cnt);
         resultMap.put("all_name", all_name);
-        resultMap.put("allCnt",list.size());
+        resultMap.put("allCnt", list.size());
         resultMap.put("status", true);
-        
 
         return resultMap;
     }
 
-    public Map<String,Object> showProdCntByDate(Integer si_seq, String date){
-        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       
+    public Map<String, Object> showProdCntByDate(Integer si_seq, String date) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         System.out.println(date);
-        List<ChartVO> list = mapper.showProdCntByDate(si_seq,date);
+        List<ChartVO> list = mapper.showProdCntByDate(si_seq, date);
 
         List<Integer> prod_cnt = new ArrayList<Integer>();
         List<String> p_name = new ArrayList<String>();
 
-        for(ChartVO vo : list){
+        for (ChartVO vo : list) {
             prod_cnt.add(vo.getPc_count());
             p_name.add(vo.getPi_name());
-            
+
         }
         resultMap.put("prod_cnt", prod_cnt);
         resultMap.put("p_name", p_name);
-        resultMap.put("allCnt",list.size());
+        resultMap.put("allCnt", list.size());
         resultMap.put("status", true);
-        
 
         return resultMap;
 
     }
-    public Map<String,Object> showProdCntByTerm(Integer si_seq,String term){
-        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       
-        List<ChartVO> list = mapper.showProdCntByTerm(si_seq,term);
+
+    public Map<String, Object> showProdCntByTerm(Integer si_seq, String term) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<ChartVO> list = mapper.showProdCntByTerm(si_seq, term);
 
         List<Integer> prod_cnt = new ArrayList<Integer>();
         List<String> p_name = new ArrayList<String>();
 
-        for(ChartVO vo : list){
+        for (ChartVO vo : list) {
             prod_cnt.add(vo.getPc_count());
             p_name.add(vo.getPi_name());
-            
+
         }
         resultMap.put("prod_cnt", prod_cnt);
         resultMap.put("p_name", p_name);
-        resultMap.put("allCnt",list.size());
+        resultMap.put("allCnt", list.size());
         resultMap.put("status", true);
-        
 
         return resultMap;
 
     }
-    public Map<String,Object> showProdCntByTermDate(Integer si_seq , String start_date ,String end_date){
-        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       
-        List<ChartVO> list = mapper.showProdCntByTermDate(si_seq,start_date,end_date);
+
+    public Map<String, Object> showProdCntByTermDate(Integer si_seq, String start_date, String end_date) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<ChartVO> list = mapper.showProdCntByTermDate(si_seq, start_date, end_date);
 
         List<Integer> prod_cnt = new ArrayList<Integer>();
         List<String> p_name = new ArrayList<String>();
 
-        for(ChartVO vo : list){
+        for (ChartVO vo : list) {
             prod_cnt.add(vo.getPc_count());
             p_name.add(vo.getPi_name());
-            
+
         }
         resultMap.put("prod_cnt", prod_cnt);
         resultMap.put("p_name", p_name);
-        resultMap.put("allCnt",list.size());
+        resultMap.put("allCnt", list.size());
         resultMap.put("status", true);
-        
 
         return resultMap;
 
-
     }
-    
-    public Map<String,Object> showProdCntRank(Integer si_seq){
-        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       
+
+    public Map<String, Object> showProdCntRank(Integer si_seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         List<ChartVO> list = mapper.showProdCntRank(si_seq);
 
         List<Integer> prod_cnt = new ArrayList<Integer>();
         List<String> p_name = new ArrayList<String>();
 
-        for(ChartVO vo : list){
+        for (ChartVO vo : list) {
             prod_cnt.add(vo.getPc_count());
             p_name.add(vo.getPi_name());
-            
+
         }
         resultMap.put("prod_cnt", prod_cnt);
         resultMap.put("p_name", p_name);
-        resultMap.put("allCnt",list.size());
+        resultMap.put("allCnt", list.size());
         resultMap.put("status", true);
-        
 
         return resultMap;
 
     }
 
-  
- // admin page 에 구성된 service //
+    // admin page 에 구성된 service //
+    public List<SellerInfoVO> getSellerList() {
+        List<SellerInfoVO> list = mapper.getSellerList();
+        for (int i = 0; i < list.size(); i++) {
+            Integer cnt = mapper.selectSellerProdCnt(list.get(i).getSi_seq());
+            list.get(i).setSeller_prod_cnt(cnt);
+        }
+        return list;
+    }
 
+    public void deleteSeller(Integer seq) {
+        mapper.deleteSeller(seq);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public List<SellerRegistImageVO> getRegistImage(){        
+        List<SellerRegistImageVO> list = mapper.getRegistImage();
+        return list;
+    }
+    public List<SellerInfoVO> getGradeZero(){
+        List<SellerInfoVO> list = mapper.getGradeZero();
+        for (int i = 0; i < list.size(); i++) {
+            Integer cnt = mapper.selectSellerProdCnt(list.get(i).getSi_seq());
+            list.get(i).setSeller_prod_cnt(cnt);
+        }
+        return list;
+    }
+    public String getRegistImageName(String uri , Integer si_seq){
+        String fileName = mapper.getRegistImageName(uri, si_seq);
+        System.out.println("서비스 파일네임 : "+fileName);
+        return fileName;
+    }
 
 }

@@ -68,7 +68,7 @@ public class SellerController {
         
         List<CategoryVO> clist = cate_service.selectCategoryAll();
         List<DeliveryInfoVO> dlist = delivery_service.selectDeliveryAll();
-        List<SellerInfoVO> slist = seller_service.selectSellerAll();
+        List<SellerInfoVO> slist = seller_service.getSellerList();
    
  
          model.addAttribute("clist",clist);

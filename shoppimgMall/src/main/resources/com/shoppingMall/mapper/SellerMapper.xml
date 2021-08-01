@@ -85,5 +85,16 @@
         <select id="getSellerList"  resultType="com.shoppingMall.vo.SellerInfoVO" >
           select*from seller_info;
         </select>
+      <!-- 업체 강제 삭제 -->
+        <delete id="deleteSeller">
+         delete from seller_info where si_seq=#{seq}
+        </delete>
+
+        <select id="getRegistImage" resultType="com.shoppingMall.vo.SellerRegistImageVO">
+         select * from seller_regist_image a inner join seller_info  b on a.sr_si_seq = b.si_seq  where si_grade=0;
+        </select>
        
+       <select id="getRegistImageName" resultType="java.lang.String">
+        select sr_filename from seller_regist_image where sr_uri=#{uri} and sr_si_seq=#{si_seq} order by sr_si_seq desc limit 1;
+       </select>
   </mapper>

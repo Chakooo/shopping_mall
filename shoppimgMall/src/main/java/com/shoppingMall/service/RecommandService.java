@@ -8,7 +8,6 @@ import com.shoppingMall.mapper.RecommandMapper;
 import com.shoppingMall.vo.ProductInfoVO;
 import com.shoppingMall.vo.ProductVO;
 
-import org.apache.ibatis.javassist.compiler.ast.Keyword;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

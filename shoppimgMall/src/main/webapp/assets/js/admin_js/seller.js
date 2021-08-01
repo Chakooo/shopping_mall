@@ -26,7 +26,7 @@ $(function () {
                 }
             }
             $(".seller_delete").click(function () {
-                let seq = $(this).attr("data-seq"); //data-seq버튼을 눌렀을때의 seq번호 하나만 가져온다.
+                let seq = $(this).attr("data-seq"); //data-seq버튼을 눌렀을때의 seq번호 하나만 가져온다.               
                 if (confirm("삭제하시겠습니까?")) {
                     $.ajax({
                         type: "delete",
@@ -40,5 +40,30 @@ $(function () {
             })
         }
     })
+    $.ajax({
+        type: "get",
+        url: "/seller/selectImage",
+        success: function (r) {
+            console.log(r.data)
+            for (let i = 0; i < r.data.length; i++) {
+            let data =
+            '<tr>' +
+            '<td>' + r.data[i].si_seq + '</td>' +
+            '<td>' + r.data[i].si_id + '</td>' +
+            '<td>' + r.data[i].si_name + '</td>' +
+            '<td>' + r.data[i].si_address + '</td>' +
+            '<td>' + r.data[i].si_email + '</td>' +
+            '<td>' + r.data[i].si_phone + '</td>' +
+            '<td class="preview"><img src="/image/'+ r.data[i].sr_uri +'/'+r.data[i].si_seq+'"></td>'+
+            '</tr>'
+            $('.img_tbody').append(data);
+            console.log(r.data[i].sr_uri)
+            console.log(r.data[i].si_seq)
+            }
+        }
+    })
+
+
+
 
 })

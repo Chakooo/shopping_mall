@@ -9,8 +9,11 @@ import javax.servlet.http.HttpSession;
 import com.shoppingMall.service.SellerService;
 import com.shoppingMall.vo.LoginVO;
 import com.shoppingMall.vo.SellerInfoVO;
+import com.shoppingMall.vo.SellerRegistImageVO;
+
 import org.springframework.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -119,6 +122,28 @@ public class SellerAPIController {
     public  Map<String,Object> getSellerList(){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
         List<SellerInfoVO> list= s_service.getSellerList();
+        resultMap.put("data", list);
+        return resultMap;
+    }
+    @DeleteMapping("/seller/api/delete")
+    public  Map<String,Object> deleteSeller(@RequestParam Integer seq){
+        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
+        s_service.deleteSeller(seq);
+        resultMap.put("message", "삭제됐습니다.");
+        return resultMap;
+    }  
+
+    @GetMapping("/seller/selectImage")
+    public  Map<String,Object> getRegistImage(){
+        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
+        List<SellerRegistImageVO> list= s_service.getRegistImage();
+        resultMap.put("data", list);
+        return resultMap;
+    }
+    @GetMapping("/seller/getGradeZero")
+    public  Map<String,Object> getGradeZero(){
+        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
+        List<SellerInfoVO> list= s_service.getGradeZero();
         resultMap.put("data", list);
         return resultMap;
     }

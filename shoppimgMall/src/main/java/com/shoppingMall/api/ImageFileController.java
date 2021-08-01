@@ -10,7 +10,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.shoppingMall.mapper.SellerMapper;
 import com.shoppingMall.service.ProductService;
+import com.shoppingMall.service.SellerService;
 import com.shoppingMall.vo.ProductImageVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,14 +35,17 @@ import org.springframework.web.multipart.MultipartFile;
 public class ImageFileController {
     @Autowired 
     ProductService service;
-    @GetMapping("/image/{uri}")
-    public ResponseEntity<Resource> getImage(@PathVariable String uri, HttpServletRequest request)throws Exception{
-    // HttpServletRequest 가져온파일의 유형을 알아낼떄 쓴다.
-   
-     Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
-    //  Path folderLocation = Paths.get("C:/Users/user/Desktop/포폴/shopping_mall-main/images_save");
+    @Autowired
+    SellerService s_service;
+    @Autowired
+    SellerMapper mapper;
     
+    @GetMapping("/image/{uri}")
+    public ResponseEntity<Resource> getImage(@PathVariable String uri,HttpServletRequest request)throws Exception{
+    // HttpServletRequest 가져온파일의 유형을 알아낼떄 쓴다.
+    Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
     String fileName =service.getProductImageFileName(uri);
+    System.out.println("filename : "+fileName);
     if(fileName==null){
         return null;
     }
@@ -130,5 +135,35 @@ public class ImageFileController {
         resultMap.put("message", "파일 업로드 완료");
         resultMap.put("image_uri",image_uri);
         return resultMap;
+    }
+
+
+    @GetMapping("/image/{uri}/{si_seq}")
+    public ResponseEntity<Resource> getImageProduct(@PathVariable String uri,@PathVariable Integer si_seq, HttpServletRequest request)throws Exception{
+    // HttpServletRequest 가져온파일의 유형을 알아낼떄 쓴다.
+    Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
+    System.out.println("uri : "+uri);
+    System.out.println("si_seq : "+si_seq);
+    
+    String fileName =s_service.getRegistImageName(uri, si_seq);
+
+    System.out.println("파일이름 : "+fileName);
+    if(fileName==null){
+        return null;
+    }
+    Path filePath = folderLocation.resolve(fileName).normalize();
+    Resource r = new UrlResource(filePath.toUri());
+    // Resource r= new UrlResource(filePath.toUri());
+
+    String contentType = request.getServletContext().getMimeType(r.getFile().getAbsolutePath());
+    if(contentType == null){
+        contentType = "application/octet-stream";
+    }
+
+    return ResponseEntity.ok()
+              .contentType(MediaType.parseMediaType(contentType))
+              .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename*=\""+r.getFilename()+"\"")
+              .body(r);
+
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import com.shoppingMall.vo.ChartVO;
 import com.shoppingMall.vo.LoginVO;
 import com.shoppingMall.vo.SellerInfoVO;
+import com.shoppingMall.vo.SellerRegistImageVO;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -32,9 +33,16 @@ public interface SellerMapper {
     public List<ChartVO> showProdCntByTermDate(Integer si_seq , String start_date ,String end_date);
     public List<ChartVO> showProdCntRank(Integer si_seq);
 
+    // admin_page mapper
+
     //admin_page 제품리스트 count
     public Integer selectSellerProdCnt(Integer seq);
     public List<SellerInfoVO> getSellerList();
+    public List<SellerInfoVO> getGradeZero();
+    public void deleteSeller(Integer seq);
+    public List<SellerRegistImageVO> getRegistImage();
+    public String getRegistImageName(String uri , Integer si_seq);
+    
     
     
 
