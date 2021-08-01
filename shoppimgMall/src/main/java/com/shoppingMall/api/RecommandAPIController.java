@@ -53,4 +53,54 @@ public class RecommandAPIController {
         resultMap.put("message", "추천상품이 삭제되었습니다.");
         return resultMap;
     }
+
+    // admin page 추천상품 //
+
+
+    @GetMapping("/admin/api/not_recommand/{cate_seq}/{si_seq}")
+    public Map<String, Object> getNotRecommandProdAPI(@PathVariable Integer cate_seq, @PathVariable Integer si_seq,
+            @RequestParam @Nullable String keyword) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<ProductVO> list = service.selectNotRecommandProducts(cate_seq, si_seq, keyword);
+        resultMap.put("status", true);
+        resultMap.put("list", list);
+
+        return resultMap;
+    }
+    @PutMapping("/admin/put/recommand")
+    public Map<String, Object> putRecommandProdAPI(@RequestParam Integer prod_seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        service.insertRecommandProduct(prod_seq);
+        resultMap.put("status", true);
+        resultMap.put("message", "추천상품이 추가되었습니다.");
+        return resultMap;
+    }
+    @GetMapping("/admin/list/recommand")
+    public Map<String, Object> getRecommandProdAPI() {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<ProductVO> list = service.showRecommandProducts();
+        resultMap.put("status", true);
+        resultMap.put("list", list);
+
+        return resultMap;
+    }
+    @DeleteMapping("/admin/api/recommand")
+    public Map<String, Object> deleteRecommandProdAPI(@RequestParam Integer prod_seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        service.deleteRecommandProduct(prod_seq);
+        resultMap.put("status", true);
+        resultMap.put("message", "추천상품이 삭제되었습니다.");
+        return resultMap;
+    }
+
+
+
+
+
+    
+
+
+
+    
+    
 }

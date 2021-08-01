@@ -3,34 +3,71 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.shoppingMall.mapper.RecommandMapper">
-  <select id="selectRecommandProducts" resultType="com.shoppingMall.vo.ProductInfoVO">
+<select id="selectRecommandProducts" resultType="com.shoppingMall.vo.ProductInfoVO">
         select a.* from product_info a inner join recommand b
         on a.pi_seq = b.reco_pi_seq order by b.reco_seq desc limit 4
-  </select>
-  <select id="selectSellerRecommandProducts" resultType="com.shoppingMall.vo.ProductVO" >
-  select pi_seq,pi_name,pi_img_uri,cate_name as category_name , si_name as seller_name from
-(select * from
-(select * from product_info a inner join seller_recommand b on a.pi_seq = b.s_reco_pi_seq) a 
-inner join category c on a.pi_cate_seq=c.cate_seq)a inner join seller_info b on a.pi_si_seq = b.si_seq 
-where a.s_reco_si_seq=#{si_seq}
+</select>
+<select id="selectSellerRecommandProducts" resultType="com.shoppingMall.vo.ProductVO" >
+         select pi_seq,pi_name,pi_img_uri,cate_name as category_name , si_name as seller_name from
+        (select * from
+        (select * from product_info a inner join seller_recommand b on a.pi_seq = b.s_reco_pi_seq) a 
+        inner join category c on a.pi_cate_seq=c.cate_seq)a inner join seller_info b on a.pi_si_seq = b.si_seq 
+        where a.s_reco_si_seq=#{si_seq}
 </select>
 
   <select id="selectSellerNotRecommandProducts" resultType="com.shoppingMall.vo.ProductVO" >
- select pi_seq,pi_name,pi_img_uri,cate_name as category_name , si_name as seller_name from
-(select*from 
-(select * from product_info a left outer join seller_recommand b on a.pi_seq = b.s_reco_pi_seq)a inner join  
-category c on a.pi_cate_seq = c.cate_seq) a inner join seller_info b on a.pi_si_seq = b.si_seq
-where a.s_reco_pi_seq is null
-and a.pi_name like #{keyword}
-and a.pi_si_seq = #{si_seq}
+        select pi_seq,pi_name,pi_img_uri,cate_name as category_name , si_name as seller_name from
+        (select*from 
+        (select * from product_info a left outer join seller_recommand b on a.pi_seq = b.s_reco_pi_seq)a inner join  
+        category c on a.pi_cate_seq = c.cate_seq) a inner join seller_info b on a.pi_si_seq = b.si_seq
+        where a.s_reco_pi_seq is null
+        and a.pi_name like #{keyword}
+        and a.pi_si_seq = #{si_seq}
 </select>
 
 <insert id="insertSellerRecommandProduct">
- insert into seller_recommand(s_reco_pi_seq,s_reco_si_seq) values (#{prod_seq},#{si_seq}) 
+        insert into seller_recommand(s_reco_pi_seq,s_reco_si_seq) values (#{prod_seq},#{si_seq}) 
 </insert>
 
 <delete id="deleteSellerRecommandProduct">
-delete from seller_recommand where s_reco_pi_seq= #{prod_seq} and s_reco_si_seq = #{si_seq}
+        delete from seller_recommand where s_reco_pi_seq= #{prod_seq} and s_reco_si_seq = #{si_seq}
+</delete>
+
+<!-- admin page home 표시용 추천mapper -->
+
+<select id="selectNotRecommandProducts" resultType="com.shoppingMall.vo.ProductVO">
+     select pi_seq,pi_name,pi_img_uri,cate_name as category_name,si_name as seller_name from
+       (
+       select*from
+        (select * from product_info a left outer join recommand b on a.pi_seq = b.reco_pi_seq)a inner join seller_info b on a.pi_si_seq =b.si_seq
+        )a inner join category ca on a.pi_cate_seq = ca.cate_seq
+    	where 
+    	a.reco_pi_seq is null
+    	and
+    	a.pi_name like #{keyword}
+    	<if test="cate_seq != 0">
+    	  and
+    	  a.pi_cate_seq =#{cate_seq}
+    	</if>
+    	<if test="si_seq != 0">
+    	  and
+    	  a.pi_si_seq =#{si_seq}
+    	</if>
+</select>
+
+<insert id="insertRecommandProduct">
+       insert into recommand(reco_pi_seq) values (#{prod_seq}) 
+</insert>
+
+<select id="showRecommandProducts" resultType="com.shoppingMall.vo.ProductVO">
+      select pi_seq,pi_name,pi_img_uri,cate_name as category_name ,si_name as seller_name from
+	    (select*from
+	    (select * from product_info a inner join recommand b on a.pi_seq = b.reco_pi_seq)a inner join seller_info c on a.pi_si_seq = c.si_seq )
+      a inner join category ca on a.pi_cate_seq =ca.cate_seq ;	
+</select>
+
+<delete id="deleteRecommandProduct">
+        delete from recommand where reco_pi_seq= #{prod_seq}
 </delete>
 
   </mapper>

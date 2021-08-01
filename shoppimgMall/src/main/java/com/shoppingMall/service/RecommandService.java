@@ -16,6 +16,7 @@ public class RecommandService {
     @Autowired RecommandMapper r_mapper;
     @Autowired ProductMapper p_mapper;
 
+    // index로 보내는것
     public List<ProductInfoVO> selectRecommandProducts() {
         List<ProductInfoVO> list = r_mapper.selectRecommandProducts();
         for (ProductInfoVO item : list) {
@@ -59,5 +60,39 @@ public class RecommandService {
     public void deleteSellerRecommandProduct(Integer prod_seq,Integer si_seq) {
         r_mapper.deleteSellerRecommandProduct(prod_seq,si_seq);
     }
+
+
+    // admin page 용 추천상품
+
+    public List<ProductVO> selectNotRecommandProducts(Integer cate_seq, Integer si_seq, String keyword) {
+        if(keyword==null){
+            keyword ="%%";
+        }else{
+            keyword = "%"+keyword+"%";
+        }
+
+        List<ProductVO> list = r_mapper.selectNotRecommandProducts(cate_seq, si_seq, keyword);
+        return list;
+
+    }
+
+    public List<ProductVO> showRecommandProducts() {
+
+        List<ProductVO> list = r_mapper.showRecommandProducts();
+
+      
+        return list;
+    }
+
+    public void insertRecommandProduct(Integer prod_seq) {
+        r_mapper.insertRecommandProduct(prod_seq);
+    }
+    public void deleteRecommandProduct(Integer prod_seq) {
+        r_mapper.deleteRecommandProduct(prod_seq);
+    }
+
     
+
+    
+
 }

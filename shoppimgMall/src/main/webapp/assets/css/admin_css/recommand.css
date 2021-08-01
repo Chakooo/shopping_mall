@@ -1,0 +1,22 @@
+/* recommand */
+
+.add_recommand{
+    position: fixed; width: 100vw; height: 100vh;
+    left: 0;top: 0;z-index: 99999999999;
+    background-color: rgba(0,0,0,0.3);
+     display: none;
+}
+
+.add_recommand_wrap{
+    background-color: #fff;
+    position: absolute; left: 50%; top:40%; transform: translate(-50% , -50%);
+    padding: 20px; border-radius:5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); height: 400px;
+    overflow-y: scroll; 
+}
+.product_list td img , #recommand_tbody img {height: 50px;}
+.add_recommand_wrap > h1 {font-size: 28px; font-weight: 500; color: #333; margin-bottom: 20px;}
+.add_recommand_wrap > .close {position: absolute; right: 20px; top: 20px;}
+.add_recommand table {width: 800px;}
+.add_recommand_wrap td {text-align: center; padding: 5px; border-bottom: 1px solid #dfdfdf;}
+.search_area{text-align: right;}
