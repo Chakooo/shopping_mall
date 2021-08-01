@@ -57,6 +57,9 @@ $(function(){
     $(".regular_regist").click(function(){
     let si_seq = $("#seller_seq").val();
     let mi_seq = $("#mi_seq").val();
+    if(si_seq == null || si_seq ||undefined || si_seq==0){
+      alert("로그인후 이용하실수있습니다.")
+    }
 
       // console.log(si_seq , mi_seq)
     

@@ -34,7 +34,7 @@ public class ProductController {
         List<ProductInfoVO> list = p_service.selectProductsByCategory(cate_seq);
         model.addAttribute("list", list);
         
-        return "/admin/productList";
+        return "/product/list";
     }
     
     // admin페이지에 상품관리

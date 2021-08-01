@@ -5,7 +5,7 @@
   <mapper namespace="com.shoppingMall.mapper.RecommandMapper">
 <select id="selectRecommandProducts" resultType="com.shoppingMall.vo.ProductInfoVO">
         select a.* from product_info a inner join recommand b
-        on a.pi_seq = b.reco_pi_seq order by b.reco_seq desc limit 4
+        on a.pi_seq = b.reco_pi_seq order by b.reco_seq desc limit 2
 </select>
 <select id="selectSellerRecommandProducts" resultType="com.shoppingMall.vo.ProductVO" >
          select pi_seq,pi_name,pi_img_uri,cate_name as category_name , si_name as seller_name from
