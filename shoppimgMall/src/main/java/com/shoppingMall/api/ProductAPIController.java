@@ -28,9 +28,10 @@ public class ProductAPIController {
     @GetMapping("/product/api/list")
     public Map<String, Object> getProductList(@RequestParam @Nullable String keyword,
             @RequestParam @Nullable Integer offset, @RequestParam @Nullable Integer category,
-            @RequestParam Integer si_seq) {
+            @RequestParam @Nullable Integer si_seq) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         List<ProductInfoVO> list = service.selectProducts(offset, keyword, category, si_seq);
+        
         resultMap.put("data", list);
         return resultMap;
     }

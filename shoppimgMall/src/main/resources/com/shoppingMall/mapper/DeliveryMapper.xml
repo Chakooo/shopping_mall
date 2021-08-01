@@ -3,27 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shoppingMall.mapper.DeliveryMapper">
-<select id="selectDeliveryBySeq" resultType="com.shoppingMall.vo.DeliveryInfoVO">
-select * from delivery_info where di_seq =#{seq}
-</select>
-<insert id="insertDeliveryInfo">
-insert into delivery_info(di_name,di_phone,di_price)
-values
-(#{di_name},#{di_phone},#{di_price})
-</insert>
-<select id="selectDeliveryByName" resultType="java.lang.Integer">
-select count(*) from delivery_info where di_name=#{name}
-</select>
-<select id="selectDeliveryAll"  resultType="com.shoppingMall.vo.DeliveryInfoVO" >
-  select*from delivery_info;
-</select>
-<delete id="deleteDelivery">
- delete from delivery_info where di_seq=#{seq}
-</delete>
-<select id="selectDeliveryName" resultType="java.lang.String">
- select di_name from delivery_info where di_seq=#{seq}
-</select>
-<select id="selectDeliveryProdCnt" resultType="java.lang.Integer">
-  select count(*) from product_info where pi_di_seq=#{seq}
-</select>
+      <select id="selectDeliveryBySeq" resultType="com.shoppingMall.vo.DeliveryInfoVO">
+          select * from delivery_info where di_seq =#{seq}
+      </select>
+      <insert id="insertDeliveryInfo">
+          insert into delivery_info(di_name,di_phone,di_price)
+          values
+          (#{di_name},#{di_phone},#{di_price})
+      </insert>
+      <select id="selectDeliveryByName" resultType="java.lang.Integer">
+          select count(*) from delivery_info where di_name=#{name}
+      </select>
+      <select id="selectDeliveryAll"  resultType="com.shoppingMall.vo.DeliveryInfoVO" >
+          select*from delivery_info;
+      </select>
+      <delete id="deleteDelivery">
+          delete from delivery_info where di_seq=#{seq}
+      </delete>
+      <select id="selectDeliveryName" resultType="java.lang.String">
+          select di_name from delivery_info where di_seq=#{seq}
+      </select>
+      <select id="selectDeliveryProdCnt" resultType="java.lang.Integer">
+          select count(*) from product_info where pi_di_seq=#{seq}
+      </select>
 </mapper>

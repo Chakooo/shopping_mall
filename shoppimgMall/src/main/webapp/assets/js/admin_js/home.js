@@ -3,6 +3,9 @@ $(function () {
    if(seq==null||seq==undefined||seq==''){
        location.href="/seller/login"
    }
+   
+
+
     let si_seq = $("#seller_seq").val();
     console.log(si_seq)
     $.ajax({

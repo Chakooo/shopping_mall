@@ -15,6 +15,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,10 +69,16 @@ public class SellerAPIController {
 
     @PostMapping("/seller/login")
     public Map<String, Object> getSellerLogin(@RequestBody LoginVO vo, HttpSession session) {
+       
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         resultMap = s_service.loginSeller(vo);
+       
         SellerInfoVO seller = (SellerInfoVO) resultMap.get("seller");
+        Integer grade  = Integer.valueOf((String)resultMap.get("si_grade"));
         session.setAttribute("seller", seller);
+        session.setAttribute("grade", grade);
+        System.out.println("등급 api쪽 확인");
+        System.out.println(grade); 
         return resultMap;
     }
 
@@ -147,4 +154,13 @@ public class SellerAPIController {
         resultMap.put("data", list);
         return resultMap;
     }
+    @PatchMapping("/seller/grade/update")
+    public  Map<String,Object> sellerGradeUpdate(@RequestParam String si_id ,@RequestParam Integer grade){
+        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
+        s_service.sellerGradeUpdate(si_id,grade);
+        resultMap.put("message","정식판매자로 등록했습니다");
+        resultMap.put("status",true);
+        return resultMap;
+    }
+    
 }

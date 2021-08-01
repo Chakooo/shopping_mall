@@ -7,7 +7,7 @@
 .list table tr:nth-child(even){
     background-color: #fbfbfb;
 }
-.list table {min-width: 1050px;}
+.list table {min-width: 1050px; margin-bottom: 30px;}
 .list thead td{background-color: #333; color: #fff; border-color: #333;}
 body > h1 {font-size: 32px; font-weight: 700; margin-bottom: 30px;}
 

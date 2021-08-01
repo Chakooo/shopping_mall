@@ -11,8 +11,8 @@ font-weight: 700; color: #333;}
 #gnb a.current {background-color: #666; color: #fff;}
 #logo > img {width: 170px;height: 150px; margin-bottom: 50px;}
 #logout{
-    background-color: rgb(255, 255, 255);
-    color: #333;
+    background-color:#666;
+    color: rgb(255, 255, 255);
     margin-left: 10px;
     cursor: pointer;
     border: 0;

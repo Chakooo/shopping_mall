@@ -6,6 +6,10 @@ $(function () {
   if(seller != '' && si_grade==0){
     location.href="/seller/registration/"+si_seq;
   }
+  if(seller != '' && si_grade==2){
+    location.href="/seller/registration/"+si_seq;
+  }
+  
 
 
   

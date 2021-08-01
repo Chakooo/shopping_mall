@@ -90,11 +90,13 @@ public class SellerService {
             resultMap.put("status", true);
             SellerInfoVO seller = mapper.selectSellerInfoById(vo.getId());
             resultMap.put("si_seq", seller.getSi_seq());
+            resultMap.put("si_grade", seller.getSi_grade());
             resultMap.put("seller", seller);
         } else {
             resultMap.put("status", false);
             resultMap.put("message", "아이디 또는 비밀번호가 틀렸습니다.");
         }
+        System.out.println("등급 서비스쪽 확인");
         return resultMap;
     }
 
@@ -263,5 +265,7 @@ public class SellerService {
         System.out.println("서비스 파일네임 : "+fileName);
         return fileName;
     }
-
+    public void sellerGradeUpdate(String si_id,Integer grade){
+        mapper.sellerGradeUpdate(si_id,grade);
+    }
 }

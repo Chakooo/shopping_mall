@@ -6,9 +6,12 @@ $(function(){
   if(seller != '' && si_grade==0){
     location.href="/seller/registration/"+si_seq;
   }
+  if(seller != '' && si_grade==2){
+    location.href="/seller/registration/"+si_seq;
+  }
   if(seller != '' && si_grade==99){
     location.href="/admin"
-  }
+  } 
   
 $("#logout").click(function () {
     if (confirm("로그아웃 하시겠습니까?"))   

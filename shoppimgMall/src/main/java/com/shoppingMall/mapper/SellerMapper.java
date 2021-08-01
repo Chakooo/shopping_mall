@@ -43,7 +43,7 @@ public interface SellerMapper {
     public List<SellerRegistImageVO> getRegistImage();
     public String getRegistImageName(String uri , Integer si_seq);
     
-    
+    public void sellerGradeUpdate(String si_id,Integer grade); //사업자 등록 확인후 일반판매자로 등록
     
 
 } 

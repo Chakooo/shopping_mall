@@ -88,7 +88,7 @@ public class ProductService {
     }
 
     public List<ProductInfoVO> selectProducts(Integer offset, String keyword, Integer category, Integer si_seq) {
-        System.out.println("서비스 인");
+        
         if (offset == null)
             offset = 0;
         if (keyword == null) {
@@ -96,8 +96,10 @@ public class ProductService {
         } else {
             keyword = "%" + keyword + "%";
         }
+        
         List<ProductInfoVO> list = mapper.selectProducts(offset,keyword,category,si_seq);
-
+        System.out.println(list);
+        System.out.println("서비스 인");
         return list;
 
     }

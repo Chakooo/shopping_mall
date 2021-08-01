@@ -1,15 +1,21 @@
 /* registration.css */
-
-
-
-
-
-
-#img_preview img {width: 200px;}
-.preview img {height: 80px;}
+#img_preview img {width: 500px;}
+.preview img {height: 150px;}
 
 #image_form button {
     background-color: #fdd835; color: #fff; 
     font-family: "Noto Sans KR", sans-serif; border: 0; padding:3px 20px;margin-left: 5px;
     border-radius: 3px; font-size: 14px;
+}
+.regi_div{
+    width: 1050px; margin:0 auto; margin-bottom: 150px;
+    text-align: center;
+}
+.regi_h1{
+    font-size: 50px; margin-top: 50px; margin-bottom: 50px;
+}
+
+.img_form > h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
 }

@@ -91,10 +91,28 @@
         </delete>
 
         <select id="getRegistImage" resultType="com.shoppingMall.vo.SellerRegistImageVO">
-         select * from seller_regist_image a inner join seller_info  b on a.sr_si_seq = b.si_seq  where si_grade=0;
+           select*from(
+            select
+            	*
+            from(
+            	  select
+            	  	*
+            	  from seller_regist_image
+            	  where (sr_si_seq, sr_reg_dt) in (
+            	  	select sr_si_seq, max(sr_reg_dt) as date_time
+            	  	from seller_regist_image group by sr_si_seq
+            	  )
+            	  order by sr_reg_dt desc
+            ) t
+            group by t.sr_si_seq) a inner join seller_info b on a.sr_si_seq = b.si_seq where si_grade=2;
         </select>
        
        <select id="getRegistImageName" resultType="java.lang.String">
         select sr_filename from seller_regist_image where sr_uri=#{uri} and sr_si_seq=#{si_seq} order by sr_si_seq desc limit 1;
        </select>
+
+       <!-- 판매자등급 0 > 1 가입대기에서 정식판매자로 등록 -->
+       <update id="sellerGradeUpdate">
+        UPDATE seller_info SET  si_grade=#{grade} WHERE si_id=#{si_id};
+       </update>
   </mapper>
