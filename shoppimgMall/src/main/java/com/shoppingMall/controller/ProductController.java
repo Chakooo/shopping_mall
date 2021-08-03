@@ -28,7 +28,6 @@ public class ProductController {
     // 상세페이지로 이동
     @GetMapping("/products")
     public String getProducts(@RequestParam Integer cate_seq,Model model){       
-        System.out.println("ㅎㅇ");
         String cate_name = c_mapper.selectCategoryName(cate_seq);
         model.addAttribute("category", cate_name);
         List<ProductInfoVO> list = p_service.selectProductsByCategory(cate_seq);
@@ -36,6 +35,14 @@ public class ProductController {
         
         return "/product/list";
     }
+//     @GetMapping("/products/shop")
+//     public String getSellerShop9(@RequestParam Integer si_seq , Model model){
+//         String prod_shop =  s_service.selectProductbyseq(si_seq);
+   
+   
+//    return "/seller/shop"
+//     }
+
     
     // admin페이지에 상품관리
     @GetMapping("/product/admin")

@@ -27,6 +27,7 @@ public class MainController {
         session.setAttribute("catelist", list);        
         // model.addAttribute("catelist", list);
         model.addAttribute("reco_list",r_service.selectRecommandProducts());
+        model.addAttribute("seller_list",r_service.selectRecommandSellerProd());
         System.out.println("Main");
         return "/index";
     }

@@ -35,6 +35,23 @@ public class RecommandService {
         }
         return list;
     }
+    public List<ProductInfoVO> selectRecommandSellerProd(){
+        List<ProductInfoVO> list = r_mapper.selectRecommandSellerProd();
+        for (ProductInfoVO item : list) {
+            int i = item.getPi_si_seq();
+            String si_name = p_mapper.getSellerName(i);
+            item.setSeller_name(si_name);
+            System.out.println("이름 : "+item.getSeller_name());
+            int discount_rate = item.getPi_discount_rate();
+            int discounted = (int) (item.getPi_price() - (item.getPi_price() * discount_rate / 100.0));
+            DecimalFormat formatter = new DecimalFormat("#,##0");
+            // 1000단위 마다 콤마찍어준다.
+            item.setDiscounted_price(formatter.format(discounted));
+            item.setOrigin_price(formatter.format(item.getPi_price()));
+        }
+
+        return list;
+    }
     public List<ProductVO> selectSellerRecommandProducts(Integer si_seq) {
 
         List<ProductVO> list = r_mapper.selectSellerRecommandProducts(si_seq);

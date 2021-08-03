@@ -43,7 +43,7 @@
 .join_table button:hover{
     background-color: #333;
 }
-.join_table{width: 540px; margin:0 auto}
+.join_table{width: 540px; margin:0 auto ; margin-bottom: 100px;}
 .join_table tr:last-child{text-align: center;}
 .join_table select {width:322px}
 body{background-color: #fcfcfc;}

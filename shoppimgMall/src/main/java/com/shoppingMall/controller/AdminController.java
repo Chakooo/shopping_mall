@@ -12,12 +12,11 @@ public class AdminController {
     public String getAdmin(HttpSession session){
         Integer grade =(Integer)session.getAttribute("grade");
         System.out.println("등급 :  "+ grade);
-        if(grade == 99){
-            return "/admin/home";
+        if(grade != 99){
+            return "/";
+        
         }
-    
-       
-        return "/";
+        return "/admin/home";
     }
     @GetMapping("//admin/regist/check")
     public String getRegistSeller(){

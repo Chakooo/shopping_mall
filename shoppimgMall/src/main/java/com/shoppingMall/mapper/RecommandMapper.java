@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface RecommandMapper {
     // 판매자용 추천상품
     public List<ProductInfoVO> selectRecommandProducts();
+    public List<ProductInfoVO> selectRecommandSellerProd();
     public List<ProductVO> selectSellerRecommandProducts(Integer si_seq) ;
     public List<ProductVO> selectSellerNotRecommandProducts(Integer si_seq,String keyword) ;
     public void insertSellerRecommandProduct(Integer prod_seq , Integer si_seq);
