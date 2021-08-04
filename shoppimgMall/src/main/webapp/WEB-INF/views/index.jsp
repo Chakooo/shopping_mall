@@ -61,7 +61,6 @@
                     </div>
                     <div class="text_area">
                         <h2>[${item.seller_name}]</h2> 
-                        <p>${item.pi_name}</p>
                         <p class="price">
                             <c:if test="${item.pi_discount_rate!=0}">
                             <span class="discount_rate">${item.pi_discount_rate}%</span>
