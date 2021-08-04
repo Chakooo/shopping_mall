@@ -1,8 +1,4 @@
 $(function () {
-
-
-
-
     $("#review_managed").addClass("current")
     let si_seq = $("#seller_seq").val();
     console.log(si_seq)
@@ -108,7 +104,9 @@ $(function () {
     $(".answer_regist").click(function () {
         if (!confirm("리뷰 댓글을 등록하시겠습니까?")) return;
         let rev_seq = $(this).attr("rev-seq");
-        let content = $(this).parent().children("textarea").val();
+        console.log(rev_seq)
+        let content = $(this).parent().parent().children().children("textarea").val();
+        console.log(content)
         if(content==null||content==''||content==undefined){
             alert("내용을 입력하세요")
             return;

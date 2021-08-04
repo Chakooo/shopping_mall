@@ -15,8 +15,9 @@
             </head>
 
             <body>
-                <!-- ${seller}
-                ${r_list} -->
+                ${seller}
+                ${seller.si_seq}
+                <!-- ${r_list} -->
 
                 <input type="text" name="" id="seller_seq" value="${seller.si_seq}" disabled hidden>
 
