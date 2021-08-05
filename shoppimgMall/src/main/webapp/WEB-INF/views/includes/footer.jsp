@@ -7,7 +7,6 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="/assets/css/reset.css">
             <link rel="stylesheet" href="/assets/css/footer.css">
             <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
             <script src="/assets/js/footer.js"></script>
@@ -49,8 +48,8 @@
                     <div class="help_center">
                         <p><b>고객센터 ></b></p>
                         <p>경기도 0 0 시 0 0구 0 0로 223 (00동) 0 0빌딩 9층</p>
-                        <p>Tel : <b>0000-0000</b>   (평일 09:00 ~ 18:00) </p>
-                        <p> VIP전용 Tel :<b>0000-000</b>  (365일 09:00 ~ 18:00)</p>
+                        <p>Tel : <b>0000-0000</b> (평일 09:00 ~ 18:00) </p>
+                        <p> VIP전용 Tel :<b>0000-000</b> (365일 09:00 ~ 18:00)</p>
                         <p>Fax : 02-000-0000 Mail : EEmarket@EEmarket.co.kr</p>
                     </div>
                 </div>

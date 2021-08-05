@@ -70,3 +70,19 @@ h1 {
 .nodata {text-align: center; font-size: 18px; color: #666; padding: 20px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
         width: 1050px; margin: 0 auto;
 }
+
+
+.recommand_wrap {font-size: 0;width: 1050px; margin: 0 auto;   border: 5px solid #fdd835; padding: 15px; border-style: dotted; padding-bottom: 0;}
+
+.regular_wrap{width: 1050px;float: center;  margin: 0 auto; margin-bottom: 80px;}
+.div_regular{float: right;}
+.div_regular>img{ width: 30px;}
+.recommand_place > h1 ,.seller_place > h1{ font-size: 28px; font-weight: 500;text-align: center; margin-top: 80px; margin-bottom: 40px; }
+.recommand_place > h1 > span,.seller_place > h1 > span{ font-size: 14px; font-weight: 500;text-align: center; margin-top: 80px; margin-bottom: 40px; }
+.prod_item {width: 249px;  font-size: 16px; vertical-align: top; display: inline-block;  margin-right: 18px; margin-bottom: 18px; color: #333; text-decoration: none;}
+.prod_item:last-child{margin-right: 0;}
+.prod_item .img_area img{width: 100%; }
+.prod_item .text_area{margin-top: 10px;}
+.prod_item .text_area .price {margin-top: 10px; font-weight: 700;}
+.prod_item .text_area .discount_rate {color: orangered; margin-right: 3px;}
+.prod_item .text_area .origin_price {margin-top: 10px; font-size: 14px; text-decoration: line-through; color: #999;}

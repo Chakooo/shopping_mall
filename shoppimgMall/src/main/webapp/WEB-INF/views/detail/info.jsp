@@ -35,6 +35,7 @@
                     </div>
                     <div class="text_area">
                         <h2>[${product.seller_name}]${product.pi_name}</h2>
+                        <div class="regular_regist"><img src="/assets/images/free-icon-houses-3325784.png" alt=""><button><span>단골 가게 등록</span></button></div>                       
                         <p class="rate">
                             <c:if test="${rate==0}">
                                 <span>평점이 없습니다.</span>
@@ -98,7 +99,7 @@
                             <span>적립</span>
                         </div>
                         <c:if test="${seller == null}">
-                        <div class="regular_regist"><button>단골 가게 등록</button></div>                       
+                      
                             <div class="buttons">
                                 <button id="shopping_bag">장바구니</button>
                                 <button id="buy">구매하기</button>

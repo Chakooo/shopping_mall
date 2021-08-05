@@ -59,6 +59,7 @@ $(function(){
     let mi_seq = $("#mi_seq").val();
     if(si_seq == null || si_seq ||undefined || si_seq==0){
       alert("로그인후 이용하실수있습니다.")
+      return;
     }
 
       // console.log(si_seq , mi_seq)

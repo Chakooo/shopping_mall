@@ -16,6 +16,8 @@ public interface RecommandMapper {
     public List<ProductVO> selectSellerNotRecommandProducts(Integer si_seq,String keyword) ;
     public void insertSellerRecommandProduct(Integer prod_seq , Integer si_seq);
     public void deleteSellerRecommandProduct(Integer prod_seq,Integer si_seq);
+    public List<ProductInfoVO> selectRecommandBySeller(Integer si_seq);
+    public Integer selectCountRegular(Integer si_seq);
 
     //admin 웹 index용 상품 추천
 

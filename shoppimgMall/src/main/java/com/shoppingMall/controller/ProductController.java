@@ -4,9 +4,9 @@ import java.util.List;
 
 import com.shoppingMall.mapper.CategoryMapper;
 import com.shoppingMall.mapper.ProductMapper;
-import com.shoppingMall.mapper.SellerMapper;
 import com.shoppingMall.service.DeliveryService;
 import com.shoppingMall.service.ProductService;
+import com.shoppingMall.service.RecommandService;
 import com.shoppingMall.service.SellerService;
 import com.shoppingMall.vo.CategoryVO;
 import com.shoppingMall.vo.DeliveryInfoVO;
@@ -26,6 +26,7 @@ public class ProductController {
     @Autowired ProductService p_service;
     @Autowired DeliveryService d_service;
     @Autowired SellerService s_service;
+    @Autowired RecommandService r_service;
     
 
     // 상세페이지로 이동
@@ -42,9 +43,14 @@ public class ProductController {
     public String getSellerShop9(@RequestParam Integer si_seq , Model model){
         String seller_name =p_mapper.getSellerName(si_seq);
         List<ProductInfoVO> list=p_service.selectProductBySellerSeq(si_seq);     
+        List<ProductInfoVO> reco_list=r_service.selectRecommandBySeller(si_seq);     
+        Integer r_count = r_service.selectCountRegular(si_seq);
         System.out.println(list);   
         model.addAttribute("list", list);
         model.addAttribute("seller_name", seller_name);
+        model.addAttribute("reco_list", reco_list);
+        model.addAttribute("r_count", r_count);
+        
             return "/detail/shop";
        }       
    

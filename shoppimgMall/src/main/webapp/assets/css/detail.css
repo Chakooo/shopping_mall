@@ -32,3 +32,26 @@
 }
 .buttons #shopping_bag {margin-right: 10px; background-color: #fff; color: #fdd835;}
 .buttons #shopping_bag.in{ background-color: #fdd835; color: #fff;}
+
+.regular_regist > img{   
+    margin-top: 3px;
+    width: 30px; 
+}
+.regular_regist > button > span{   
+  font-size: 20px;
+}
+
+.regular_regist>button{
+    background-color:transparent;
+	border-radius:24px;
+	border:2px solid #fdd835;
+	cursor:pointer;
+	color:#000000;
+	font-size:14px;
+	padding:8px 8px;
+	text-decoration:none;  
+    margin-bottom: 15px; 
+    margin-left: 8px;
+
+
+}

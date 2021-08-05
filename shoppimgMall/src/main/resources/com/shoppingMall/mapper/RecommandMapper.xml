@@ -74,4 +74,14 @@
         delete from recommand where reco_pi_seq= #{prod_seq}
 </delete>
 
+
+<!-- 상점별 추천상품 가져오기 -->
+<select id="selectRecommandBySeller" resultType="com.shoppingMall.vo.ProductInfoVO">
+       select a.*,b.s_reco_seq from product_info a inner join seller_recommand b 
+        on a.pi_seq = b.s_reco_pi_seq where b.s_reco_si_seq =#{si_seq} order by b.s_reco_seq desc limit 4;    
+</select>
+<!-- 상점을 단골추가한 인원수 count -->
+<select id="selectCountRegular" resultType="java.lang.Integer">
+select count(*) from regular_customer_info where rc_si_seq =#{si_seq};
+</select>
   </mapper>
