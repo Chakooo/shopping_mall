@@ -54,33 +54,19 @@
             <h1>E E 마켓 추천 > | <span>오늘의 상점</span> </h1>
             </div>    
             <div class="seller_wrap">
-                <c:forEach items="${seller_list}" var="item">                
-                <a href="/detail?prod_seq=${item.pi_seq}" class="recommand_item seller_home"> <!-- 클래스 두개 적용 -->                   
-                    <div class="img_area">
-                        <img src="/image/${item.pi_img_uri}" alt="">
-                    </div>
-                    <div class="text_area">
-                        <h2>[${item.seller_name}]</h2> 
-                        <p class="price">
-                            <c:if test="${item.pi_discount_rate!=0}">
-                            <span class="discount_rate">${item.pi_discount_rate}%</span>
-                            </c:if>
-                            <span>                                  
-                                ${item.discounted_price}원                    
-                             <!-- 원가에서 할인된 가격을 보여준다.  -->
-                            </span>
-                        </p>
-                        <c:if test="${item.pi_discount_rate!=0}">
-                        <p class="origin_price">${item.origin_price}원</p>
-                        </c:if>
+                       
+                    <div class="seller_img_area">
+                       <a href="/products/shop?si_seq=30"><img src="/image/prod1628164186002" alt=""></a> 
+                       <a href="/products/shop?si_seq=29"><img src="/image/prod1628164165567" alt=""></a> 
                     </div>
                 </a>
-            </c:forEach>
+          
             </div>
         </section>
       
     </main>
-    <%@include file="/WEB-INF/views/includes/footer.jsp" %>    
+   
 </body>
+<%@include file="/WEB-INF/views/includes/footer.jsp" %>    
 </html>
 

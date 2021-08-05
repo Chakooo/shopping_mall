@@ -28,8 +28,8 @@ background-image: url("/assets/images/00b68bb2d92bcbb980348d694d0641fe.jpg");
 .seller_home .text_area .discount_rate {color: orangered; margin-right: 3px;}
 .seller_home .text_area .origin_price {margin-top: 10px; font-size: 14px; text-decoration: line-through; color: #999;}
 
-
-
+.seller_img_area a:nth-child(1) > img {width:500px; margin-right: 25px;}
+.seller_img_area a:nth-child(2) > img {width:500px; margin-left: 25px;}
 
 
 

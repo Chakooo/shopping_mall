@@ -26,9 +26,10 @@ position: relative; top: -1px;}
 .hc_bot .main_menu a {text-decoration: none; color: #333;
     display: inline-block; font-weight: 500; padding:20px 35px;
 }
-#cate_all {
+#cate_all ,#shop_all {
     background-image: url("/assets/images/ico_gnb_all_off.png");
     background-repeat: no-repeat; background-position: 5px 22px;
+   
 }
 .search_box img {width: 30px;}
 .search_box button {padding: 0; margin: 0; border: 0; background-color: transparent;

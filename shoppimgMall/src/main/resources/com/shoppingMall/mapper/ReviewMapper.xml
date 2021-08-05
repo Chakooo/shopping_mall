@@ -36,18 +36,18 @@
 </select>
 
 <insert id="insertReviewAnswer">
-      INSERT INTO shoppingmall.review_answer
+      INSERT INTO review_answer
       (ra_rev_seq, ra_content, ra_si_seq)
       VALUES(#{ra_rev_seq}, #{ra_content}, #{ra_si_seq});
 </insert>
 
 <update id="updateReviewStatus">
-      UPDATE shoppingmall.review
+      UPDATE review
       SET rev_status=#{status}
       WHERE rev_seq= #{rev_seq};
 </update>
 <update id="updateReviewAnswer">
-      UPDATE shoppingmall.review_answer
+      UPDATE review_answer
       set ra_mod_dt=CURRENT_TIMESTAMP, ra_content=#{ra_content}, ra_si_seq=#{ra_si_seq}
       WHERE ra_rev_seq=#{ra_rev_seq};
 </update>

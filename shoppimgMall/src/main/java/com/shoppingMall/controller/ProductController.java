@@ -3,6 +3,8 @@ package com.shoppingMall.controller;
 import java.util.List;
 
 import com.shoppingMall.mapper.CategoryMapper;
+import com.shoppingMall.mapper.ProductMapper;
+import com.shoppingMall.mapper.SellerMapper;
 import com.shoppingMall.service.DeliveryService;
 import com.shoppingMall.service.ProductService;
 import com.shoppingMall.service.SellerService;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ProductController {
     @Autowired CategoryMapper c_mapper;
+    @Autowired ProductMapper p_mapper;
     @Autowired ProductService p_service;
     @Autowired DeliveryService d_service;
     @Autowired SellerService s_service;
@@ -35,13 +38,18 @@ public class ProductController {
         
         return "/product/list";
     }
-//     @GetMapping("/products/shop")
-//     public String getSellerShop9(@RequestParam Integer si_seq , Model model){
-//         String prod_shop =  s_service.selectProductbyseq(si_seq);
+    @GetMapping("/products/shop")
+    public String getSellerShop9(@RequestParam Integer si_seq , Model model){
+        String seller_name =p_mapper.getSellerName(si_seq);
+        List<ProductInfoVO> list=p_service.selectProductBySellerSeq(si_seq);     
+        System.out.println(list);   
+        model.addAttribute("list", list);
+        model.addAttribute("seller_name", seller_name);
+            return "/detail/shop";
+       }       
    
-   
-//    return "/seller/shop"
-//     }
+  
+    
 
     
     // admin페이지에 상품관리

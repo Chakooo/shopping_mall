@@ -89,4 +89,8 @@ INSERT INTO seller_regist_image
 (sr_si_seq, sr_uri ,sr_filename)
 VALUES(#{si_seq}, #{imageUri},#{saveFileName});
 </insert>
+
+<select id="selectProductBySellerSeq" resultType="com.shoppingMall.vo.ProductInfoVO">
+    select * from product_info where pi_si_seq=#{si_seq}
+</select>
   </mapper>

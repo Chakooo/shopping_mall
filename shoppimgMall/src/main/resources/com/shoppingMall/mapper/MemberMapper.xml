@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shoppingMall.mapper.MemberMapper">
 <insert id="insertMember">
- INSERT INTO shoppingmall.member_info
+ INSERT INTO member_info
 (mi_id, mi_pwd, mi_name, mi_email, mi_address, mi_birth, mi_gen, mi_phone, mi_pay_card, mi_pay_account)
 VALUES(#{mi_id}, #{mi_pwd}, #{mi_name}, #{mi_email}, #{mi_address}, #{mi_birth}, #{mi_gen}, #{mi_phone}, #{mi_pay_card}, #{mi_pay_account});
 </insert>

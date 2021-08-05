@@ -106,7 +106,7 @@
                         </c:if>
                     </div>
                 </div>
-                <%@include file="/WEB-INF/views/includes/footer.jsp" %>
+               
             </body>
-
+            <%@include file="/WEB-INF/views/includes/footer.jsp" %>
             </html>

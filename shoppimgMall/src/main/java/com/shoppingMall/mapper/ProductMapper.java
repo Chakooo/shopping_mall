@@ -16,7 +16,7 @@ public interface ProductMapper {
     public String getSellerName(Integer si_seq);
     public String getProductImageFileName(String uri);
     public String getCategoryName(Integer cate_seq);
-    public ProductInfoVO selectProductBySeq(Integer seq);
+    public ProductInfoVO selectProductBySeq(Integer seq);    
     public List<ProductInfoVO> selectProducts(Integer offset, String keyword, Integer category, Integer si_seq);
     public void insertProductImage(ProductImageVO vo);
     public List<ProductInfoVO> selectProductsByCategory(Integer cate_seq);
@@ -24,7 +24,7 @@ public interface ProductMapper {
     public void deleteProduct(Integer seq);
     public ProductVO productBySeq(Integer seq);
     public List<String> selectProdNameBySeller(Integer si_seq);
-    
+    public List<ProductInfoVO> selectProductBySellerSeq(Integer si_seq);
 
     
 

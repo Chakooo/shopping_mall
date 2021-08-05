@@ -82,6 +82,7 @@
             <div class="hc_bot">
                 <div class="main_menu">
                     <a href="#" id="cate_all">전체 카테고리</a>
+                    <a href="#" id="shop_all">전체 S H O P</a>
                     <a href="#">신상품</a>
                     <a href="#">베스트</a>
                     <a href="#">알뜰쇼핑</a>
