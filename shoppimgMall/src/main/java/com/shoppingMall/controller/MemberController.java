@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class MemberController {
@@ -35,5 +36,11 @@ public class MemberController {
         List<MemberInfoVO> resultList= service.selectMemberAll();
         model.addAttribute("list", resultList);
         return "/admin/list";
+    }
+    @GetMapping("/member/myPage/{seq}")
+    public String getMemberPage(@PathVariable Integer seq){
+        System.out.println("dd");
+
+        return "/member/myPage";
     }
 }

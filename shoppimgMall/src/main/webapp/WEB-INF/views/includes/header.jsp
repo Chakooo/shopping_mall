@@ -50,7 +50,8 @@
                         <span>|</span>
                     </c:if>
                     <c:if test="${member!=null || seller !=null}">
-                        <a href="/member/order">
+                        <a href="/member/myPage/${member.mi_seq}">
+                            
                             <span class="user_grade">
                                 <c:if test="${member.mi_grade==1}">웰컴</c:if>
                                 <c:if test="${member.mi_grade==2}">프렌즈</c:if>
@@ -63,6 +64,8 @@
                                 <c:if test="${seller.si_grade==99}">관리자</c:if>
                             </span>                            
                             ${member.mi_name}님</a>
+                        <span>|</span>
+                        <a href="/member/order">주문정보 보기</a>
                         <span>|</span>
                         <!-- <a href="/member/logout">로그아웃</a> -->
                         <a href="#" id="logout">로그아웃</a>
