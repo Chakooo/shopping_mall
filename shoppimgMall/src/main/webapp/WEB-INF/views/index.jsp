@@ -51,16 +51,16 @@
 
         <section class="recommand_seller">
             <div class="seller_place">
-            <h1>E E 마켓 추천 > | <span>오늘의 상점</span> </h1>
+            <h1>오늘의 상점 ! ! > | <span>E E 마켓 강력추천</span> </h1>
             </div>    
             <div class="seller_wrap">
                        
                     <div class="seller_img_area">
-                       <a href="/products/shop?si_seq=30"><img src="/image/prod1628164186002" alt=""></a> 
+                       <a href="/products/shop?si_seq=30"><img src="/image/prod1628298376371" alt=""></a> 
                        <a href="/products/shop?si_seq=29"><img src="/image/prod1628164165567" alt=""></a> 
                     </div>
                 </a>
-          
+      
             </div>
         </section>
       

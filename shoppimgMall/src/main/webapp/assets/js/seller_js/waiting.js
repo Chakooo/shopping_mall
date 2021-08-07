@@ -1,9 +1,9 @@
-// registration
+// waiting
 $(function () {
     let si_seq = $("#seller_seq").val()*1;
     let si_id = $("#seller_id").val();
 
-    console.log(typeof(si_seq))
+    console.log(si_seq)
  
     $("#img_save").click(function () {
         if (!confirm("등록하시겠습니까?")) return;
@@ -16,6 +16,7 @@ $(function () {
         //   for (var value of formData.values()) {
         //     console.log(value);
         //   }        
+        
 
         $.ajax({
             url: "/upload?si_seq=" + si_seq,
@@ -28,7 +29,6 @@ $(function () {
                 if (r.status) {
                     let grade = 2;
                     $("#img_save").prop("disabled", true);
-                    $("#img_delete").prop("disabled", false);
                     $("#image_form > input").prop("disabled", true);
                     $("#img_preview").append('<img src="/image/' + r.image_uri + '">')
                     $("#img_preview").attr("img-uri", r.image_uri);
@@ -38,7 +38,7 @@ $(function () {
                         type:"patch",
                         url:"/seller/grade/update?si_id="+si_id+"&grade="+grade,
                         success:function(r){                            
-                            location.href="/seller/waiting"
+                        
 
                         }    
                     })
@@ -47,5 +47,21 @@ $(function () {
             }
         })
     })
+    
+$("#regist").click(function(){
+    $("#image_form").css("display","block");
+    $("#regist").css("display","none");
+})
+
+
 
 })
+
+
+
+
+
+
+
+
+

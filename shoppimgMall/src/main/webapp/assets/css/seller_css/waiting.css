@@ -1,0 +1,47 @@
+/* waiting.css */
+#img_preview img {width: 500px;}
+.preview img {height: 150px;}
+
+#image_form button {
+    padding: 6px 25px;
+    background-color:#FF6600;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    width: 140px;
+    border: 0;
+    outline: 0;
+}
+#image_form button:disabled{
+    background-color: rgb(66, 66, 66);
+    cursor:default;
+}
+
+.regi_div{
+    width: 1050px; margin:0 auto; margin-bottom: 150px;
+    text-align: center;
+}
+.regi_h1{
+    font-size: 50px; margin-top: 50px; margin-bottom: 50px;
+}
+
+.img_form > h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+#image_form{
+    display: none;
+}
+
+#regist{
+    background-color:transparent;
+	border-radius:24px;
+	border:3px solid #fdd835;
+	cursor:pointer;
+	color:#000000;
+	font-size:25px;
+	padding:15px 10px;
+	text-decoration:none;
+	width: 30%;
+}
+

@@ -118,8 +118,8 @@ public class SellerController {
      
         return "/seller/registration";
     }
-    @GetMapping("/seller/waiting/{si_seq}")
-    public String sellerWaiting(@PathVariable @Nullable Integer si_seq){
+    @GetMapping("/seller/waiting")
+    public String sellerWaiting(){
      
         return "/seller/waiting";
     }

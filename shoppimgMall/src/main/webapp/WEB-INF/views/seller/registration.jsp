@@ -23,8 +23,7 @@
                 <div class="regi_div">
                     <div class="img_form">
                         <h1 class="regi_h1">사업자 등록 과정</h1>
-                        <h3>사업자 등록증을 등록해주세요</h3>
-                        <h3>경우에 따라 3일~7일이 소요됩니다.</h3>
+                        <h3>사업자 등록증을 등록해주세요</h3>                       
                         <span id="img_preview">
                         </span>
                         <form id="image_form">
