@@ -50,7 +50,7 @@ position: relative; top: -1px;}
 .header_content {position: relative;}
 .categories {
     padding-top: 39px; position: absolute; left: 0; top: 225px; width: 195px;
-    display: none;
+    display: none; z-index: 9999;
 }
 .categories a {
     display: block; font-size: 14px; color: #333; text-decoration: none;
@@ -126,7 +126,7 @@ position: relative; top: -1px;}
 
 .seller {
     padding-top: 39px; position: absolute; left: 0; top: 225px; width: 195px;
-    display: none; margin-left: 200px;
+    display: none; margin-left: 200px; z-index: 999;
 }
 .seller a {
     display: block; font-size: 14px; color: #333; text-decoration: none;

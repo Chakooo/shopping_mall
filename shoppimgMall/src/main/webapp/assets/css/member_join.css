@@ -47,3 +47,26 @@
 .join_table tr:last-child{text-align: center;}
 .join_table select {width:322px}
 body{background-color: #fcfcfc;}
+
+
+
+#sample6_postcode,
+#sample6_extraAddress,
+#sample6_address{
+    background-color: rgb(221, 217, 217);
+
+}
+
+#sample6_postcode::-webkit-input-placeholder,
+#sample6_address::-webkit-input-placeholder,
+#sample6_extraAddress::-webkit-input-placeholder{ 
+    color: rgb(255, 255, 255);
+}
+
+#sample6_postcode,
+#sample6_extraAddress{
+    width: 125px;
+}
+#sample6_postcode{
+    margin-right: 20px;
+}

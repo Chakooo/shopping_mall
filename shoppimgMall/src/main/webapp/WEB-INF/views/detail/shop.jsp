@@ -56,6 +56,7 @@
                 <c:if test="${list.size()==0}">
                     <p class="nodata">등록된 제품이 없습니다.</p>
                 </c:if>
+                <c:if test="${list != ''}">
                 <div class="item_list">
                     <c:forEach items="${list}" var="item">
                         <a href="/detail?prod_seq=${item.pi_seq}">
@@ -76,6 +77,7 @@
                         </a>
                     </c:forEach>
                 </div>
+            </c:if>
 
             </body>
             <%@include file="/WEB-INF/views/includes/footer.jsp" %>
