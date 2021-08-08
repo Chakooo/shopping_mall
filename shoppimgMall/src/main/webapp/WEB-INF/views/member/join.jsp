@@ -92,16 +92,16 @@
                         </tr>
                         <tr>
                             <td>주소</td>
-                             <td colspan="3">
-                                <input type="text" id="sample6_postcode" placeholder="우편번호" disabled>                           
+                            <td colspan="3">
+                                <input type="text" id="sample6_postcode" placeholder="우편번호" disabled>
                                 <input type="text" id="sample6_extraAddress" placeholder="참고 사항" disabled>
-                              
+
                             </td>
                             <td>
                                 <button type="button" id="address">주소 검색</button>
-                            </td>                           
+                            </td>
                         </tr>
-                           
+
                         <tr>
                             <td></td>
                             <td colspan="3">
@@ -111,10 +111,10 @@
                         <tr>
                             <td></td>
                             <td colspan="3">
-                                <input type="text" id="sample6_detailAddress" placeholder="상세 주소" >
+                                <input type="text" id="sample6_detailAddress" placeholder="상세 주소">
                             </td>
                         </tr>
-                    
+
                         <tr>
                             <td>전화번호</td>
                             <td colspan="3">
@@ -140,8 +140,10 @@
                         </tr>
                     </tbody>
                 </table>
-                <button id="test">adsfasdf</button>
 
+                <form action="/kakaoPay" method="post">
+                    <button id="test">adsfasdf</button>
+                </form>
 
             </body>
             <%@include file="/WEB-INF/views/includes/footer.jsp" %>

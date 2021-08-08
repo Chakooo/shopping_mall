@@ -261,20 +261,21 @@ $(function () {
     })
 
 
-    $("#test").click(function () {
-        let mail = 'alexpark0926@gmail.com'
-        $.ajax({
-            type: 'post',
-            url: '/sendEmail',
-            data: {
-                mail: mail
-            },
-            dataType: 'json',
+    // $("#test").click(function () {
+    //     let mail = 'alexpark0926@gmail.com'
+    //     $.ajax({
+    //         type: 'post',
+    //         url: '/sendEmail',
+    //         data: {
+    //             mail: mail
+    //         },
+    //         dataType: 'json',
 
-        });
-        alert("인증번호가 전송되었습니다.")
+    //     });
+    //     alert("인증번호가 전송되었습니다.")
 
-    });
+    // });
+
 });
 
 function leadingZero(n) {

@@ -55,7 +55,6 @@ public class MemberController {
     }
     @GetMapping("/member/myPage/{seq}")
     public String getMemberPage(@PathVariable Integer seq){
-        System.out.println("dd");
 
         return "/member/myPage";
     }
@@ -63,6 +62,10 @@ public class MemberController {
     @Autowired
     JavaMailSender javaMailSender;
    
+
+
+// 이메일 인증구현
+
 
 @PostMapping("/sendEmail") // AJAX와 URL을 매핑시켜줌 
 @ResponseBody  //AJAX후 값을 리턴하기위해 작성
@@ -86,5 +89,8 @@ public class MemberController {
 		javaMailSender.send(message);
         return key;
 	}
+
+
+  
 
 }
