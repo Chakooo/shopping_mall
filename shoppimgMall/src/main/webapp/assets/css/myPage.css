@@ -1,0 +1,17 @@
+/* mypage.css */
+
+.modify_wrap{
+    width: 1050px; margin: auto;
+}
+.ul_wrap{
+    width: 200px; background-color: rgb(187, 47, 47); display: inline-block;
+}
+.content_wrap{
+    width: 800px;background-color: rgb(20, 68, 139); display: inline; 
+}
+.ul_wrap > li > a{
+    text-decoration: none;
+    border: 1px solid #fff; 
+    margin-bottom: 20px;
+
+}

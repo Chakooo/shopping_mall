@@ -86,3 +86,4 @@ h1 {
 .prod_item .text_area .price {margin-top: 10px; font-weight: 700;}
 .prod_item .text_area .discount_rate {color: orangered; margin-right: 3px;}
 .prod_item .text_area .origin_price {margin-top: 10px; font-size: 14px; text-decoration: line-through; color: #999;}
+.sell_top4 > h2 { font-size: 20px; font-weight: 300;text-align: center; margin-top: 80px; margin-bottom: 40px;}
