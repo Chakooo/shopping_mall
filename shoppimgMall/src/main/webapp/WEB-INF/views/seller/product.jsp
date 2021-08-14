@@ -145,6 +145,9 @@
             <div class="button_area">
                 <button id="add_product">상품추가</button>
             </div>
+            <div class="listFooter">
+                <button class="paginate">dfafdafdsafsd</button>
+            </div>
         </div>
     </div>
 </body>

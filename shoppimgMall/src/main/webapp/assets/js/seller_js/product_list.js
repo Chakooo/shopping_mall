@@ -73,6 +73,9 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
                         '</td>' +
                         '</tr>'
                     $('#product_tbody').append(tag);
+
+                    
+                   
                 }
                 $(".product_modify").click(function () {
                     $("#save").css("display","none")  //등록하기 버튼 없애기
@@ -334,7 +337,19 @@ $(function () {// document.addEventListener("DOMContentLoaded",function (){} 이
         $("#image_form>input").prop("disabled", false);
         $("#img_save").prop("disabled", false);
 
-
+        
 
     })
+
+    // 페이징
+    
+
+
+    
+
+
+
+
+
+
 });

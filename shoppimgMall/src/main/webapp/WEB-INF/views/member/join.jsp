@@ -141,9 +141,9 @@
                     </tbody>
                 </table>
 
-                <form action="/kakaoPay" method="post">
+               
                     <button id="test">adsfasdf</button>
-                </form>
+                
 
             </body>
             <%@include file="/WEB-INF/views/includes/footer.jsp" %>

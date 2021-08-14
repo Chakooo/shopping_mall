@@ -73,8 +73,13 @@ public class SellerAPIController {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         resultMap = s_service.loginSeller(vo);
        
-        SellerInfoVO seller = (SellerInfoVO) resultMap.get("seller");
-        Integer grade  = Integer.valueOf((String)resultMap.get("si_grade"));
+        
+        SellerInfoVO seller = (SellerInfoVO) resultMap.get("seller");  
+        Integer grade = 0;
+        if(seller != null){  
+         grade  = Integer.valueOf((String)resultMap.get("si_grade"));    
+    }
+        
         session.setAttribute("seller", seller);
         session.setAttribute("grade", grade);
         System.out.println("등급 api쪽 확인");

@@ -150,10 +150,13 @@
                 <tbody id="product_tbody">
                     <!-- ajax로 내용넣음 -->
                 </tbody>
+              
+                
             </table>
             <div class="button_area">
                 <button id="add_product">상품추가</button>
             </div>
+         
         </div>
     </div>
 </body>

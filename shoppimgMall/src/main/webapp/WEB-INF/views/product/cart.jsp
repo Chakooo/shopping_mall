@@ -140,6 +140,7 @@
             </div>
             <div class="order">
                 <button id="order_btn">주문하기</button>
+                <button id="kakaoPay"></span> <img src="/assets/images/payment_icon_yellow_small.png" alt=""> </button>
                 <ul>
                     <li>쿠폰/적립금은 주문서에서 사용가능합니다.</li>
                     <li>'입금확인' 상태일때는 주문내역 상세에서 직접 주문취소가 가능합니다.</li>
