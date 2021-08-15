@@ -270,8 +270,7 @@ $(function () {
             success:function(r){     
                 var parse= JSON.parse(r.data)
                 var box =parse.next_redirect_pc_url                
-                window.open(box) 
-                                   
+                window.open(box)                                    
             },
             error:function(error){
                 console.log(error)
