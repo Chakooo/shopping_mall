@@ -27,6 +27,14 @@ public interface ReviewMapper {
     public void updateReviewAnswer(ReviewAnswerVO vo);
     public void deleteReviewAnswer(Integer rev_seq);
 
+    // 물품에 따른 상인seq번호 가져오기
+    public Integer selectSellerSeq(Integer prod_seq);
 
+
+    public List<ReviewVO>selectReviewByProd(Integer prod_seq);
+    public List<ReviewVO>selectReviewByMember(Integer seq);
+
+    public Integer getReviewAnswerCnt(Integer seq);
+    public ReviewAnswerVO selectAnswerBySeq(Integer seq);
     
 }

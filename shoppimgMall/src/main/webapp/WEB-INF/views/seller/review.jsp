@@ -9,6 +9,7 @@
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" href="/assets/css/seller_css/review.css">
+                <link rel="stylesheet" href="/assets/css/seller_css/table_style.css">
                 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
                 <script src="/assets/js/seller_js/review.js"></script>
                 <title>Document</title>
@@ -88,8 +89,7 @@
                                     </td>
                                     
                                 </tr>
-                                <tr class="answer_check" style="display: none; ">
-                                    
+                                <tr class="answer_check" style="display: none; ">                                    
                                 </tr>
 
                             </c:forEach>

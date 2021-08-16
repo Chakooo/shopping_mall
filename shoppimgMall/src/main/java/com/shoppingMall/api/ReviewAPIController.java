@@ -42,8 +42,8 @@ public class ReviewAPIController {
        resultMap.put("data", data);
        resultMap.put("status",true);       
        return resultMap;    
-}
-@PostMapping("/review/answer/regist")
+    }
+    @PostMapping("/review/answer/regist")
     public Map<String, Object> postReviewWrite(@RequestBody ReviewAnswerVO vo) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         r_service.insertReviewAnswer(vo);
@@ -74,5 +74,15 @@ public class ReviewAPIController {
         resultMap.put("status", true);
         resultMap.put("message","수정되었습니다.");
         return resultMap;
+    }
+    @GetMapping("/review/getAnswer")
+    public Map<String,Object> selectAnswerBySeq(@RequestParam Integer seq){
+        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
+       ReviewAnswerVO data =  r_service.selectAnswerBySeq(seq);
+       
+        
+       resultMap.put("data", data);
+       resultMap.put("status",true);       
+       return resultMap;    
     }
 }

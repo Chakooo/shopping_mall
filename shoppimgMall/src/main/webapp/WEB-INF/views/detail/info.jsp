@@ -24,6 +24,7 @@
             </head>
 
             <body>
+                ${r_list}
                 <input type="text" name="" id="seller_seq" value="${si_seq}" disabled hidden>
                 <input type="text" name="" id="mi_seq" value="${member.mi_seq}" disabled hidden>
 
@@ -35,7 +36,8 @@
                     </div>
                     <div class="text_area">
                         <h2>[${product.seller_name}]${product.pi_name}</h2>
-                        <div class="regular_regist"><img src="/assets/images/free-icon-houses-3325784.png" alt=""><button><span>단골 가게 등록</span></button></div>                       
+                        <div class="regular_regist"><img src="/assets/images/free-icon-houses-3325784.png"
+                                alt=""><button><span>단골 가게 등록</span></button></div>
                         <p class="rate">
                             <c:if test="${rate==0}">
                                 <span>평점이 없습니다.</span>
@@ -99,15 +101,89 @@
                             <span>적립</span>
                         </div>
                         <c:if test="${seller == null}">
-                      
+
                             <div class="buttons">
                                 <button id="shopping_bag">장바구니</button>
                                 <button id="buy">구매하기</button>
                             </div>
                         </c:if>
                     </div>
+                    <div>
+                        <h1 class="review_h1">
+                            제품 리뷰
+                        </h1>
+                        <c:if test="${r_list.size() == 0}">
+                                <p id="nodata">등록된 리뷰가 없습니다.</p>      
+                        </c:if>
+                        <c:if test="${r_list.size() != 0}">
+                            <div class="review_table list">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>아이디</td>
+                                            <td>내용</td>
+                                            <td>별점</td>
+                                            <td>리뷰확인</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="review_tbody">
+                                        <c:forEach items="${r_list}" var="list">
+                                            <tr>
+                                                <td>${list.mi_id}</td>
+                                                <td>${list.rev_content}</td>
+                                                <td>
+                                                    <c:if test="${list.rev_rate ==0}">
+                                                        <span>평점이 없습니다.</span>
+                                                    </c:if>
+                                                    <c:if test="${list.rev_rate > 0}">
+                                                        <span class="star">
+                                                            <c:forEach var="i" begin="1" end="${list.rev_rate}"><img
+                                                                    src="/assets/images/free-icon-star-2107957.png"
+                                                                    alt=""></c:forEach>
+                                                            <c:forEach var="i" begin="1" end="${5 - list.rev_rate}"><img
+                                                                    src="/assets/images/free-icon-star-1828970.png"
+                                                                    alt=""></c:forEach>
+                                                        </span>
+                                                    </c:if>
+
+
+                                                </td>
+
+                                                <c:if test="${list.rev_status==1}">
+                                                    <td><button class="raw_btn btn" rev-seq=${list.rev_seq}
+                                                            rev-status=${list.rev_status}>판매자 댓글 보기</button>
+                                                    </td>
+                                                </c:if>
+
+
+                                                <c:if test="${list.rev_status==0}">
+                                                    <td><button rev-seq=${list.rev_seq}
+                                                            class="raw_btn btn">답글달기</button>
+                                                    </td>
+                                                </c:if>
+                                            </tr>
+                                            <tr class="answer" style="display: none;">
+                                                <td colspan="6">
+                                                    <p>답변등록</p>
+                                                    <textarea cols="30" rows="10" id="text_area"></textarea>
+                                                </td>
+                                                <td><button class="answer_regist btn"
+                                                        rev-seq=${list.rev_seq}>등록</button>
+                                                    <button class="answer_mod_btn btn"
+                                                        rev-seq=${list.rev_seq}>수정</button>
+                                                </td>
+                                            </tr>
+                                            <tr class="answer_check" style="display: none; ">
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </c:if>
+                    </div>
                 </div>
-               
+
             </body>
             <%@include file="/WEB-INF/views/includes/footer.jsp" %>
+
             </html>

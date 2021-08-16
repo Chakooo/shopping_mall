@@ -8,6 +8,7 @@ import com.shoppingMall.mapper.ReviewMapper;
 import com.shoppingMall.vo.OrderInfoVO;
 import com.shoppingMall.vo.OrderProductVO;
 import com.shoppingMall.vo.ProductCountVO;
+import com.shoppingMall.vo.ReviewVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,9 @@ public class OrderService {
             Integer oi_seq = item.getOi_seq();
             Boolean written = r_mapper.selectMemberProdReviewCnt(oi_seq) == 1; // true 나  false 를 반환한다.
             item.setReview_written(written);
+
+          
+        
         }
         return list;
     }

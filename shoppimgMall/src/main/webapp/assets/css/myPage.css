@@ -1,7 +1,7 @@
 /* mypage.css */
 
 .container{
-    width: 1080px; margin : 30px auto;
+    width: 1500px; margin : 30px auto;
     font-size: 0;
 }
 .container > div{display: inline-block; vertical-align:  top; font-size: 16px;}
@@ -11,48 +11,61 @@
 #main_logo {font-family: "Roboto", sans-serif;  color: #333; font-weight: 700;
     font-size: 24px;text-decoration: none; text-align: center;
     padding:20px 0; background-color: #fff; ; box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    border-radius:5px; margin-bottom: 25px;
+    border-radius:5px; margin-bottom: 25px; cursor: default;
 }
-.dashboard_area{ width: 800px;  height: 700px; margin-left: 30px;}
 .menu a{
     font-size: 16px; font-family: "Roboto", sans-serif; text-decoration: none; background-color: #fff;
     color: #333; font-weight: 500; padding:15px; position: relative; margin-bottom: 15px;
     overflow: hidden;  border-radius: 5px; box-shadow:  0 0 10px rgba(0,0,0,0.2);    
 }
-.menu a span { font-size: 13px;font-family: "Noto Sans KR", sans-serif; font-weight: 300;}
-.menu a::before {content: ""; display: inline-block; position:absolute; left:0 ; top:0;width: 5px; height: 100%; background-color: #fff; }
-.menu a:hover::before{
-    background-color: #333;
+.menu a span { font-size: 18px;font-family: "Noto Sans KR", sans-serif; font-weight: 500; }
+.menu a::before {content: ""; display: inline-block; position:absolute; left:0 ; top:0;width: 10px; height: 100%; background-color: #fff; }
+.menu a:hover::before{background-color: #fdd835;}
+
+.menu a.current::before{background: #fdd835;}
+
+
+
+
+.dashboard_area{width: 1200px; height: 700px; background-color: #fff; border-radius: 10px; 
+    box-shadow:  0 0 10px rgba(0,0,0,0.2); box-sizing:border-box; padding: 20px;margin-left: 30px; overflow-y: scroll;overflow-x:scroll;
+    
 }
 
-.dashboard_content{
-    box-sizing: border-box; padding:10px; font-size: 0;}
-.dashboard_content > div{
-    display: inline-block; vertical-align: top;
-}
-.content_left{width: 250px; height: 200px; }
-.content_right {width: 510px; height: 200px; margin-left: 20px;}
 
-.content_left .con_title {font-size: 24px; font-family: "Noto Sans",sans-serif;}
-.content_left .con_number{font-size: 32px;font-family: "Roboto",sans-serif; font-weight: 700;}
-.content_left ,.content_right{background-color: #fff; border-radius: 10px; box-shadow:  0 0 10px rgba(0,0,0,0.2); box-sizing:border-box; padding: 20px;}
-.content_left p:nth-child(2){margin-bottom: 20px;}
-.content_left p:nth-child(odd){margin-bottom: 10px;}
+    /* order */
 
-.live_confirm_item{font-size: 12px; font-family: "Noto Sans KR",sans-serif;
-                    padding:10px 0 ; border-top: 1px solid #ddd;
-}
-.live_confirm_item .time{color: #666;margin-right: 10px;}
-.live_confirm_area {overflow-y: scroll;}
-.region_confirm_tbl{font-size: 14px; width: 100%; font-family:  "Noto Sans KR",sans-serif;}
-.region_confirm_tbl td{width: 33.33%; text-align: center; padding :10px 0; border:1px solid #eee}
-.region_confirm_tbl td:last-child{color: rgb(255,70,40);}
-.region_pager_area{
-    font-size: 12px;  text-align: center; margin-top: 10px;
-}
-.region_pager_area .current {font-weight: 700;}
-.dashboard_content:first-child {padding-top: 0;}
-
-
-.region-tbody{display: none;}
-.region-tbody.active {display: table-row-group;}
+    h1{
+        font-size: 28px; text-align: left; font-weight: bold; margin: 30px; margin-left: 80px;
+        /* 글자 크기  /   글자 위치   /  글자굵기   /   margin-top */
+    }
+    .order_list{
+        width: 1050px; margin: 0 auto;
+    }
+    .order_item{
+    overflow: hidden;
+    /* 밑줄없앤다. */
+    padding: 20px;border: 1px solid #ccc; border: 1px solid #ccc;
+    margin: 0 auto; margin-bottom: 20px; border-radius: 5px; width: 940px; 
+    }
+    .order_item > div{    
+        float: left; 
+        /* order_item 에 있는 div를 왼쪽정렬시키고 나머지 배송조회,반품신청,리뷰작성하기를 빼낸다. */
+        
+    }
+    .item_info img {width: 60px;}
+    .item_info {overflow: hidden; width: 660px;}
+    .item_info > * {float: left;}
+    /* 그림 옆으로 정렬시켜 붙인다. */
+    .order_date { font-size: 20px; margin-bottom: 20px;}
+    .order_status { font-weight: 500; color: #fdd835;}
+    .order_status::before{
+        /* status 앞에 무언가를 추가하기위함 ::before */
+        content: "."; color: #999; margin: 3px;
+    }
+    .item_detail p {font-size: 18px; margin-top: 11px; margin-left: 20px;}
+    .order_buttons{padding:0 20px; border-left: 1px solid #ccc;  box-sizing: border-box; width: 280px; height: 115px;}
+    .order_buttons a{color: #333; border: 1px solid #ccc; width: 100%;display: inline-block;
+                        text-align: center;margin: 5px 0;padding: 5px 0; text-decoration: none; font-size: 14px; border-radius: 3px;}
+    #delivery_detail{color: #fdd835; border-color: #fdd835;}
+    #review{color: #e561ff; border-color: #e561ff;}

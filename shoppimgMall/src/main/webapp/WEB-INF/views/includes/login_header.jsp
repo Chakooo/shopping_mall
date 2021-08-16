@@ -41,14 +41,7 @@
                             <span>|</span>
                             <a href="/join">고객센터</a>
                             <span>|</span>
-                            <c:if test="${seller!=''}">
-                                <a href="/member/logout">로그아웃</a>
-                                <span>|</span>
-                            </c:if>
-                            <c:if test="${seller==''}">
-                                <a href="/member/login">로그인</a>
-                                <span>|</span>
-                            </c:if>
+                        
                         </div>
                     </div>
                 </div>

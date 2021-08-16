@@ -25,4 +25,11 @@ public class OrderProductVO {
     
 
     private Boolean review_written;
+    private Boolean review_answer;
+
+
+
+
+    
+
 }

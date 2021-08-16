@@ -1,0 +1,60 @@
+/* review.css */
+
+
+
+
+
+
+
+.list table td{
+    border-bottom:1px solid #ccc;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+.list table tr:nth-child(even){
+    background-color: #fbfbfb;
+}
+.list table {min-width: 1150px;}
+.list thead td{background-color: #fdd835; color: #fff; border-color: #fdd835;}
+body > h1 {font-size: 32px; font-weight: 700; margin-bottom: 30px;}
+
+
+.star > img{
+    width: 20px;
+}
+
+.answer_check > td > img{
+    width: 50px;
+
+}
+.answer_check{
+    background-color: #ec9c51;
+}
+.answer_check > td{
+    background-color: #ec9c51;
+}
+.get_answer{
+        background-color:transparent;
+        border-radius:24px;
+        border:3px solid #fdd835;
+        cursor:pointer;
+        color:#000000;
+        font-size:14px;
+        padding:15px 10px;
+        text-decoration:none;
+        width: 100%;
+}
+.get_answer:disabled{
+    background-color:transparent;
+    border-radius:24px;
+    border:3px solid #808080;
+    background-color:#808080 ;
+    cursor:default;
+    color:#000000;
+    font-size:14px;
+    padding:15px 10px;
+    text-decoration:none;
+    width: 100%;
+
+}

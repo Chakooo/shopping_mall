@@ -24,4 +24,7 @@ private Integer si_seq;
 private String pi_name;
 private Integer pi_price;
 private String mi_id;
+
+private Boolean review_answer;
+
 }

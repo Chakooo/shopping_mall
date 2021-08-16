@@ -1,11 +1,15 @@
 package com.shoppingMall.controller;
 
+import java.util.List;
+
 import com.shoppingMall.mapper.DeliveryMapper;
 import com.shoppingMall.mapper.ReviewMapper;
 import com.shoppingMall.service.DetailService;
 import com.shoppingMall.service.ProductService;
+import com.shoppingMall.service.ReviewService;
 import com.shoppingMall.vo.DeliveryInfoVO;
 import com.shoppingMall.vo.ProductInfoVO;
+import com.shoppingMall.vo.ReviewVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,11 +22,16 @@ public class DetailController {
     @Autowired ProductService service;
     @Autowired DeliveryMapper d_mapper;
     @Autowired ReviewMapper r_mapper;
+    @Autowired ReviewService r_service;
     @Autowired DetailService d_service;
     @GetMapping("/detail")
     public String getDetail(@RequestParam Integer prod_seq , Model model){
         ProductInfoVO item = service.selectProductBySeq(prod_seq);
         model.addAttribute("product",item);
+
+        List<ReviewVO> r_list = r_service.selectReviewByProd(prod_seq);
+
+        model.addAttribute("r_list", r_list);
 
         Integer i = item.getPi_di_seq();
         DeliveryInfoVO delivery = d_mapper.selectDeliveryBySeq(i);

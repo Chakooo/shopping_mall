@@ -46,6 +46,7 @@ $(function () {
             data: JSON.stringify(data),
             success: function (r) {
                 alert(r.message);
+                location.href="/member/myPage/"+mi_seq
 
             }
         })
