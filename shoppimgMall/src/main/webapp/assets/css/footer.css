@@ -1,8 +1,8 @@
 /* footer.css */
 
-.footer_content{background-color: #fdd835; }
-.footer_content .container{width: 1050px; margin:0 auto; position: relative; height: 120px;}
-.footer_content img{height: 120px; width: 1050px;}
+.f_content{background-color: #fdd835; }
+.f_content .container{width: 1050px; margin:0 auto; position: relative; height: 120px;}
+.f_content img{height: 120px; width: 1050px;}
 
 .footer_menu .menu_container{width: 1050px; margin:0 auto; position: relative; height: 50px; border-bottom: 1px solid #dfdfdf;
                             border-top: 1px solid #dfdfdf; margin-top: 40px; text-align: center;}

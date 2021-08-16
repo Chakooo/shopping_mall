@@ -164,8 +164,17 @@ $(function () {
         }
 
         let total_discount = total - discounted_total;
-        $("#total_discount > span").html("-" + total_discount);
-        $(".payment").html(discounted_total);
+
+        let val ;
+        if(total_discount==0){
+            val  =  total_discount
+        }
+        else{
+            val = "-" + total_discount
+        }
+        
+        $("#total_discount > span").html(val);
+        $(".payment").html(discounted_total+'원');
         
         
 
@@ -242,9 +251,12 @@ $(function () {
     $("#kakaoPay").click(function(){   
         let len = $(".cart_prod").length;      
         let pay = $(".payment").html();
+        let mi_seq = $("#mi_seq").val();
+        let payment = pay.slice(0,pay.length-1);
+        console.log(payment)
+        
         let item = 'EE 마켓 상품'
         
-        console.log(pay);          
             if (len == 0) {
                 alert("장바구니에 상품이 없습니다.")
                 return;
@@ -253,11 +265,13 @@ $(function () {
                 return;
             }   
         $.ajax({
-            url:'/kakaopay?pay='+pay+'&item='+item,
+            url:'/kakaopay?pay='+payment+'&item='+item +'&seq='+mi_seq,
             dataType: 'json',
-            success:function(data){
-                var box = data.next_redirect_pc_url;
-                window.open(box);
+            success:function(r){     
+                var parse= JSON.parse(r.data)
+                var box =parse.next_redirect_pc_url                
+                window.open(box) 
+                                   
             },
             error:function(error){
                 console.log(error)

@@ -7,6 +7,8 @@ h1 {
 .cart_container {
     width: 1050px;
     margin: 0 auto;
+    overflow: hidden;
+    height: auto;
 }
 
 .cart_container img {
@@ -76,6 +78,7 @@ thead td>* {
 .container_right,
 .container_left {
     float: left;
+    
 }
 
 .container_left table,
@@ -92,9 +95,10 @@ thead td>* {
     width: 284px;
     box-sizing: border-box;
     padding: 15px;
-    border: 1px solid #000;
-    margin-top: 43px;
+    border: 1px solid #ccc;
+    margin-top: 43px;    
 }
+
 
 .container_right .address img {
     width: 30px;
@@ -105,5 +109,73 @@ thead td>* {
 
 .container_right .address h3 {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 700;
+}
+
+#kakaoPay{
+    outline: 0;
+    border:0;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+}
+#change_address{
+    margin-top: 30px;
+    background-color:transparent;
+	border-radius:10px;
+	border:3px solid #fdd835;
+	cursor:pointer;
+	color:#000000;
+	font-size:14px;
+	padding:8px 8px;
+	text-decoration:none;
+	width: 100%;
+    color: #fdd835;
+}
+#kakaoPay{
+    margin-top: 30px;
+	border-radius:10px;
+	border:3px solid #fdd835;
+    background-color: #fdd835;
+	cursor:pointer;
+	color:#000000;
+	font-size:25px ;
+    font-weight: bolder;
+	padding:20px 20px;
+	text-decoration:none;
+	width: 100%;
+    color: #000000;
+}
+
+.total_payment  table  tbody td {
+    font-size: 20px; color: rgb(114, 111, 111);
+  
+    padding-top: 15px;
+}
+.total_payment  table  tfoot td {
+    font-size: 20px; color: rgb(0, 0, 0);
+    margin-bottom: 20px;    
+}
+
+.total_payment  table  tbody  td:nth-child(2){
+    font-size: 20px; float: right;
+    
+}
+.total_payment  table  tfoot  td:nth-child(2){
+    font-size: 20px; float: right; padding: 10px;  
+}
+.total_payment  table  tbody {       
+    border-bottom: 1px solid #ccc;        
+}
+.total_payment  table  tfoot {        
+    border-bottom: 1px solid #ccc;        
+}
+.payment{
+    margin-top: 20px;
+}
+.order ul{
+    margin-top: 20px;
+}
+.order ul li {
+    font-size: 12px;
+    margin-bottom: 8px;
 }

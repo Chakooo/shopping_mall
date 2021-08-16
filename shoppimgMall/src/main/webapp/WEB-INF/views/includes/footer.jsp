@@ -14,7 +14,7 @@
 
         <body>
             <footer>
-                <div class="footer_content">
+                <div class="f_content">
                     <div class="container">
                         <a href="#"><img src="/assets/images/pc_img_1623290330.jpg"></a>
                     </div>
@@ -63,6 +63,7 @@
                     </c:if>
                 </div>
             </footer>
+            
         </body>
 
         </html>
