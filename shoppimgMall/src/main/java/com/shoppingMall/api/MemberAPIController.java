@@ -82,6 +82,18 @@ public class MemberAPIController {
     } 
         return resultMap;
     }
-
-   
+    @PostMapping("/member/pwdCheck")
+    public Map<String,Object> postMemberLogin(@RequestBody MemberInfoVO vo){
+        Map<String, Object> resultMap = new LinkedHashMap<String,Object>();
+        Integer result = service.pwdCheck(vo.getMi_pwd(), vo.getMi_seq());
+        
+        if(result == 1){
+            resultMap.put("status",true);
+            return resultMap;
+        }        
+        else{
+            resultMap.put("status",false);
+            return resultMap;
+        }   
+    }
 }

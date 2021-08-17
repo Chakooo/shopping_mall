@@ -18,7 +18,8 @@ $(function () {
                 let tag=
                 '<td><img src="/assets/images/free-icon-curved-arrow-1621584.png" alt=""></td>'+
                 '<td class="rejoinder"> 답 변 </td>'+
-                '<td colspan="3">' + r.data.ra_content + '</td>'
+                '<td colspan="3">' + r.data.ra_content + '</td>'+
+                '<td></td>'
                 $this.parent().parent().next().append(tag)
             
             }

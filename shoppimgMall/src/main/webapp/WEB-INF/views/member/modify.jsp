@@ -15,6 +15,7 @@
             </head>
 
             <body>
+                <input type="text" name="" id="seq" value="${member.mi_seq}" disabled hidden>
                 <div class="container">
                     <div class="left_menu">
                         <a href="#" id="main_logo">나의 EE</a>
@@ -32,7 +33,7 @@
                     </div>
                     <div class="dashboard_area">
                         <div clss="get_pwd">
-                            비밀번호 입력 : <input type="text" name="" id="password">
+                            비밀번호 입력 : <input type="password" name="" id="password">
                             <button id="check_btn">확인</button>
                         </div>
                         <div class="modify_content">

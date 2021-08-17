@@ -35,11 +35,12 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <td>제품사진</td>
                                     <td>상품명</td>
                                     <td>내용</td>
                                     <td>별점</td>
                                     <td>리뷰 등록일</td>
-                                    <td>확인</td>
+                                    <td></td>
 
 
                                 </tr>
@@ -47,7 +48,12 @@
                             <tbody id="review_tbody">
                                 <c:forEach items="${r_list}" var="list" varStatus="status">
                                     <tr class="answer" rev-seq="${list.rev_seq}">
-                                        <td>${list.pi_name}</td>
+                                        <td class="f_td">
+                                            <a href="/detail?prod_seq=${list.pi_seq}"><img src="/image/${list.pi_img_uri}" id="prod_imag"alt=""></a>
+                                        </td>
+                                        <td>
+                                            <a href="/detail?prod_seq=${list.pi_seq}">[${list.si_name}] ${list.pi_name}</a>
+                                        </td>
                                         <td>${list.rev_content}</td>
                                         <td>
                                             <c:if test="${list.rev_rate ==0}">
@@ -77,6 +83,7 @@
                                     <tr class="answer_check" style="display: none; ">
 
                                     </tr>
+                                 
                                 </c:forEach>
                             </tbody>
                         </table>

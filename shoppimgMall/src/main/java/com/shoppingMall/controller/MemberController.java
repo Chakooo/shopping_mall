@@ -124,10 +124,8 @@ public class MemberController {
         List<ReviewVO> r_list = r_service.selectReviewByMember(seq);
         model.addAttribute("r_list", r_list);
         for(int i=0; i<r_list.size();i++){
-            Boolean answer = review_mapper.getReviewAnswerCnt(r_list.get(i).getRev_seq())==1;
-    
-            r_list.get(i).setReview_answer(answer);
-         
+            Boolean answer = review_mapper.getReviewAnswerCnt(r_list.get(i).getRev_seq())==1;    
+            r_list.get(i).setReview_answer(answer);         
         }
 
         return "/member/review_answer";

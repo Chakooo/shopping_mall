@@ -92,5 +92,15 @@ public class MemberService {
         
         return resultMap;
     }
-
+    public Integer pwdCheck(String pwd, Integer seq){
+        String pwd2 ="";
+        try {
+            pwd2= AESAlgorithm.Encrypt(pwd);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        pwd = pwd2;        
+        Integer result =  mapper.pwdCheck(pwd, seq);
+        return result;
+    }
 }

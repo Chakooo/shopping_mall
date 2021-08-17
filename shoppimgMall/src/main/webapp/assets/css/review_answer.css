@@ -10,7 +10,7 @@
     border-bottom:1px solid #ccc;
     padding: 10px;
     vertical-align: middle;
-    text-align: center;
+    text-align: left;
 }
 .list table tr:nth-child(even){
     background-color: #fbfbfb;
@@ -29,10 +29,10 @@ body > h1 {font-size: 32px; font-weight: 700; margin-bottom: 30px;}
 
 }
 .answer_check{
-    background-color: #ec9c51;
+    background-color: #faddc1;
 }
 .answer_check > td{
-    background-color: #ec9c51;
+    background-color: #faddc1;
 }
 .get_answer{
         background-color:transparent;
@@ -56,5 +56,18 @@ body > h1 {font-size: 32px; font-weight: 700; margin-bottom: 30px;}
     padding:15px 10px;
     text-decoration:none;
     width: 100%;
-
+}
+#prod_imag {
+    width: 100px;
+}
+.answer>td>a {
+    text-decoration-line: none;
+    color: #333;
+}
+.answer>td:first-child{
+    font-size: 20px; 
+    vertical-align: top;
+}
+.list table>thead>tr>td{
+    text-align: center;
 }

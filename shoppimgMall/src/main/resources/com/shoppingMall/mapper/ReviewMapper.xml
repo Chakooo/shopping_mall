@@ -68,7 +68,10 @@
       </select>
 
       <select id="selectReviewByMember" resultType="com.shoppingMall.vo.ReviewVO">
-            select a.*,b.pi_name ,b.pi_price from review a inner join product_info b on a.rev_pi_seq = b.pi_seq  where rev_mi_seq =#{seq};
+           select a.*,b.si_name from
+            (select * from review a inner join product_info b on a.rev_pi_seq = b.pi_seq)a
+            inner join seller_info b on a.pi_si_seq = b.si_seq
+            where rev_mi_seq =#{seq};
       </select>
 
       <select id="getReviewAnswerCnt" resultType="java.lang.Integer">

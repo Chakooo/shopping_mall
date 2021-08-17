@@ -20,5 +20,7 @@ public interface MemberMapper {
     public Integer loginMember(LoginVO vo);
     //로그인시 멤버의 정보까지 같이가져가주기위해서 매퍼작성
     public MemberInfoVO selectMemberInfo(String id);
+    // 회원정보수정시 비밀번호 체크
+    public Integer pwdCheck(String pwd, Integer seq);
     
 }

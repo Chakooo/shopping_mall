@@ -26,10 +26,13 @@ delete from member_info where mi_seq = #{seq}
 select count(*) from member_info where mi_id=#{id} and mi_pwd=#{pwd}
 </select> 
 
-
 <select id="selectMemberInfo" resultType="com.shoppingMall.vo.MemberInfoVO">
  select 
   mi_seq,mi_id,mi_name,mi_email,mi_address,mi_birth,mi_gen,mi_phone,mi_grade,mi_point,mi_status
  from member_info where mi_id=#{id}
+</select>
+
+<select id="pwdCheck" resultType="java.lang.Integer">
+  select count(*) from member_info mi where mi_pwd = #{pwd} and mi_seq = #{seq};
 </select>
 </mapper>

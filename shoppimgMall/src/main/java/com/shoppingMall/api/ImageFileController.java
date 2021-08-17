@@ -45,7 +45,6 @@ public class ImageFileController {
     // HttpServletRequest 가져온파일의 유형을 알아낼떄 쓴다.
     Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
     String fileName =service.getProductImageFileName(uri);
-    System.out.println("filename : "+fileName);
     if(fileName==null){
         return null;
     }
