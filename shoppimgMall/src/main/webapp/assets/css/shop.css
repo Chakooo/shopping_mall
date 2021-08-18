@@ -77,6 +77,14 @@ h1 {
 .regular_wrap{width: 1050px;float: center;  margin: 0 auto; margin-bottom: 80px;}
 .div_regular{float: right;}
 .div_regular>img{ width: 30px;}
+.insert_regular{width: 1050px; margin: auto; text-align: right; vertical-align: top;}
+.insert_regular button {
+    border:0;
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+.insert_regular button > img {width: 70px;}
 .recommand_place > h1 ,.seller_place > h1{ font-size: 28px; font-weight: 500;text-align: center; margin-top: 80px; margin-bottom: 40px; }
 .recommand_place > h1 > span,.seller_place > h1 > span{ font-size: 14px; font-weight: 500;text-align: center; margin-top: 80px; margin-bottom: 40px; }
 .prod_item {width: 249px;  font-size: 16px; vertical-align: top; display: inline-block;  margin-right: 18px; margin-bottom: 18px; color: #333; text-decoration: none;}

@@ -15,7 +15,7 @@
     <input type="text" name="" id="seller_seq" value= ${seller.si_seq} disabled hidden>
     <input type="text" name="" id="seller_id" value="${seller.si_id}" disabled hidden>
    
-
+${imgUri}
     <div class="regi_div">
         <div class="img_form">
             <h1 class="regi_h1">사업자 등록 확인중</h1>
@@ -24,11 +24,11 @@
             <h3>경우에 따라 3~7일 정도 소요됩니다.</h3>
             
             <span id="img_preview">
+                <img src="/image/${imgUri.sr_uri}/${seller.si_seq}" alt=""><br>
             </span>
             <form id="image_form">
                
-                <input type="file" accept="image/gif,image/jpeg,image/png" name="file" value="제품이미지 선택" id="input-file" 
-                 >
+                <input type="file" accept="image/gif,image/jpeg,image/png" name="file" value="제품이미지 선택" id="input-file">
                 
                 <button type="button" id="img_save">등록</button>
                 

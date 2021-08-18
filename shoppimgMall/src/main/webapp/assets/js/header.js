@@ -8,7 +8,7 @@ $(function () {
     location.href="/seller/registration/"+si_seq;
   }
   if(seller != '' && si_grade==2){
-    location.href="/seller/waiting"
+    location.href="/seller/waiting/"+si_seq;
   }
   
 

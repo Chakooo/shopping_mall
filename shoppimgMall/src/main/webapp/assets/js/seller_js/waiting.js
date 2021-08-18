@@ -1,10 +1,10 @@
 // waiting
 $(function () {
-    let si_seq = $("#seller_seq").val()*1;
+    let si_seq = $("#seller_seq").val() * 1;
     let si_id = $("#seller_id").val();
 
     console.log(si_seq)
- 
+
     $("#img_save").click(function () {
         if (!confirm("등록하시겠습니까?")) return;
         let form = $("#image_form");
@@ -16,7 +16,7 @@ $(function () {
         //   for (var value of formData.values()) {
         //     console.log(value);
         //   }        
-        
+
 
         $.ajax({
             url: "/upload?si_seq=" + si_seq,
@@ -30,31 +30,26 @@ $(function () {
                     let grade = 2;
                     $("#img_save").prop("disabled", true);
                     $("#image_form > input").prop("disabled", true);
+                    $("#img_preview").html("")
                     $("#img_preview").append('<img src="/image/' + r.image_uri + '">')
                     $("#img_preview").attr("img-uri", r.image_uri);
                     //프로덕트 데이터베이스에 넣기위해서 uri값을 받아둔다. 
                     console.log(r.image_uri)
                     $.ajax({
-                        type:"patch",
-                        url:"/seller/grade/update?si_id="+si_id+"&grade="+grade,
-                        success:function(r){                            
-                        
-
-                        }    
+                        type: "patch",
+                        url: "/seller/grade/update?si_id=" + si_id + "&grade=" + grade,
+                        success: function (r) {
+                        }
                     })
                 }
                 alert(r.message)
             }
         })
     })
-    
-$("#regist").click(function(){
-    $("#image_form").css("display","block");
-    $("#regist").css("display","none");
-})
-
-
-
+    $("#regist").click(function () {
+        $("#image_form").css("display", "block");
+        $("#regist").css("display", "none");
+    })
 })
 
 

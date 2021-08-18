@@ -41,7 +41,12 @@
                             <span>|</span>
                             <a href="/join">고객센터</a>
                             <span>|</span>
-                        
+                            
+                            <c:if test="${member != null || seller != null || seller.si_grade==2}">
+                                <a href="/member/logout">로그아웃</a>
+                                <span>|</span>
+                            </c:if>
+
                         </div>
                     </div>
                 </div>

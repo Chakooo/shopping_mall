@@ -115,4 +115,8 @@
        <update id="sellerGradeUpdate">
         UPDATE seller_info SET  si_grade=#{grade} WHERE si_id=#{si_id};
        </update>
+
+       <select id ="selectRegistImageUri" resultType="com.shoppingMall.vo.SellerRegistImageVO">
+        select * from seller_regist_image where sr_si_seq=#{seq}  order by sr_reg_dt desc limit 1;
+       </select>
   </mapper>

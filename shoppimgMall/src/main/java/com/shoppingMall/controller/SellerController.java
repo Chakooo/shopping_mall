@@ -56,6 +56,7 @@ public class SellerController {
         List<ReviewVO> r_list = r_service.showReview(si_seq);
         model.addAttribute("r_list", r_list);
         
+        
            
         return "/seller/home";  
     }
@@ -118,9 +119,9 @@ public class SellerController {
      
         return "/seller/registration";
     }
-    @GetMapping("/seller/waiting")
-    public String sellerWaiting(){
-     
+    @GetMapping("/seller/waiting/{seq}")
+    public String sellerWaiting(@PathVariable Integer seq,Model model){
+        model.addAttribute("imgUri",seller_service.selectRegistImageUri(seq));
         return "/seller/waiting";
     }
 

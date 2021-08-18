@@ -268,4 +268,7 @@ public class SellerService {
     public void sellerGradeUpdate(String si_id,Integer grade){
         mapper.sellerGradeUpdate(si_id,grade);
     }
+    public SellerRegistImageVO selectRegistImageUri(Integer seq){
+        return mapper.selectRegistImageUri(seq);
+    }
 }

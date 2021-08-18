@@ -54,7 +54,8 @@
                                             <td>${list.mi_id}</td>
                                             <td>${list.rev_content}</td>
                                             <td>${list.rev_rate}</td>
-                                            <td>${list.result_reg_dt}</td>                                       
+                                            <td>${list.result_reg_dt}</td> 
+                                                                                  
                                         </tr>
 
                                     </c:forEach>

@@ -34,25 +34,29 @@
                     <div class="dashboard_area list">
                         <table>
                             <thead>
-                                <tr>
-                                    <td>제품사진</td>
-                                    <td>상품명</td>
-                                    <td>내용</td>
-                                    <td>별점</td>
-                                    <td>리뷰 등록일</td>
-                                    <td></td>
+                                <c:if test="${r_list.size()!= ''}">
+                                    <tr>
+                                        <td>제품사진</td>
+                                        <td>상품명</td>
+                                        <td>내용</td>
+                                        <td>별점</td>
+                                        <td>리뷰 등록일</td>
+                                        <td></td>
 
 
-                                </tr>
+                                    </tr>
                             </thead>
                             <tbody id="review_tbody">
+
                                 <c:forEach items="${r_list}" var="list" varStatus="status">
                                     <tr class="answer" rev-seq="${list.rev_seq}">
                                         <td class="f_td">
-                                            <a href="/detail?prod_seq=${list.pi_seq}"><img src="/image/${list.pi_img_uri}" id="prod_imag"alt=""></a>
+                                            <a href="/detail?prod_seq=${list.pi_seq}"><img
+                                                    src="/image/${list.pi_img_uri}" id="prod_imag" alt=""></a>
                                         </td>
                                         <td>
-                                            <a href="/detail?prod_seq=${list.pi_seq}">[${list.si_name}] ${list.pi_name}</a>
+                                            <a href="/detail?prod_seq=${list.pi_seq}">[${list.si_name}]
+                                                ${list.pi_name}</a>
                                         </td>
                                         <td>${list.rev_content}</td>
                                         <td>
@@ -73,18 +77,24 @@
                                         <td>${list.result_reg_dt}</td>
                                         <td>
                                             <c:if test="${list.review_answer==true}">
-                                                <button class="get_answer" rev-seq=${list.rev_seq}>판매자 답글 보기</button>
+                                                <button class="get_answer" rev-seq=${list.rev_seq}>판매자 답글
+                                                    보기</button>
                                             </c:if>
                                             <c:if test="${list.review_answer==false}">
-                                                <button class="get_answer" rev-seq=${list.rev_seq} disabled>판매자 답글 없음</button>
+                                                <button class="get_answer" rev-seq=${list.rev_seq} disabled>판매자 답글
+                                                    없음</button>
                                             </c:if>
                                         </td>
                                     </tr>
                                     <tr class="answer_check" style="display: none; ">
 
                                     </tr>
-                                 
+
                                 </c:forEach>
+                                </c:if>
+                                <c:if test="${r_list.size()==0}">
+                                    <p class="nodata">구매한 상품이 없습니다.</p>
+                                </c:if>
                             </tbody>
                         </table>
                     </div>

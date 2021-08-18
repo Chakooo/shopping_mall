@@ -44,6 +44,9 @@ public interface SellerMapper {
     public String getRegistImageName(String uri , Integer si_seq);
     
     public void sellerGradeUpdate(String si_id,Integer grade); //사업자 등록 확인후 일반판매자로 등록
+
+    // 판매자가 등록한 사업자등록 사진
+    public SellerRegistImageVO selectRegistImageUri(Integer seq);
     
 
 } 

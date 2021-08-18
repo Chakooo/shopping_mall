@@ -105,10 +105,14 @@ body{background-color: #fcfcfc;}
     width: 300px;
     padding: 10px;
     outline: none;
-    border: 1px solid #ddd;
-    background-color: #f7f7f7;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
     border-radius: 5px;
 }
+.login_form input:disabled{
+    background-color: #f7f7f7
+}
+
 .login_form #check_btn {
     width: 200px; margin-left: 65px;
 }

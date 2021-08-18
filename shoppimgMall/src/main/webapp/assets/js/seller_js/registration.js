@@ -37,8 +37,9 @@ $(function () {
                     $.ajax({
                         type:"patch",
                         url:"/seller/grade/update?si_id="+si_id+"&grade="+grade,
-                        success:function(r){                            
-                            location.href="/seller/waiting"
+                        success:function(r){         
+                            console.log(si_seq)                   
+                            location.href="/seller/waiting/"+si_seq
 
                         }    
                     })
