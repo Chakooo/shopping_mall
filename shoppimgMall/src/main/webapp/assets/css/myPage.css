@@ -69,3 +69,37 @@
                         text-align: center;margin: 5px 0;padding: 5px 0; text-decoration: none; font-size: 14px; border-radius: 3px;}
     #delivery_detail{color: #fdd835; border-color: #fdd835;}
     #review{color: #ff4040; border-color: #ff4040;}
+
+
+    #password{
+        width: 200px; height: 30px;
+    }
+    .get_pwd{
+        width: 500px; background-color: pink;
+        margin: auto;
+        border-top: 1px solid black;
+        border-bottom: 1px solid #000;
+    }
+    .get_pwd > p{
+        font-size: 30px;
+        font-weight: 500;        
+    }
+    #check_btn{
+        margin-top: 30px;
+        border-radius:10px;
+        border:3px solid #fdd835;
+        background-color: #fdd835;
+        cursor:pointer;
+        color:#ffffff;
+        font-size:15px ;
+        font-weight: bolder;
+        padding:10px 10px;
+        text-decoration:none;
+        width: 150px;
+        
+    }
+
+
+    /* pwd check css */
+
+    

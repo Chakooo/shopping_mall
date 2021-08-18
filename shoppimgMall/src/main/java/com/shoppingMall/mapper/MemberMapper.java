@@ -22,5 +22,7 @@ public interface MemberMapper {
     public MemberInfoVO selectMemberInfo(String id);
     // 회원정보수정시 비밀번호 체크
     public Integer pwdCheck(String pwd, Integer seq);
+
+    public void memberModify(MemberInfoVO vo);
     
 }

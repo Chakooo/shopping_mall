@@ -119,8 +119,8 @@ $(function () {
             data: JSON.stringify(data),
             contentType: 'application/json',
             success: function (r) {
-                alert(r.message)
                 if (r.status) {
+                    alert(r.message)
                     location.href = "/";
                 }
             },

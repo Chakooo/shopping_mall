@@ -24,8 +24,8 @@
      
         <div class="login_form">
             <div class="login">
-                <h1 class="title">회원 로그인</h1>
                 <table>
+                    <h1 class="title">회원 로그인</h1>
                     <tbody>
                         <tr>
                             <td><input type="text" name="" id="user_id" placeholder="아이디"></td>

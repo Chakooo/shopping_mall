@@ -131,4 +131,10 @@ public class MemberController {
         return "/member/review_answer";
     }
 
+    @GetMapping("/member/modifyDetail")
+    public String getModifyMember(){
+        
+        return "/member/modifyDetail";
+    }
+
 }

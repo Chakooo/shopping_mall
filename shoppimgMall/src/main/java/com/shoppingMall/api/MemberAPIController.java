@@ -13,6 +13,7 @@ import com.shoppingMall.vo.MemberInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -78,7 +79,8 @@ public class MemberAPIController {
         
         if(member!=null){ 
         Integer cart_cnt = sc_service.selectCount(member.getMi_seq());
-        session.setAttribute("cart_cnt", cart_cnt);       
+        session.setAttribute("cart_cnt", cart_cnt);      
+        
     } 
         return resultMap;
     }
@@ -93,7 +95,16 @@ public class MemberAPIController {
         }        
         else{
             resultMap.put("status",false);
+            resultMap.put("message","비밀번호를 확인해주세요.");
             return resultMap;
         }   
+    }
+    @PatchMapping("/member/modMemberInfo")
+    public Map<String,Object> modifyMemberInfo(@RequestBody MemberInfoVO vo,HttpSession session){
+        Map<String,Object> resultMap = service.memberModify(vo);
+
+        session.setAttribute("member",resultMap.get("member"));
+       
+        return resultMap;
     }
 }

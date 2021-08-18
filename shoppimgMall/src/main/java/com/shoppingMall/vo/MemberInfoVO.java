@@ -22,4 +22,4 @@ public class MemberInfoVO {
    private Integer mi_point;
    private Integer mi_status;
    private String rc_regist_dt;
-}
+} 

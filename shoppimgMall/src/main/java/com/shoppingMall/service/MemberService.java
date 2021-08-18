@@ -4,6 +4,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import com.shoppingMall.mapper.MemberMapper;
 import com.shoppingMall.utils.AESAlgorithm;
 import com.shoppingMall.vo.LoginVO;
@@ -102,5 +104,34 @@ public class MemberService {
         pwd = pwd2;        
         Integer result =  mapper.pwdCheck(pwd, seq);
         return result;
+    }
+
+
+    public Map<String,Object> memberModify(MemberInfoVO vo){
+        Map<String,Object> resultMap = new LinkedHashMap<String,Object>();       
+
+      
+
+        String pwd =vo.getMi_pwd(); //입력된 비밀번호를 가져와서 암화화해서 DB에 저장
+
+        try {
+            pwd =AESAlgorithm.Encrypt(pwd);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }      
+        vo.setMi_pwd(pwd);
+
+        
+        mapper.memberModify(vo);
+        resultMap.put("status",true);
+        MemberInfoVO member =mapper.selectMemberInfo(vo.getMi_id());
+        resultMap.put("member", member);   
+        
+
+        
+        resultMap.put(("status"), true);
+        resultMap.put(("message"),"수정 됐습니다.");        
+
+        return resultMap;
     }
 }
