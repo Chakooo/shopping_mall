@@ -28,7 +28,7 @@ public class CategoryService {
         List<CategoryVO> list =mapper.selectCategoryAll();
         for(int i =0; i<list.size();i++){
             Integer cnt = mapper.selectCateProdCnt(list.get(i).getCate_seq());
-            list.get(i).setCate_prod_cnt(cnt);
+            list.get(i).setCate_prod_cnt(cnt);        
         }        
         return list;
     }
