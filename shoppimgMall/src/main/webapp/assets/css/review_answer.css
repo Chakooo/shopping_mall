@@ -29,10 +29,10 @@ body > h1 {font-size: 32px; font-weight: 700; margin-bottom: 30px;}
 
 }
 .answer_check{
-    background-color: #faddc1;
+    background-color: #faecdf;
 }
 .answer_check > td{
-    background-color: #faddc1;
+    background-color: #faecdf;
 }
 .get_answer{
         background-color:transparent;
@@ -48,8 +48,8 @@ body > h1 {font-size: 32px; font-weight: 700; margin-bottom: 30px;}
 .get_answer:disabled{
     background-color:transparent;
     border-radius:24px;
-    border:3px solid #808080;
-    background-color:#808080 ;
+    border:3px solid #e2e0e0;
+    background-color:#e2e0e0 ;
     cursor:default;
     color:#000000;
     font-size:14px;

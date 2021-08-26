@@ -18,6 +18,7 @@ public class OrderProductVO {
     private Integer pi_discount_rate;
     private Integer pi_point_rate;
     private String pi_img_uri;
+    private String si_name;
 
     private String final_price;
     private String final_point;
@@ -28,6 +29,8 @@ public class OrderProductVO {
     private Boolean review_answer;
 
 
+    private Integer orderCnt;
+    private Integer sum_originPrice;
 
 
     

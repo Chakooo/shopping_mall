@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    ${list}
     <%-- ${list} --%>
     <h1>주문리스트</h1>
     <p>총 ${cnt}건</p>
@@ -28,7 +29,7 @@
                 <td>번호</td>
                 <td>이미지</td>               
                 <td>제품명</td>
-                <td>업체명</td>
+                <td>구매개수</td>
                 <td>고객명</td>
                 <td>이메일</td>
                 <td>주소</td>
@@ -49,7 +50,7 @@
                         <img src="/image/${data.pi_img_uri}" style="height:50px" alt="" srcset="">
                     </td>
                     <td>${data.pi_name}</td>
-                    <td>${data.si_name}</td>
+                    <td>${data.oi_prod_count}</td>
                     <td>${data.mi_name}<br>${data.mi_id}</td>
                     <td>${data.mi_email}</td>
                     <td>${data.mi_address}</td>
@@ -63,9 +64,9 @@
                         <c:if test="${data.oi_delivery_status == 2}">배송완료</c:if>
                     </td>
                     <td id="status_change">
-                        <button data-status="0" id="delivery_ready">배송준비</button>
-                        <button data-status="1" id="delivery_ing">배송중</button>
-                        <button data-status="2" id="delivery_fin">배송완료</button>
+                        <p><button data-status="0" id="delivery_ready">배송준비</button></p>
+                        <p><button data-status="1" id="delivery_ing">배송중</button></p>
+                        <p><button data-status="2" id="delivery_fin">배송완료</button></p>
                     </td>
 
                 </tr>

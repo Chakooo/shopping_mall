@@ -1,5 +1,6 @@
 package com.shoppingMall.mapper;
 
+import java.util.Date;
 import java.util.List;
 
 import com.shoppingMall.vo.OrderInfoVO;
@@ -23,6 +24,10 @@ public interface OrderMapper {
     // 상품 주문시 상품 +Count
 
     public void insertProductConunt(ProductCountVO vo);
+
+    public Integer selectOrderCnt(Date regDt,Integer seq);
+
+    public List<OrderProductVO> detailOrder(Integer seq,String regDt);
 
 
     

@@ -1,7 +1,11 @@
 package com.shoppingMall.service;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import com.shoppingMall.mapper.OrderMapper;
 import com.shoppingMall.mapper.ReviewMapper;
@@ -20,8 +24,10 @@ public class OrderService {
     ReviewMapper r_mapper;
     public List<OrderProductVO> selectOrderInfo(Integer mi_seq) {
         List<OrderProductVO> list = mapper.selectOrderInfo(mi_seq);
+       
 
         DecimalFormat formatter = new DecimalFormat("###,###"); // 천자리마다 쉼표찍는다.
+
         for (OrderProductVO item : list) {
             // 1.값 가져오기
             Integer discount_rate = item.getPi_discount_rate();
@@ -45,6 +51,10 @@ public class OrderService {
             Boolean written = r_mapper.selectMemberProdReviewCnt(oi_seq) == 1; // true 나  false 를 반환한다.
             item.setReview_written(written);
 
+
+            Integer cntResult = mapper.selectOrderCnt(item.getOi_reg_dt(),mi_seq);
+            item.setOrderCnt(cntResult);
+          
           
         
         }
@@ -79,5 +89,54 @@ public class OrderService {
    public void insertProductConunt(ProductCountVO vo){
        System.out.println(vo.getPc_mi_seq());
        mapper.insertProductConunt(vo);
+   }
+
+   public List<OrderProductVO> detailOrder(Integer seq,String regDt){
+    SimpleDateFormat recvSimpleFormat = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+    SimpleDateFormat tranSimpleFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+
+    String date =null;
+    try {
+        Date data = recvSimpleFormat.parse(regDt);
+        date = tranSimpleFormat.format(data);
+    } catch (ParseException e) {
+        e.printStackTrace();
+    }
+    List<OrderProductVO>list = mapper.detailOrder(seq, date);
+
+
+    DecimalFormat formatter = new DecimalFormat("###,###"); // 천자리마다 쉼표찍는다.
+
+    for (OrderProductVO item : list) {
+        // 1.값 가져오기
+        Integer discount_rate = item.getPi_discount_rate();
+        Integer point_rate = item.getPi_point_rate();
+        Integer origin_price = item.getPi_price();
+        Integer count = item.getOi_prod_count();
+        // 2.할인금액과 적립금액 계산
+        Integer final_price = (int) (origin_price - origin_price * discount_rate / 100.0) * count;
+        Integer final_point = (int) (final_price * point_rate / 100.0);
+        // 3. 1000단위마다 쉼표 표시하는 형식
+        String formatter_final_price = formatter.format(final_price);
+        String formatter_final_point = formatter.format(final_point);
+        String formatter_origin_price = formatter.format(origin_price * count);
+
+        // 4. 3까지 진행된값을 셋으로 객체에 저장
+        item.setFinal_price(formatter_final_price);
+        item.setFinal_point(formatter_final_point);
+        item.setOrigin_price(formatter_origin_price);
+        // 5. 리뷰 작성 여부를 확인한다.
+        Integer oi_seq = item.getOi_seq();
+        Boolean written = r_mapper.selectMemberProdReviewCnt(oi_seq) == 1; // true 나  false 를 반환한다.
+        item.setReview_written(written);
+
+
+        Integer cntResult = mapper.selectOrderCnt(item.getOi_reg_dt(),seq);
+        item.setOrderCnt(cntResult);      
+
+      
+
+    }
+    return list;
    }
 }

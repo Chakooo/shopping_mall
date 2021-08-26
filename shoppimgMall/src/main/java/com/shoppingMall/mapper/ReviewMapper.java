@@ -33,8 +33,10 @@ public interface ReviewMapper {
 
     public List<ReviewVO>selectReviewByProd(Integer prod_seq);
     public List<ReviewVO>selectReviewByMember(Integer seq);
+    public List<ReviewVO>checkReviewAnswer(Integer seq,String regDt);
 
     public Integer getReviewAnswerCnt(Integer seq);
     public ReviewAnswerVO selectAnswerBySeq(Integer seq);
+    
     
 }

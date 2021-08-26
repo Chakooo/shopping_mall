@@ -34,5 +34,8 @@ public class OrderInfoVO {
    private String si_phone;
    private Integer final_price;
    private Integer final_point;
+
+
+   
     
 }

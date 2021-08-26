@@ -16,21 +16,8 @@
 
             <body>
                 <div class="container">
-                    <div class="left_menu">
-                        <a href="#" id="main_logo">나의 EE</a>
-                        <ul class="menu">
-                            <li>
-                                <a href="/member/myPage/${member.mi_seq}" id="my_order"><span>내 주문정보</span></a>
-                            </li>
-                            <li>
-                                <a href="/member/modify" id="modify"><span>개인 정보 수정</span></a>
-                            </li>
-                            <li>
-                                <a href="/member/review_answer/${member.mi_seq}" id="review_answer"><span>나의 리뷰
-                                        확인</span></a>
-                            </li>
-                        </ul>
-                    </div>
+                    <%@include file="/WEB-INF/views/member/left_menu.jsp" %>
+
                     <div class="dashboard_area list">
                         <table>
                             <thead>

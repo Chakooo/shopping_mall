@@ -44,6 +44,8 @@ public class ImageFileController {
     public ResponseEntity<Resource> getImage(@PathVariable String uri,HttpServletRequest request)throws Exception{
     // HttpServletRequest 가져온파일의 유형을 알아낼떄 쓴다.
     Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
+    // Path folderLocation = Paths.get("/home/ec2-user/apps/data");
+
     String fileName =service.getProductImageFileName(uri);
     if(fileName==null){
         return null;
@@ -68,6 +70,7 @@ public class ImageFileController {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
         Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
+        // Path folderLocation = Paths.get("/home/ec2-user/apps/data");
         // Path folderLocation = Paths.get("C:/Users/user/Desktop/포폴/shopping_mall-main/images_save");
         // Path folderLocation = Paths.get("C:/shopping/images");
         // StringUtils로 부터cleanPath 기능을 이용하여 파일의 경로를 가져온다
@@ -141,6 +144,7 @@ public class ImageFileController {
     public ResponseEntity<Resource> getImageProduct(@PathVariable String uri,@PathVariable Integer si_seq, HttpServletRequest request)throws Exception{
     // HttpServletRequest 가져온파일의 유형을 알아낼떄 쓴다.
     Path folderLocation = Paths.get("C:/Users/pch/Desktop/포트폴리오/images_save");
+    // Path folderLocation = Paths.get("/home/ec2-user/apps/data");
     System.out.println("uri : "+uri);
     System.out.println("si_seq : "+si_seq);
     

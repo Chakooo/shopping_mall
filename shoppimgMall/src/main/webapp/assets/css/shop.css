@@ -66,17 +66,22 @@ h1 {
     color: #333;
     text-align: center;
     padding: 50px 0;
+
 }
 .nodata {text-align: center; font-size: 18px; color: #666; padding: 20px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
         width: 1050px; margin: 0 auto; margin-bottom: 200px;
 }
 
 
-.recommand_wrap {font-size: 0;width: 1050px; margin: 0 auto;   border: 5px solid #fdd835; padding: 15px; border-style: dotted; padding-bottom: 0;}
+.recommand_wrap {font-size: 0;width: 1050px; margin: 0 auto;  
+    border: 5px solid #fdd835; padding: 15px; border-style: dotted; padding-bottom: 0;background-color: #fbf3cb;}
 
 .regular_wrap{width: 1050px;float: center;  margin: 0 auto; margin-bottom: 80px;}
-.div_regular{float: right;}
-.div_regular>img{ width: 30px;}
+.recommand_wrap > h2{
+    font-size: 30px; font-weight: 400; margin-bottom: 10px; color: rgb(255, 105, 105);
+}
+.div_regular{float: right; }
+.div_regular>img{ width: 30px; vertical-align: middle;}
 .insert_regular{width: 1050px; margin: auto; text-align: right; vertical-align: top;}
 .insert_regular button {
     border:0;
@@ -84,8 +89,9 @@ h1 {
     background-color: #fff;
     cursor: pointer;
 }
+
 .insert_regular button > img {width: 70px;}
-.recommand_place > h1 ,.seller_place > h1{ font-size: 28px; font-weight: 500;text-align: center; margin-top: 80px; margin-bottom: 40px; }
+.recommand_place > h1 ,.seller_place > h1{ font-size: 40px; font-weight: 700;text-align: center; margin-top: 80px; margin-bottom: 40px; }
 .recommand_place > h1 > span,.seller_place > h1 > span{ font-size: 14px; font-weight: 500;text-align: center; margin-top: 80px; margin-bottom: 40px; }
 .prod_item {width: 249px;  font-size: 16px; vertical-align: top; display: inline-block;  margin-right: 18px; margin-bottom: 18px; color: #333; text-decoration: none;}
 .prod_item:last-child{margin-right: 0;}

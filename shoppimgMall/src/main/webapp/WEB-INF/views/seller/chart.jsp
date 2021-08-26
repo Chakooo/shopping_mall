@@ -34,7 +34,7 @@
     <div>
         <table class="table">
             <tbody>
-                <tr>
+                <!-- <tr>
                     <c:forEach items="${list}" var="list">
                         <td class="name">${list.pi_name}</td>
                     </c:forEach>
@@ -43,7 +43,7 @@
                     <c:forEach items="${list}" var="list">
                         <td>${list.pc_count}</td>
                     </c:forEach>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div>
+    <!-- <div>
         <table class="table">
             <thead>
                 <tr id="term_prod_cnt_headaer">
@@ -70,7 +70,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
     <div class="select_btn_area">
         <div class="select_date_button">
             <button class="term_select_week c_button" value="week">이번 주 (월 ~ 일)</button>
@@ -90,7 +90,7 @@
         </h3>
         <div class="prod_area">
             <div class="all_prod_cnt">
-                <canvas id="prod_cnt_ydate"></canvas>
+                <canvas id="prod_cnt_ydate" style="width:1500px"></canvas>
             </div>
         </div>
     </div>

@@ -23,19 +23,21 @@
                         <h1>${seller_name}</h1>
 
                     </div>
-                    <c:if test="${reco_list.size()!=0}">
-                        <div class="sell_top4">
-                            <h2>판매 BEST ITEM 4</h2>
-                            <div class="insert_regular"><button id="insert_btn"><img src="/assets/images/free-icon-houses-3325784.png"
-                                        alt=""></button>
-                            </div>
-                            <div class=regular_wrap>
 
-                                <div class="div_regular"><img src="/assets/images/free-icon-house-2873188.png" alt="">
-                                    우리가게단골
-                                    (${r_count}명)</div>
-                            </div>
+                    <div class="sell_top4">
+
+                        <div class="insert_regular"><button id="insert_btn"><img
+                                    src="/assets/images/free-icon-houses-3325784.png" alt=""></button>
+                        </div>
+                        <div class=regular_wrap>
+
+                            <div class="div_regular"><img src="/assets/images/free-icon-house-2873188.png" alt="">
+                                우리가게단골
+                                (${r_count}명)</div>
+                        </div>
+                        <c:if test="${reco_list.size()!=0}">
                             <div class="recommand_wrap">
+                                <h2>BEST ITEM 4</h2>
                                 <c:forEach items="${reco_list}" var="item">
                                     <a href="/detail?prod_seq=${item.pi_seq}" class="recommand_item prod_item">
                                         <!-- 클래스 두개 적용 -->
@@ -61,11 +63,12 @@
                                     </a>
                                 </c:forEach>
                             </div>
-                    </c:if>
+                        </c:if>
                 </section>
 
 
                 <c:if test="${list.size()==0}">
+          
                     <p class="nodata">등록된 제품이 없습니다.</p>
                 </c:if>
                 <c:if test="${list != ''}">

@@ -7,7 +7,7 @@
             insert into review (rev_pi_seq,rev_mi_seq,rev_oi_seq,rev_content,rev_rate)
             values(#{rev_pi_seq},#{rev_mi_seq},#{rev_oi_seq},#{rev_content},#{rev_rate})
       </insert>
-            <select id="selectMemberProdReviewCnt" resultType="java.lang.Integer">
+      <select id="selectMemberProdReviewCnt" resultType="java.lang.Integer">
             select count(*) from review where rev_oi_seq  = #{oi_seq};
       </select>
             <select id="selectProdReviewRateAvg" resultType="java.lang.Double">
@@ -79,6 +79,16 @@
       </select>
 
       <select id = "selectAnswerBySeq" resultType="com.shoppingMall.vo.ReviewAnswerVO">
-            select*from review_answer where ra_rev_seq = #{seq};
+            select*from review_answer a inner join seller_info b on a.ra_si_seq = b.si_seq where ra_rev_seq = #{seq};
       </select>
+
+
+      <select id="checkReviewAnswer" resultType="com.shoppingMall.vo.ReviewVO">
+            select*from
+  		(select * from
+            (select * from review a inner join product_info b on a.rev_pi_seq = b.pi_seq)a
+            inner join seller_info b on a.pi_si_seq = b.si_seq) a
+            inner join order_info b on b.oi_mi_seq = a.rev_mi_seq where rev_mi_seq =#{seq} and oi_reg_dt = #{regDt}
+      </select>
+
  </mapper>

@@ -1,6 +1,8 @@
 package com.shoppingMall.service;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -97,5 +99,23 @@ public class ReviewService {
 
     public ReviewAnswerVO selectAnswerBySeq(Integer seq) {
         return mapper.selectAnswerBySeq(seq);
+    }
+
+    public List<ReviewVO>checkReviewAnswer(Integer seq,String regDt){
+        SimpleDateFormat recvSimpleFormat = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+        SimpleDateFormat tranSimpleFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+    
+        String date =null;
+        try {
+            Date data = recvSimpleFormat.parse(regDt);
+            date = tranSimpleFormat.format(data);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    
+    
+
+
+        return mapper.checkReviewAnswer(seq, date);
     }
 }

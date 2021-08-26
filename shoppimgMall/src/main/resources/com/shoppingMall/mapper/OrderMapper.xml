@@ -11,10 +11,14 @@ VALUES(#{oi_mi_seq},#{oi_pi_seq},#{oi_delivery_no},#{oi_prod_count});
 <delete id ="deleteOrderInfo">
     delete from order_info where oi_seq=#{seq}
 </delete>
+
 <select id ="selectOrderInfo" resultType="com.shoppingMall.vo.OrderProductVO">
-    select * from order_info a inner join product_info b
-    on a.oi_pi_seq = b.pi_seq where oi_mi_seq=#{mi_seq} order by oi_reg_dt desc
+       select * from 
+    (select * from order_info a inner join product_info b
+    on a.oi_pi_seq = b.pi_seq ) a inner join seller_info b on a.pi_si_seq = b.si_seq
+    where oi_mi_seq=34  group by oi_reg_dt order by oi_reg_dt desc     
 </select>
+
 <update id ="updateOrderStatus">
     update order_info set oi_order_status=#{status} where oi_seq = #{seq}
 </update>
@@ -61,8 +65,21 @@ VALUES(#{oi_mi_seq},#{oi_pi_seq},#{oi_delivery_no},#{oi_prod_count});
 <!-- product_count / 주문완료될때 판매량추가  -->
 <insert id="insertProductConunt">
     INSERT INTO product_count
-    (pc_pi_seq, pc_count, pc_date, pc_mi_seq ,pc_si_seq)
+    (pc_pi_seq, pc_count, pc_date, pc_selectOrderInfo ,pc_si_seq)
     VALUES(#{pc_pi_seq},#{pc_count}, CURRENT_TIMESTAMP, #{pc_mi_seq},#{pc_si_seq});
 </insert>
+
+<select id="selectOrderCnt" resultType="java.lang.Integer">
+    select (count(*)-1)as cnt from order_info a inner join product_info b
+    on a.oi_pi_seq = b.pi_seq where oi_reg_dt = #{regDt} and oi_mi_seq = #{seq}
+</select>
+<select id="detailOrder" resultType="com.shoppingMall.vo.OrderProductVO">
+ select*  ,sum(pi_price*oi_prod_count) as sum_originPrice from(
+    select *from order_info a inner join product_info b
+    on a.oi_pi_seq = b.pi_seq
+    )a inner join seller_info b on a.pi_si_seq = b.si_seq    
+    where oi_mi_seq =#{seq} and oi_reg_dt =#{regDt} group by oi_seq;
+    
+</select>
 
 </mapper>

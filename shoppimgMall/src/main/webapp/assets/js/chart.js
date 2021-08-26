@@ -79,6 +79,9 @@ $(function () {
             success: function (r) {
                 termChart = new Chart($("#prod_cnt_term"), {
                     type: 'bar',
+                    option:{
+                        responsive: false
+                    },
                     data: {
                         labels: r.p_name,
                         datasets: [{

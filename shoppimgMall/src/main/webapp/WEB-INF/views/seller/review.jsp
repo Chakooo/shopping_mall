@@ -16,8 +16,8 @@
             </head>
 
             <body>
-                ${seller}
-                ${seller.si_seq}
+                <!-- ${seller}
+                ${seller.si_seq} -->
                 <!-- ${r_list} -->
 
                 <input type="text" name="" id="seller_seq" value="${seller.si_seq}" disabled hidden>
@@ -46,9 +46,9 @@
                         </thead>
                         <tbody id="review_tbody">
                             <c:forEach items="${r_list}" var="list">
-                                ${list.rev_status}
+                                <!-- ${list.rev_status} -->
                                 <tr>
-                                    <td>${list.pi_name}${list.rev_seq}</td>
+                                    <td>${list.pi_name}</td>
                                     <td>${list.mi_id}</td>
                                     <td>${list.rev_content}</td>
                                     <td>

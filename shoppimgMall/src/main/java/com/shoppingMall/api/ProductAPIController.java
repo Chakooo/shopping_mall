@@ -31,7 +31,8 @@ public class ProductAPIController {
             @RequestParam @Nullable Integer si_seq) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         List<ProductInfoVO> list = service.selectProducts(offset, keyword, category, si_seq);
-        
+
+        resultMap.put("list_size", list.size());        
         resultMap.put("data", list);
         return resultMap;
     }

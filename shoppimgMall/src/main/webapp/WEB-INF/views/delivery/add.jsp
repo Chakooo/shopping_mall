@@ -1,5 +1,16 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/views/includes/admin_header.jsp" %>
+<% String strReferer = request.getHeader("referer");
+    if(strReferer ==null){
+        %>
+        <script>
+            alert("정상적인 경로 이용")
+            document.location.href="/";
+        </script>
+        <%
+        return;
+    }
+    %>
     <!DOCTYPE html>
     <html>
 

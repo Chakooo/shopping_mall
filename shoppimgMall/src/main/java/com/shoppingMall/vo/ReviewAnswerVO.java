@@ -13,4 +13,5 @@ public class ReviewAnswerVO {
    private Date ra_mod_dt;
    private String ra_content;
    private Integer ra_si_seq;
+   private String si_name;
 }

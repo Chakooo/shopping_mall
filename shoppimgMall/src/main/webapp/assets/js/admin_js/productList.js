@@ -1,23 +1,23 @@
-$(function () {     
-        $("#add_product").click(function(){
-        $(".product_form").css("display","block");
+$(function () {
+    $("#add_product").click(function () {
+        $(".product_form").css("display", "block");
         $("#img_preview").html("");
-        $("#save").css("display","block")
-        $("#modify").css("display","none")
+        $("#save").css("display", "block")
+        $("#modify").css("display", "none")
         $(".product-form > h1").html("상품 추가")
     });
-    $("#close").click(function(){
-        if(confirm("입력을 취소하시겠습니까?\n(저장하지 않은 정보는 모두사라집니다."))
-        $(".product_form").css("display","");
+    $("#close").click(function () {
+        if (confirm("입력을 취소하시겠습니까?\n(저장하지 않은 정보는 모두사라집니다."))
+            $(".product_form").css("display", "");
         $(".product_form input").val("");
-        $(".product_form select option:first-child").prop("selected",true);
+        $(".product_form select option:first-child").prop("selected", true);
         $(".product_form textarea").val("");
         // 취소할경우 정보들 다 날린다.
     })
     $(".product_form").draggable({
-        handle:'h1'
+        handle: 'h1'
     })
-    $("#product").addClass("current")    
+    $("#product").addClass("current")
     getProductData();
     function getProductData(keyword, cate_seq, offset) {
         ($("#product_tbody").html("")); //안쪽 내용을 괄호안의 내용으로 바꾼다.
@@ -39,6 +39,7 @@ $(function () {
             type: "get",
             url: url,
             success: function (r) {
+                console.log(r.list_size)
                 for (let i = 0; i < r.data.length; i++) {
                     let tag =
                         '<tr>' +
@@ -64,40 +65,108 @@ $(function () {
                         '</tr>'
                     $('#product_tbody').append(tag);
                 }
+                // 
+
+                let seq = $("#cate_search option:selected").val();
+                let keyword = $("#search_keyword").val();
+                if (seq == "전체") seq = null;
+
+                var totalData = 1000;    // 총 데이터 수
+                var dataPerPage = 20;    // 한 페이지에 나타낼 데이터 수
+                var pageCount = 10;        // 한 화면에 나타낼 페이지 수
+                paging(totalData, dataPerPage, pageCount,1)
+                
+                function paging(totalData, dataPerPage, pageCount, currentPage){
+                    
+                    console.log("currentPage : " + currentPage);
+                    
+                    var totalPage = Math.ceil(totalData/dataPerPage);    // 총 페이지 수
+                    var pageGroup = Math.ceil(currentPage/pageCount);    // 페이지 그룹
+                    
+                    console.log("pageGroup : " + pageGroup);
+                    
+                    var last = pageGroup * pageCount;    // 화면에 보여질 마지막 페이지 번호
+                    if(last > totalPage)
+                        last = totalPage;
+                    var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
+                    var next = last+1;
+                    var prev = first-1;
+                    
+                    console.log("last : " + last);
+                    console.log("first : " + first);
+                    console.log("next : " + next);
+                    console.log("prev : " + prev);
+             
+                    var $pingingView = $("#paging");
+                    
+                    
+                    var html = "";
+                    
+                    if(prev > 0)
+                        html += "<a href=# id='prev'><</a> ";
+                    
+                    for(var i=first; i <= last; i++){
+                        html += "<a href='#' id=" + i + ">" + i + "</a> ";
+                    }
+                    
+                    if(last < totalPage)
+                        html += "<a href=# id='next'>></a>";
+                    
+                    $("#paging").html(html);    // 페이지 목록 생성
+                    $("#paging a").css("color", "black");
+                    $("#paging a#" + currentPage).css({"text-decoration":"none", 
+                                                       "color":"red", 
+                                                       "font-weight":"bold"});    // 현재 페이지 표시
+                                                       
+                    $("#paging a").click(function(){
+                        
+                        var $item = $(this);
+                        var $id = $item.attr("id");
+                        var selectedPage = $item.text();
+                        
+                        if($id == "next")    selectedPage = next;
+                        if($id == "prev")    selectedPage = prev;
+                        
+                        paging(totalData, dataPerPage, pageCount, selectedPage);
+                    });
+                                                       
+                }
+                // 
+               
                 $(".product_modify").click(function () {
-                    $("#save").css("display","none")  //등록하기 버튼 없애기
-                    $("#modify").css("display","block") //수정하기 버튼 생김
+                    $("#save").css("display", "none")  //등록하기 버튼 없애기
+                    $("#modify").css("display", "block") //수정하기 버튼 생김
                     $(".product_form > h1").html("상품 수정") //h1 등록하기할떄와 수정하기할때 바꿈
-                    $(".product_form").css("display","block"); //폼 불러오기
-                  
+                    $(".product_form").css("display", "block"); //폼 불러오기
+
                     let seq = $(this).attr("data-seq");
-                    $("#modify").attr("mod-seq",seq)
+                    $("#modify").attr("mod-seq", seq)
 
                     $.ajax({
-                        type:"get",
-                        url:"/product/api/get?seq="+seq,
-                        success:function(r){
-                        //    console.log(r)
-                        
-                        $("#pi_name").val(r.data.pi_name);
-                        $("#pi_price").val(r.data.pi_price);
-                        $("#pi_cate_seq").val(r.data.pi_cate_seq);
-                        $("#pi_stock").val(r.data.pi_stock);
-                        $("#pi_si_seq").val(r.data.pi_si_seq);
-                        $("#pi_discount_rate").val(r.data.pi_discount_rate)
-                        $("#pi_point_rate").val(r.data.pi_point_rate);
-                        $("#pi_caution").val(r.data.pi_caution);
-                        $("#pi_weight").val(r.data.pi_weight);
-                        $("#pi_di_seq").val(r.data.pi_di_seq);
-                        $("#img_preview").html("");
-                        if(r.data.pi_img_uri != null){
-                            $("#img_preview").html(
-                                '<img src="/image/'+r.data.pi_img_uri+'" img-url="'+r.data.pi_img_uri+'">'
-                            )
-                            $("#img_preview").attr("img-uri",r.data.pi_img_uri);
-                        }
-                    
-                        
+                        type: "get",
+                        url: "/product/api/get?seq=" + seq,
+                        success: function (r) {
+                            //    console.log(r)
+
+                            $("#pi_name").val(r.data.pi_name);
+                            $("#pi_price").val(r.data.pi_price);
+                            $("#pi_cate_seq").val(r.data.pi_cate_seq);
+                            $("#pi_stock").val(r.data.pi_stock);
+                            $("#pi_si_seq").val(r.data.pi_si_seq);
+                            $("#pi_discount_rate").val(r.data.pi_discount_rate)
+                            $("#pi_point_rate").val(r.data.pi_point_rate);
+                            $("#pi_caution").val(r.data.pi_caution);
+                            $("#pi_weight").val(r.data.pi_weight);
+                            $("#pi_di_seq").val(r.data.pi_di_seq);
+                            $("#img_preview").html("");
+                            if (r.data.pi_img_uri != null) {
+                                $("#img_preview").html(
+                                    '<img src="/image/' + r.data.pi_img_uri + '" img-url="' + r.data.pi_img_uri + '">'
+                                )
+                                $("#img_preview").attr("img-uri", r.data.pi_img_uri);
+                            }
+
+
                         }
                     })
                 })
@@ -112,10 +181,10 @@ $(function () {
                             alert(r.message)
                             location.reload()
                         },
-                        error:function(e){
+                        error: function (e) {
                             alert("삭제 할수없음")
                         }
-                        
+
                     })
                 })
             }
@@ -231,7 +300,7 @@ $(function () {
             alert("배송업체를 입력하세요"); return;
         }
         let data = {
-            pi_seq :$(this).attr("mod-seq"),            
+            pi_seq: $(this).attr("mod-seq"),
             pi_name: pi_name,
             pi_price: pi_price,
             pi_cate_seq: pi_cate_seq,
@@ -244,13 +313,13 @@ $(function () {
             pi_di_seq: pi_di_seq,
             pi_img_uri: $("#img_preview").attr("img-uri")
         }
-        
+
         $.ajax({
             type: "patch",
             url: "/product/api/update",
             data: JSON.stringify(data),
             contentType: "application/json",
-            success: function (r) {               
+            success: function (r) {
                 alert(r.message)
                 location.reload()
             },
@@ -266,13 +335,16 @@ $(function () {
         getProductData(keyword, seq, 0);
     })
 
-    $("#cate_search").change(function () { 
+    $("#cate_search").change(function () {
         // alert("값 변경됨");
         let seq = $("#cate_search option:selected").val();
         let keyword = $("#search_keyword").val();
         if (seq == "전체") seq = null;
         getProductData(keyword, seq, 0);
     });
+
+
+
     $("#img_save").click(function () {
         let form = $("#image_form");
         let formData = new FormData(form[0]);
@@ -305,8 +377,11 @@ $(function () {
         $(this).prop("disabled", true);
         $("#image_form>input").prop("disabled", false);
         $("#img_save").prop("disabled", false);
-
-
-
     })
+
+
+    // =================================================================================
+ 
+    
+  
 });

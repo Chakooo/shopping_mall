@@ -36,9 +36,10 @@
 .regular_regist > img{   
     margin-top: 3px;
     width: 30px; 
+    vertical-align: middle;
 }
 .regular_regist > button > span{   
-  font-size: 20px;
+  font-size: 13px;
 }
 
 .regular_regist>button{

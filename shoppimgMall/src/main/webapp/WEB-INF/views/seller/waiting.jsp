@@ -19,7 +19,7 @@ ${imgUri}
     <div class="regi_div">
         <div class="img_form">
             <h1 class="regi_h1">사업자 등록 확인중</h1>
-            <h3>사업자 등록증이 완료되었습니다.</h3>
+            <h3>사업자 등록이 완료되었습니다.</h3>
             <h3>확인 후 정상 판매자 시스템을 이용할수 있습니다.</h3>
             <h3>경우에 따라 3~7일 정도 소요됩니다.</h3>
             
@@ -37,7 +37,7 @@ ${imgUri}
 
 
 
-            <button id="regist">사정자 등록증 교체하기</button> 
+            <button id="regist">사업자 등록증 교체하기</button> 
         </div>
     </div>
 </body>

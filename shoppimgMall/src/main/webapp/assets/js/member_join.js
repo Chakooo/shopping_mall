@@ -182,21 +182,21 @@ $(function () {
                 if (r.status == true) {
                     emailCheck = r.status;
 
-                    $.ajax({
-                        type: 'post',
-                        url: '/sendEmail',
-                        data: {
-                            mi_email: user_email
-                        },
-                        contentType: "applicaion/json"
-                    });
-                    alert(user_email)
-                    alert("인증번호가 전송되었습니다.")
+                    // $.ajax({
+                    //     type: 'post',
+                    //     url: '/sendEmail',
+                    //     data: {
+                    //         mi_email: user_email
+                    //     },
+                    //     contentType: "applicaion/json"
+                    // });
+                    // alert(user_email)
+                    // alert("인증번호가 전송되었습니다.")
                     isCertification = true; //추후 인증 여부를 알기위한 값
                     // 이메일 중복 체크후 인증보내기
 
 
-
+                    alert(r.message)
                 }
                 else {
                     alert(r.message)

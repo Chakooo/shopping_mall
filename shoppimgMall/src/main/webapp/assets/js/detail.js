@@ -2,9 +2,9 @@ $(function () {
   let count = 1;
   let price = $(".discounted").html().replace(",", "") * 1; // *1 을 해줌으로써 문자열에서 숫자값으로 강제형변환 해주기위함.(형태가 숫자로변경)
   // span태그안의 값을 가져오려면 .html()로 접근해야한다.
-  $(".total_price b").html(price);
+  $(".total_price b").html(comma(price));
   let point_rate = $(".save_point").attr("data-point-rate");
-  let point = Math.floor(price * point_rate / 100);
+  let point = comma(Math.floor(price * point_rate / 100));
   $(".save_point b").html(point + "원");
 
   $("#plus").click(function () {
@@ -80,3 +80,7 @@ $(function () {
     })
   })
 })
+
+function comma(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}

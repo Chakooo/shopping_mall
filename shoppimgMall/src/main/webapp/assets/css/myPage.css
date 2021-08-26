@@ -31,6 +31,7 @@
     box-shadow:  0 0 10px rgba(0,0,0,0.2); box-sizing:border-box; padding: 20px;margin-left: 30px; overflow-y: scroll;overflow-x:scroll;
     overflow:hidden;
 	height:auto;
+    margin-bottom: 150px;
 }
 
 
@@ -38,7 +39,6 @@
 
     h1{
         font-size: 28px; text-align: left; font-weight: bold; margin: 30px; margin-left: 80px;
-        /* 글자 크기  /   글자 위치   /  글자굵기   /   margin-top */
     }
     .order_list{
         width: 1050px; margin: 0 auto;
@@ -62,12 +62,14 @@
     .order_status { font-weight: 500; color: #fdd835;}
     .order_status::before{
         /* status 앞에 무언가를 추가하기위함 ::before */
-        content: "."; color: #999; margin: 3px;
+        /* content: ".";  */
+        color: #999; margin: 3px;
     }
     .item_detail p {font-size: 18px; margin-top: 11px; margin-left: 20px;}
     .order_buttons{padding:0 20px; border-left: 1px solid #ccc;  box-sizing: border-box; width: 280px; height: 115px;}
-    .order_buttons a{color: #333; border: 1px solid #ccc; width: 100%;display: inline-block;
-                        text-align: center;margin: 5px 0;padding: 5px 0; text-decoration: none; font-size: 14px; border-radius: 3px;}
+    .order_buttons a{color: #fdd835; border: 3px solid #fff0ac; width: 80%;display: inline-block;  
+                        text-align: center;margin: 35px 0;padding:15px; text-decoration: none; font-size: 15px; border-radius: 3px;
+                        font-family: "Roboto", sans-serif; font-weight: 700;}
     #delivery_detail{color: #fdd835; border-color: #fdd835;}
     #review{color: #ff4040; border-color: #ff4040;}
 
@@ -102,7 +104,8 @@
 
     .nodata {text-align: center; font-size: 18px; color: #666; padding: 20px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
         width: 1050px; margin: 0 auto;margin-bottom: 200px; margin-top: 150px;
-
-    /* pwd check css */
-
+}
+#order_cnt{
+    font-size: 20px;
+    color: rgb(180, 88, 88);
 }

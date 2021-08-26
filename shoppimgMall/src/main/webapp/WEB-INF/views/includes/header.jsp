@@ -29,9 +29,7 @@
                     <input type="text" name="" id="seller" value="${seller}" disabled hidden>
                     <div class="header_top">
                         <div class="container">
-                            <p>지금 가입하고 인기상품 <b>100원</b>에 받아가세요.</p>
                             <a href="#">
-                                <img src="/assets/images/ico_close_fff_42x42.png">
                             </a>
                         </div>
                     </div>
