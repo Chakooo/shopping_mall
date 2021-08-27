@@ -16,9 +16,7 @@
                 </head>
 
                 <body>
-                    ${member}
-                    ${order_list}
-                    ${jkjk}
+               
                     <div class="container">
                         <%@include file="/WEB-INF/views/member/left_menu.jsp" %>
                             <div class="dashboard_area">

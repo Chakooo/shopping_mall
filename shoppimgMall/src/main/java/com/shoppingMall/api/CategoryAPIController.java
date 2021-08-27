@@ -19,7 +19,7 @@ public class CategoryAPIController {
     
     @GetMapping("/category/api/add")
     public Map<String,Object> cateApiAdd(@RequestParam String name){ 
-    Map<String,Object> resultMap = new LinkedHashMap<String,Object>();//해쉬맵 자료구조 / resultmap에 담긴 자료를 추가된 순서대로 내보낸다=linkhashmap
+    Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
     boolean r = service.addCategory(name);
     if(r){
         resultMap.put("status",r);

@@ -20,6 +20,7 @@ public class ProductInfoVO {
     private String pi_img_uri;
     private String cate_name;
     private String di_name;
+    private Integer no;
 
     // 판매자 이름을 가져오기위해 추가
     private String seller_name;

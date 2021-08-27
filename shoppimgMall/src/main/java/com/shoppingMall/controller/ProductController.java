@@ -39,6 +39,8 @@ public class ProductController {
         
         return "/product/list";
     }
+    
+
     @GetMapping("/products/shop")
     public String getSellerShop9(@RequestParam Integer si_seq , Model model){
         String seller_name =p_mapper.getSellerName(si_seq);
@@ -53,7 +55,8 @@ public class ProductController {
         
             return "/detail/shop";
        }       
-   
+
+
   
     
 
@@ -61,9 +64,10 @@ public class ProductController {
     // admin페이지에 상품관리
     @GetMapping("/product/admin")
     public String getProduct(Model model){
+        Integer offset=0;
         List<CategoryVO> clist = c_mapper.selectCategoryAll();
         List<DeliveryInfoVO> dlist = d_service.selectDeliveryAll();
-        List<SellerInfoVO> slist = s_service.getSellerList();
+        List<SellerInfoVO> slist = s_service.getSellerList(offset);
    
  
          model.addAttribute("clist",clist);

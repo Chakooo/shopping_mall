@@ -70,12 +70,12 @@ public class ProductService {
 
         int discount_rate = item.getPi_discount_rate();
         int discounted = (int) (item.getPi_price() - (item.getPi_price() * discount_rate / 100.0));
-        DecimalFormat formatter = new DecimalFormat("#,##0");
+        DecimalFormat formatter = new DecimalFormat("#,###");
         // 1000단위 마다 콤마찍어준다.
         item.setDiscounted_price(formatter.format(discounted));
         item.setOrigin_price(formatter.format(item.getPi_price()));
        }
-       
+     
 
        return list;
     }
@@ -121,7 +121,15 @@ public class ProductService {
         System.out.println(list);
         System.out.println("서비스 인");
         return list;
-
+    }
+    public Integer pageCnt(String keyword, Integer category, Integer si_seq){
+        if (keyword == null) {
+            keyword = "%%";
+        } else {
+            keyword = "%" + keyword + "%";
+        }
+        Integer cnt = mapper.pageCnt(keyword, category, si_seq);
+        return cnt;
     }
 
     public List<ProductInfoVO> selectProductsByCategory(Integer cate_seq) {

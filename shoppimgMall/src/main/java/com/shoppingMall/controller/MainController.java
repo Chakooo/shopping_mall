@@ -29,7 +29,7 @@ public class MainController {
         List<CategoryVO> list = cate_mapper.selectCategories();
         session.setAttribute("catelist", list);        
         // model.addAttribute("catelist", list);
-        List<SellerInfoVO> s_list = s_service.getSellerList();
+        List<SellerInfoVO> s_list = s_service.getSellerAllforCate();
         session.setAttribute("sellerList",s_list);
         model.addAttribute("reco_list",r_service.selectRecommandProducts());
         model.addAttribute("seller_list",r_service.selectRecommandSellerProd());

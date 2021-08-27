@@ -235,8 +235,20 @@ public class SellerService {
     }
 
     // admin page 에 구성된 service //
-    public List<SellerInfoVO> getSellerList() {
-        List<SellerInfoVO> list = mapper.getSellerList();
+    public List<SellerInfoVO> getSellerList(Integer offset) {
+        if(offset==null){
+            offset =0 ;
+        }
+        List<SellerInfoVO> list = mapper.getSellerList(offset);
+        for (int i = 0; i < list.size(); i++) {
+            Integer cnt = mapper.selectSellerProdCnt(list.get(i).getSi_seq());
+            list.get(i).setSeller_prod_cnt(cnt);
+        }
+        return list;
+    }
+    public List<SellerInfoVO> getSellerAllforCate() {
+     
+        List<SellerInfoVO> list = mapper.getSellerAllforCate();
         for (int i = 0; i < list.size(); i++) {
             Integer cnt = mapper.selectSellerProdCnt(list.get(i).getSi_seq());
             list.get(i).setSeller_prod_cnt(cnt);

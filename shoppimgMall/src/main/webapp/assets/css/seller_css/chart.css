@@ -14,7 +14,7 @@ h3{
 .prod_cnt { text-align: center;}
 .prod_area > div { width: 1200px ; margin-left: 130px;}
 
-.table{ margin-top: 30px; width:100% ;margin-left: 130px; margin-bottom: 50px;}
+.table{ margin-top: 30px; width:1300px ;margin-left: 130px; margin-bottom: 50px;}
 
 .table td{
     border:1px solid #ccc;
@@ -76,5 +76,5 @@ b{
 .prod_cnt,
 .prod_cnt_term,
 .prod_cnt_ydate{
-    width: 100%;
+    width: 1500px
 }

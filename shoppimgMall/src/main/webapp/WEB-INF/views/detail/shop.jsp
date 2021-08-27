@@ -14,6 +14,7 @@
             </head>
 
             <body>
+                ${list}
                 <input type="text" name="" id="seller_seq" value="${seller_seq}" disabled hidden>
                 <input type="text" name="" id="mi_seq" value="${member.mi_seq}" disabled hidden>
 
@@ -67,8 +68,7 @@
                 </section>
 
 
-                <c:if test="${list.size()==0}">
-          
+                <c:if test="${list.size()==0}">         
                     <p class="nodata">등록된 제품이 없습니다.</p>
                 </c:if>
                 <c:if test="${list != ''}">

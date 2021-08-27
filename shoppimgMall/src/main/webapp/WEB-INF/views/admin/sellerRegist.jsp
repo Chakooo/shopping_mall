@@ -43,7 +43,12 @@
             <tbody class="seller_tbody">               
             </tbody>
         </table>
+        <div id="paging">
+           afdasdfafdsafsd
+        </div>
+        
     </div>
+    <br>
     <h1>판매자 정식 등록확인</h1>
     <div class="seller_list list">
         <table class="seller_table">

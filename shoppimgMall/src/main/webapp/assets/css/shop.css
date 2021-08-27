@@ -74,7 +74,7 @@ h1 {
 
 
 .recommand_wrap {font-size: 0;width: 1050px; margin: 0 auto;  
-    border: 5px solid #fdd835; padding: 15px; border-style: dotted; padding-bottom: 0;background-color: #fbf3cb;}
+    border: 2px solid #fdd835; padding: 15px; border-style: dotted; padding-bottom: 0;background-color: #fbf3cb;}
 
 .regular_wrap{width: 1050px;float: center;  margin: 0 auto; margin-bottom: 80px;}
 .recommand_wrap > h2{

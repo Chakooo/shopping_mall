@@ -16,7 +16,7 @@ public class AdminController {
             return "/";
         
         }
-        return "/admin/home";
+        return "/admin/productList";
     }
     @GetMapping("//admin/regist/check")
     public String getRegistSeller(){

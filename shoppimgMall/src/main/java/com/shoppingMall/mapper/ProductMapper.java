@@ -34,7 +34,8 @@ public interface ProductMapper {
     //사업자 등록 상인seq ,  파일uri 등록
     public void insertSellerRegistImage(Integer si_seq,String imageUri ,String saveFileName);
     
-
+    // 페이징 cnt값 가져오기
+    public Integer pageCnt(String keyword, Integer category, Integer si_seq);
     
     
 }

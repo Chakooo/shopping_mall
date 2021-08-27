@@ -66,10 +66,10 @@ public class SellerController {
         if(si_seq==null){
             return "redirect:/seller/login";
         }
-        
+        Integer offset= 0;
         List<CategoryVO> clist = cate_service.selectCategoryAll();
         List<DeliveryInfoVO> dlist = delivery_service.selectDeliveryAll();
-        List<SellerInfoVO> slist = seller_service.getSellerList();
+        List<SellerInfoVO> slist = seller_service.getSellerList(offset);
    
  
          model.addAttribute("clist",clist);

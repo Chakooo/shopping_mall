@@ -58,3 +58,8 @@
 .prod_form_table textarea {vertical-align: middle; margin-bottom: 0; width: 96%;}
 .prod_form_table td {padding-bottom: 10px; padding-right: 10px;}
 #pi_di_seq {width: 100%;}
+.paging_button{
+    color: #000; background-color:rgb(187, 187, 187); font-size: 13px; margin-left: 10px; border: 0;cursor:pointer;   padding: 8px;
+    width: 30px; cursor: pointer;
+}
+

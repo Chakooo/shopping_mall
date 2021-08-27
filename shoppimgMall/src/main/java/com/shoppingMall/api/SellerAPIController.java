@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.shoppingMall.mapper.SellerMapper;
 import com.shoppingMall.service.SellerService;
 import com.shoppingMall.vo.LoginVO;
 import com.shoppingMall.vo.SellerInfoVO;
@@ -25,6 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class SellerAPIController {
     @Autowired
     SellerService s_service;
+    @Autowired
+    SellerMapper s_mapper;
 
     @PostMapping("/seller/regist")
     public Map<String, Object> postSellerRegist(@RequestBody SellerInfoVO vo) {
@@ -131,9 +134,11 @@ public class SellerAPIController {
 
     // admin_page 에서 리스트 가져오기
     @GetMapping("/seller/api/list")
-    public  Map<String,Object> getSellerList(){
+    public  Map<String,Object> getSellerList(@RequestParam @Nullable Integer offset){
         Map<String,Object> resultMap = new LinkedHashMap<String,Object>();
-        List<SellerInfoVO> list= s_service.getSellerList();
+        List<SellerInfoVO> list= s_service.getSellerList(offset);
+        Integer cnt = s_mapper.getSellerListCnt();
+        resultMap.put("cnt",cnt);
         resultMap.put("data", list);
         return resultMap;
     }

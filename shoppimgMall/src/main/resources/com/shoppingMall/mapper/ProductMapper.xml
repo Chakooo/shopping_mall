@@ -24,7 +24,7 @@
   </select>
 
   <select id="selectProducts" resultType="com.shoppingMall.vo.ProductInfoVO">
-    select a.pi_seq ,a.pi_name,a.pi_img_uri,a.cate_name as category_name,a.pi_stock,a.pi_create_dt,a.pi_discount_rate,a.pi_point_rate,a.pi_caution,a.pi_weight,a.di_name as delivery_name,a.pi_price,b.si_name as seller_name from
+    select ROW_NUMBER() OVER(ORDER BY pi_seq) AS no,a.pi_seq ,a.pi_name,a.pi_img_uri,a.cate_name as category_name,a.pi_stock,a.pi_create_dt,a.pi_discount_rate,a.pi_point_rate,a.pi_caution,a.pi_weight,a.di_name as delivery_name,a.pi_price,b.si_name as seller_name from
     (select * from 
     (select * from product_info p inner join delivery_info d on p.pi_di_seq=d.di_seq) a inner join 
     category b on a.pi_cate_seq = b.cate_seq)a inner join seller_info b on pi_si_seq = b.si_seq  where pi_name like #{keyword}
@@ -35,6 +35,19 @@
     and pi_cate_seq = #{category} 
     </if>
     order by a.pi_create_dt desc limit 15 offset #{offset}
+  </select>
+
+  <select id="pageCnt" resultType="java.lang.Integer">
+  select count(*) from
+     (select * from 
+        (select * from product_info p inner join delivery_info d on p.pi_di_seq=d.di_seq) a inner join 
+        category b on a.pi_cate_seq = b.cate_seq)a inner join seller_info b on pi_si_seq = b.si_seq  where pi_name like #{keyword}
+      <if test="si_seq != null">
+        and a.pi_si_seq = #{si_seq} 
+      </if>
+      <if test="category != null">
+        and pi_cate_seq = #{category} 
+      </if>
   </select>
 
   <insert id="insertProductImage">
@@ -91,6 +104,6 @@ VALUES(#{si_seq}, #{imageUri},#{saveFileName});
 </insert>
 
 <select id="selectProductBySellerSeq" resultType="com.shoppingMall.vo.ProductInfoVO">
-    select * from product_info where pi_si_seq=#{si_seq}
+    select * from product_info where pi_si_seq=#{si_seq} 
 </select>
   </mapper>

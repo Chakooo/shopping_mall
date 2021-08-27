@@ -18,10 +18,11 @@ $(function () {
         handle: 'h1'
     })
     $("#product").addClass("current")
+
     getProductData();
     function getProductData(keyword, cate_seq, offset) {
         ($("#product_tbody").html("")); //안쪽 내용을 괄호안의 내용으로 바꾼다.
-
+        
         let url = "/product/api/list";
         if (keyword == undefined || keyword == null) {
             keyword = "";
@@ -39,11 +40,11 @@ $(function () {
             type: "get",
             url: url,
             success: function (r) {
-                console.log(r.list_size)
+                console.log(r)
                 for (let i = 0; i < r.data.length; i++) {
                     let tag =
                         '<tr>' +
-                        '<td>' + r.data[i].pi_seq + '</td>' +
+                        '<td>' + r.data[i].no + '</td>' +
                         '<td>' + r.data[i].pi_name + '</td>' +
                         '<td class="preview"><img src="/image/' + r.data[i].pi_img_uri + '"></td>' +
                         '<td>' + r.data[i].category_name + '</td>' +
@@ -66,14 +67,17 @@ $(function () {
                     $('#product_tbody').append(tag);
                 }
                 // 
-
+                console.log("제품수 : "+r.cnt)
                 let seq = $("#cate_search option:selected").val();
                 let keyword = $("#search_keyword").val();
                 if (seq == "전체") seq = null;
 
-                var totalData = 1000;    // 총 데이터 수
-                var dataPerPage = 20;    // 한 페이지에 나타낼 데이터 수
-                var pageCount = 10;        // 한 화면에 나타낼 페이지 수
+                ////////////////////////////////////////////////////////////////////////////
+
+                var totalData = r.cnt   // 총 데이터 수
+                var dataPerPage = 15;    // 한 페이지에 나타낼 데이터 수
+                var pageCount = Math.ceil((r.cnt-1) / 15)+1;        // 한 화면에 나타낼 페이지 수
+                console.log(pageCount + "페이지카운트")
                 paging(totalData, dataPerPage, pageCount,1)
                 
                 function paging(totalData, dataPerPage, pageCount, currentPage){
@@ -83,6 +87,7 @@ $(function () {
                     var totalPage = Math.ceil(totalData/dataPerPage);    // 총 페이지 수
                     var pageGroup = Math.ceil(currentPage/pageCount);    // 페이지 그룹
                     
+                    console.log("totalpage : " + totalPage);
                     console.log("pageGroup : " + pageGroup);
                     
                     var last = pageGroup * pageCount;    // 화면에 보여질 마지막 페이지 번호
@@ -103,35 +108,51 @@ $(function () {
                     var html = "";
                     
                     if(prev > 0)
-                        html += "<a href=# id='prev'><</a> ";
+                        html += '<button id="prev"><</button>';     
                     
                     for(var i=first; i <= last; i++){
-                        html += "<a href='#' id=" + i + ">" + i + "</a> ";
+                        if(i!=0){
+                        html += '<button class="paging_button">'+i+'</button>';                    
                     }
+                    }
+                 
+                    // html += "<a href='/product/api/list?keyword=&category=&offset="+15*i+"'   id=" + i + ">" + i + "</a> ";
+                   
                     
                     if(last < totalPage)
-                        html += "<a href=# id='next'>></a>";
+                    html += '<button id="next">></button>';  
                     
                     $("#paging").html(html);    // 페이지 목록 생성
-                    $("#paging a").css("color", "black");
+                    // $("#paging button").css({"color":"black",
+                    //                         "outline":"0",
+                    //                         "border":"0",
+                    //                         "background-color":"white",
+                    //                         "cursor":"pointer"
+                    //                                         });
+                    
                     $("#paging a#" + currentPage).css({"text-decoration":"none", 
                                                        "color":"red", 
                                                        "font-weight":"bold"});    // 현재 페이지 표시
                                                        
-                    $("#paging a").click(function(){
-                        
-                        var $item = $(this);
-                        var $id = $item.attr("id");
-                        var selectedPage = $item.text();
-                        
-                        if($id == "next")    selectedPage = next;
-                        if($id == "prev")    selectedPage = prev;
-                        
-                        paging(totalData, dataPerPage, pageCount, selectedPage);
-                    });
-                                                       
+                    // $("#paging a").click(function(){                        
+                    //     var $item = $(this);
+                    //     var $id = $item.attr("id");
+                    //     var selectedPage = $item.text();                        
+                    //     if($id == "next")    selectedPage = next;
+                    //     if($id == "prev")    selectedPage = prev;                        
+                    // });
+                    
+                    $(".paging_button").click(function(){
+                        $("#paging button").addClass(".active");
+                        let page_num = $(this).html();
+                        console.log("페이지값:"+page_num)
+                        getProductData(keyword, cate_seq,dataPerPage*(page_num-1))
+                    })                                                       
                 }
-                // 
+
+
+                
+                //////////////////////////////////////////////////////////////////////////////////
                
                 $(".product_modify").click(function () {
                     $("#save").css("display", "none")  //등록하기 버튼 없애기

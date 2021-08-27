@@ -64,8 +64,8 @@ $(function () {
                 let final_price = $this.parent().attr("data-final-price");
                 let origin_price = $this.parent().attr("data-origin-price");
 
-                $this.parent().parent().find(".final_price").html(final_price * cnt)
-                $this.parent().parent().find(".origin_price").html(origin_price * cnt)
+                $this.parent().parent().find(".final_price").html((final_price * cnt)) 
+                $this.parent().parent().find(".origin_price").html((origin_price * cnt))
                 calcPayment();
             }
         })
@@ -95,8 +95,8 @@ $(function () {
             success: function (r) {
                 let final_price = $this.parent().attr("data-final-price");
                 let origin_price = $this.parent().attr("data-origin-price");
-                $this.parent().parent().find(".final_price").html(final_price * cnt)
-                $this.parent().parent().find(".origin_price").html(origin_price * cnt)
+                $this.parent().parent().find(".final_price").html((final_price * cnt))
+                $this.parent().parent().find(".origin_price").html((origin_price * cnt))
                 calcPayment();
             }
         })
@@ -154,7 +154,7 @@ $(function () {
             total += price;
         }
 
-        $("#total_price > span").html(total);
+        $("#total_price > span").html(comma(total));
         // 전체 토탈 계산한 값을 변수에 담아 total_price 자리에 위치한다.
 
         let discounted_total = 0;
@@ -167,14 +167,14 @@ $(function () {
 
         let val ;
         if(total_discount==0){
-            val  =  total_discount
+            val  =  comma(total_discount)
         }
         else{
-            val = "-" + total_discount
+            val = "-" + comma(total_discount)
         }
         
         $("#total_discount > span").html(val);
-        $(".payment").html(discounted_total+'원');
+        $(".payment").html(comma(discounted_total)+'원');
         
         
 
@@ -227,15 +227,15 @@ $(function () {
                 contentType: "application/json",
                 success: function (r) {
                     
-                    $.ajax({                        
-                        type:"post",
-                        url:"/order/product/count",
-                        contentType: "application/json",
-                        data:JSON.stringify(productCnt),
-                        success:function(r){
-                            console.log(r.message)                            
-                        }
-                    })
+                    // $.ajax({                        
+                    //     type:"post",
+                    //     url:"/order/product/count",
+                    //     contentType: "application/json",
+                    //     data:JSON.stringify(productCnt),
+                    //     success:function(r){
+                    //         console.log(r.message)                            
+                    //     }
+                    // })
                 }
             })
 
@@ -323,4 +323,7 @@ $(function () {
             }
         })   
     })
+    function comma(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      }
 })

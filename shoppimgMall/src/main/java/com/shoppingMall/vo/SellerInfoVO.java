@@ -14,4 +14,5 @@ public class SellerInfoVO {
     private String si_phone;
     private String si_grade;
     private Integer seller_prod_cnt;
+    private Integer no;
 }

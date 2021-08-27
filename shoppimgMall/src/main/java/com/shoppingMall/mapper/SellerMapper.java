@@ -37,11 +37,13 @@ public interface SellerMapper {
 
     //admin_page 제품리스트 count
     public Integer selectSellerProdCnt(Integer seq);
-    public List<SellerInfoVO> getSellerList();
+    public List<SellerInfoVO> getSellerList(Integer offset);
+    public List<SellerInfoVO> getSellerAllforCate();    
     public List<SellerInfoVO> getGradeZero();
     public void deleteSeller(Integer seq);
     public List<SellerRegistImageVO> getRegistImage();
     public String getRegistImageName(String uri , Integer si_seq);
+    public Integer getSellerListCnt();
     
     public void sellerGradeUpdate(String si_id,Integer grade); //사업자 등록 확인후 일반판매자로 등록
 

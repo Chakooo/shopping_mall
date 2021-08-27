@@ -83,8 +83,18 @@
         </select>
 
         <select id="getSellerList"  resultType="com.shoppingMall.vo.SellerInfoVO" >
-          select*from seller_info;
+          select *,ROW_NUMBER() OVER(ORDER BY si_seq) AS no from seller_info  where si_name != '관리자' limit 6 offset #{offset};
         </select>
+
+        <select id="getSellerAllforCate" resultType="com.shoppingMall.vo.SellerInfoVO" >
+          select *,ROW_NUMBER() OVER(ORDER BY si_seq) AS no from seller_info  where si_name != '관리자' and si_grade = 1;
+        </select>
+
+
+        <select id="getSellerListCnt"  resultType="java.lang.Integer" >
+          select count(*) from seller_info  where si_name != '관리자' 
+        </select>
+        
       <!-- 업체 강제 삭제 -->
         <delete id="deleteSeller">
          delete from seller_info where si_seq=#{seq}
