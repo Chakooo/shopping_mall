@@ -4,8 +4,9 @@
 .header_top .container {width: 1050px; margin:0 auto; position: relative; height: 42px;}
 .header_top a {position: absolute; right: 0; top: 0;}
 
+
 .hc_top {width: 1050px; margin: 0 auto; padding:10px 0; }
-.hc_top #delivery img {width: 135px;}
+.hc_top #delivery img {width: 50px;}
 .user_menu {float: right; font-size: 12px;}
 .user_menu a {text-decoration: none; color: #333;}
 .user_menu span {font-size: 10px; color: #ccc; margin: 10px;

@@ -36,7 +36,7 @@
                     <div class="header_content">
                         <div class="hc_top">
                             <a href="#" id="delivery">
-                                <span>실</span>
+                                <img src="/assets/images/logo46.png" alt="" id="top_left_image">
                             </a>
                             <div class="user_menu">
                                 <c:if test="${member==null && seller==null}">

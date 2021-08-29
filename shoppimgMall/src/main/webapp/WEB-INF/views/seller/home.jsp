@@ -17,7 +17,7 @@
             </head>
 
             <body>
-                
+
                 <input type="text" name="" id="seller_seq" value="${seller.si_seq}" disabled hidden>
                 <h1 class="main_h1">
                     < ${seller.si_name} HOME>
@@ -33,7 +33,9 @@
                     </div>
                     <div class="right">
                         <h1>
-                            <a href="/seller/review/${seller.si_seq}"><리뷰 확인하기></a>
+                            <a href="/seller/review/${seller.si_seq}">
+                                <리뷰 확인하기>
+                            </a>
                         </h1>
                         <div class="list">
                             <table>
@@ -44,18 +46,28 @@
                                         <td>내용</td>
                                         <td>별점</td>
                                         <td>리뷰 등록일</td>
-                                        <td>답변 여부</td>
                                     </tr>
                                 </thead>
                                 <tbody id="review_tbody">
                                     <c:forEach items="${r_list}" var="list">
-                                        <tr>                                           
+                                        <tr>
                                             <td>${list.pi_name}</td>
                                             <td>${list.mi_id}</td>
                                             <td>${list.rev_content}</td>
-                                            <td>${list.rev_rate}</td>
-                                            <td>${list.result_reg_dt}</td> 
-                                                                                  
+                                            <td>
+                                                <c:if test="${list.rev_rate > 0}">
+                                                    <span>
+                                                        <c:forEach var="i" begin="1" end="${list.rev_rate}">
+                                                            <img src="/assets/images/free-icon-star-2107957.png" alt="">
+                                                        </c:forEach>
+                                                        <c:forEach var="i" begin="1" end="${5 -list.rev_rate}">
+                                                            <img src="/assets/images/free-icon-star-1828970.png" alt="">
+                                                        </c:forEach>
+                                                    </span>
+                                                </c:if>
+                                            </td>
+                                            <td>${list.result_reg_dt}</td>
+
                                         </tr>
 
                                     </c:forEach>

@@ -14,7 +14,6 @@
             </head>
 
             <body>
-                ${list}
                 <input type="text" name="" id="seller_seq" value="${seller_seq}" disabled hidden>
                 <input type="text" name="" id="mi_seq" value="${member.mi_seq}" disabled hidden>
 

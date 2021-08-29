@@ -21,8 +21,8 @@
                     </head>
 
                     <body>
+                        <h1>추천상품 관리</h1>
                         <div class="container list">
-                            <h1>추천상품 관리</h1>
                             <table>
                                 <thead>
                                     <tr>

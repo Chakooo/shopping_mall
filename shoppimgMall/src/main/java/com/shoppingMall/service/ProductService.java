@@ -118,7 +118,6 @@ public class ProductService {
         }
         
         List<ProductInfoVO> list = mapper.selectProducts(offset,keyword,category,si_seq);
-        System.out.println(list);
         System.out.println("서비스 인");
         return list;
     }

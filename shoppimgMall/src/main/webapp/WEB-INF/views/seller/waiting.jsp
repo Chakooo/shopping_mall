@@ -15,7 +15,6 @@
     <input type="text" name="" id="seller_seq" value= ${seller.si_seq} disabled hidden>
     <input type="text" name="" id="seller_id" value="${seller.si_id}" disabled hidden>
    
-${imgUri}
     <div class="regi_div">
         <div class="img_form">
             <h1 class="regi_h1">사업자 등록 확인중</h1>

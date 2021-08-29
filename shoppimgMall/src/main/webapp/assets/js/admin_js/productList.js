@@ -157,7 +157,7 @@ $(function () {
                 $(".product_modify").click(function () {
                     $("#save").css("display", "none")  //등록하기 버튼 없애기
                     $("#modify").css("display", "block") //수정하기 버튼 생김
-                    $(".product_form > h1").html("상품 수정") //h1 등록하기할떄와 수정하기할때 바꿈
+                    $(".product_form > h1").html("상품 수정") 
                     $(".product_form").css("display", "block"); //폼 불러오기
 
                     let seq = $(this).attr("data-seq");

@@ -64,10 +64,9 @@ public class ProductController {
     // admin페이지에 상품관리
     @GetMapping("/product/admin")
     public String getProduct(Model model){
-        Integer offset=0;
         List<CategoryVO> clist = c_mapper.selectCategoryAll();
         List<DeliveryInfoVO> dlist = d_service.selectDeliveryAll();
-        List<SellerInfoVO> slist = s_service.getSellerList(offset);
+        List<SellerInfoVO> slist = s_service.getSellerAllforCate();
    
  
          model.addAttribute("clist",clist);

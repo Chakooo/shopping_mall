@@ -67,7 +67,6 @@ public class OrderAPIController {
     @PostMapping("/order/product/count")
     public Map<String, Object> addProductCount(@RequestBody ProductCountVO vo) {
         System.out.println("테스트합니다");
-        System.out.println("테스트합니다" +vo);
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         service.insertProductConunt(vo);
         resultMap.put("status",true);

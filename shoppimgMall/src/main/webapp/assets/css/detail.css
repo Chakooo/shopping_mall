@@ -22,6 +22,10 @@
     background-color: #ffbf00; color: #fff; border: 1px solid #e8a828; border-radius: 99px;
     
 } 
+.rate img{
+    width: 20px;
+    margin-bottom: 10px;
+}
 .buttons{
     margin-top: 10px; font-size: 0;
     /* 폰트사이즈? 왜? 옆으로 */
@@ -55,6 +59,13 @@
     margin-left: 8px;
 
 
+}
+#plus,#minus{
+    width: 30px;
+    background-color:#fdd835;
+    outline: none;
+    border: 0;
+    cursor: pointer;
 }
 
 

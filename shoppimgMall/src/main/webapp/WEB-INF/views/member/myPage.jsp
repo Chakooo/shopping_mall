@@ -28,8 +28,7 @@
                                             <div class="order_item">
                                                 <div class="order_info">
                                                     <p class="order_date">
-                                                        <fmt:formatDate value="${item.oi_reg_dt}"
-                                                            pattern="yyyy일 MM월 dd일"></fmt:formatDate>
+                                                        <fmt:formatDate value="${item.oi_reg_dt}"pattern="yyyy일 MM월 dd일"></fmt:formatDate>
 
                                                         <!-- 날짜 형식 바꾸는 JSTL  라이브러리  -->
                                                         <!-- <span class="order_status">

@@ -11,21 +11,21 @@ $(function () {
     count++;
     if (count >= $(".stock").html()) count = $(".stock").html();
     $("#count").html(count);
-    $(".total_price b").html(price * count);
+    $(".total_price b").html(comma(price * count));
 
     point = Math.floor(price * point_rate / 100 * count);
 
-    $(".save_point b").html(point + "원");
+    $(".save_point b").html(comma(point) + "원");
   })
   $("#minus").click(function () {
     count--;
     if (count < 1) count = 1;
     $("#count").html(count);
-    $(".total_price b").html(price * count);
+    $(".total_price b").html(comma(price * count));
 
 
     point = Math.floor(price * point_rate / 100 * count);
-    $(".save_point b").html(point + "원");
+    $(".save_point b").html(comma(point) + "원");
   })
 
   $("#shopping_bag").click(function () {
