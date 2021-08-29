@@ -15,8 +15,6 @@
                 </head>
 
                 <body>
-                    ${member}
-                    ${list}
                     <input type="text" name="" id="mi_seq" value="${member.mi_seq}" disabled hidden>
                     <h1>장바구니</h1>
                     <div class="cart_container">
@@ -71,14 +69,17 @@
                                                     data-user-seq="${member.mi_seq}">+</button>
                                             </td>
                                             <td>
-                                                <span class="final_price"><fmt:formatNumber value="${item.discounted_price * item.sc_count}" pattern="#,###"/></span>
+                                               
+                                                <span class="final_price">
+                                                    <fmt:formatNumber value="${item.discounted_price * item.sc_count}" pattern="#,###"/>
+                                                </span>
                                                 <span>원</span>
                                                 <br>
                                                 <c:if test="${item.pi_discount_rate !=0}">
                                                     <!-- 할인률이 없을때는 그냥 할인된가격을 보여주지않고 원가만 보여주기위한 if문 처리 -->
+                                                    
                                                     <span class="origin_price">
-                                                        <fmt:formatNumber value="${item.pi_price * item.sc_count}" pattern="#,###"/>
-
+                                                        <fmt:formatNumber value="${item.pi_price * item.sc_count}" pattern="#,###"/>                                                        
                                                     </span>
                                                     <span>원</span>
                                                 </c:if>

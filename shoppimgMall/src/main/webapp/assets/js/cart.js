@@ -64,8 +64,11 @@ $(function () {
                 let final_price = $this.parent().attr("data-final-price");
                 let origin_price = $this.parent().attr("data-origin-price");
 
-                $this.parent().parent().find(".final_price").html((final_price * cnt)) 
-                $this.parent().parent().find(".origin_price").html((origin_price * cnt))
+                let f_price=$this.parent().attr("data-final-price") * cnt
+                let o_price=$this.parent().attr("data-origin-price") * cnt
+
+                $this.parent().parent().find(".final_price").html(comma(f_price))
+                $this.parent().parent().find(".origin_price").html(comma(o_price))
                 calcPayment();
             }
         })
@@ -95,8 +98,12 @@ $(function () {
             success: function (r) {
                 let final_price = $this.parent().attr("data-final-price");
                 let origin_price = $this.parent().attr("data-origin-price");
-                $this.parent().parent().find(".final_price").html((final_price * cnt))
-                $this.parent().parent().find(".origin_price").html((origin_price * cnt))
+
+                let f_price=$this.parent().attr("data-final-price") * cnt
+                let o_price=$this.parent().attr("data-origin-price") * cnt
+
+                $this.parent().parent().find(".final_price").html(comma(f_price))
+                $this.parent().parent().find(".origin_price").html(comma(o_price))
                 calcPayment();
             }
         })
@@ -149,36 +156,42 @@ $(function () {
 
     function calcPayment() {
         let total = 0;
+        let og_price = $(".origin_price").html();
         for (let i = 0; i < $(".origin_price").length; i++) {
-            let price = $(".origin_price").eq(i).html() * 1;
+            let price = removeComma($(".origin_price").eq(i).html()) * 1;
             total += price;
         }
 
         $("#total_price > span").html(comma(total));
+        
         // 전체 토탈 계산한 값을 변수에 담아 total_price 자리에 위치한다.
 
         let discounted_total = 0;
         for (let i = 0; i < $(".final_price").length; i++) {
-            let price = $(".final_price").eq(i).html() * 1;
+            let price = removeComma($(".final_price").eq(i).html()) * 1;
+            console.log(price)
             discounted_total += price;
         }
 
         let total_discount = total - discounted_total;
 
-        let val ;
-        if(total_discount==0){
-            val  =  comma(total_discount)
-        }
-        else{
-            val = "-" + comma(total_discount)
-        }
-        
-        $("#total_discount > span").html(val);
-        $(".payment").html(comma(discounted_total)+'원');
-        
-        
+        console.log(total)
+        console.log(discounted_total)
 
-        
+        let val;
+        if (total_discount == 0) {
+            val = total_discount
+        }
+        else {
+            val = "-" + total_discount
+        }
+
+        $("#total_discount > span").html(comma(val));
+        $(".payment").html(comma(discounted_total)+'원');
+
+
+
+
     }
 
 
@@ -191,7 +204,7 @@ $(function () {
         }
         if (!confirm("상품을 주문하시겠습니까?")) {
             return;
-        }        
+        }
         //  ajax 통신을 for 문을 이용하여 장바구니에 있는 모든 상품을 없애준다.
         for (let i = 0; i < len; i++) {
             let mi_seq = $(".cart_prod").eq(i).attr("data-mi-seq");
@@ -214,19 +227,19 @@ $(function () {
                 oi_delivery_no: "0000000000",
                 oi_prod_count: count
             }
-            let productCnt={
-                pc_pi_seq:pi_seq,
-                pc_mi_seq:mi_seq,
-                pc_si_seq:si_seq,
-                pc_count:count
+            let productCnt = {
+                pc_pi_seq: pi_seq,
+                pc_mi_seq: mi_seq,
+                pc_si_seq: si_seq,
+                pc_count: count
             }
             $.ajax({
                 type: "post",
                 url: "/order",
-                data:JSON.stringify(data),
+                data: JSON.stringify(data),
                 contentType: "application/json",
                 success: function (r) {
-                    
+
                     // $.ajax({                        
                     //     type:"post",
                     //     url:"/order/product/count",
@@ -248,29 +261,30 @@ $(function () {
 
     // 카카오 페이 연결
 
-    $("#kakaoPay").click(function(){   
-        let len = $(".cart_prod").length;      
+    $("#kakaoPay").click(function () {
+        let len = $(".cart_prod").length;
         let pay = $(".payment").html();
         let mi_seq = $("#mi_seq").val();
-        let payment = pay.slice(0,pay.length-1);
+        let payment = removeComma(pay.slice(0, pay.length - 1));
+        
         console.log(payment)
-        
+
         let item = 'EE 마켓 상품'
-        
-            if (len == 0) {
-                alert("장바구니에 상품이 없습니다.")
-                return;
-            }
-            if (!confirm("결제하시겠습니까?")) {
-                return;
-            }   
+
+        if (len == 0) {
+            alert("장바구니에 상품이 없습니다.")
+            return;
+        }
+        if (!confirm("결제하시겠습니까?")) {
+            return;
+        }
         $.ajax({
-            url:'/kakaopay?pay='+payment+'&item='+item +'&seq='+mi_seq,
+            url: '/kakaopay?pay=' + payment + '&item=' + item + '&seq=' + mi_seq,
             dataType: 'json',
-            success:function(r){     
-                var parse= JSON.parse(r.data)
-                var box =parse.next_redirect_pc_url                
-                window.open(box)        
+            success: function (r) {
+                var parse = JSON.parse(r.data)
+                var box = parse.next_redirect_pc_url
+                window.open(box)
                 for (let i = 0; i < len; i++) {
                     let mi_seq = $(".cart_prod").eq(i).attr("data-mi-seq");
                     let pi_seq = $(".cart_prod").eq(i).attr("data-seq");
@@ -292,38 +306,50 @@ $(function () {
                         oi_delivery_no: "0000000000",
                         oi_prod_count: count
                     }
-                    let productCnt={
-                        pc_pi_seq:pi_seq,
-                        pc_mi_seq:mi_seq,
-                        pc_si_seq:si_seq,
-                        pc_count:count
+                    let productCnt = {
+                        pc_pi_seq: pi_seq,
+                        pc_mi_seq: mi_seq,
+                        pc_si_seq: si_seq,
+                        pc_count: count
                     }
                     $.ajax({
                         type: "post",
                         url: "/order",
-                        data:JSON.stringify(data),
+                        data: JSON.stringify(data),
                         contentType: "application/json",
                         success: function (r) {
-                            
-                            $.ajax({                        
-                                type:"post",
-                                url:"/order/product/count",
+
+                            $.ajax({
+                                type: "post",
+                                url: "/order/product/count",
                                 contentType: "application/json",
-                                data:JSON.stringify(productCnt),
-                                success:function(r){
-                                    console.log(r.message)                            
+                                data: JSON.stringify(productCnt),
+                                success: function (r) {
+                                    console.log(r.message)
                                 }
                             })
                         }
-                    })        
-                }                            
+                    })
+                }
             },
-            error:function(error){
+            error: function (error) {
                 console.log(error)
             }
-        })   
+        })
     })
     function comma(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      }
+    }
+
+    function removeComma(str) {
+
+
+        let n = str.replace(/[^\d]+/g, '');
+
+
+        return n;
+
+    }
+
+
 })
